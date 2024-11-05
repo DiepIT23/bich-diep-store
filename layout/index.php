@@ -1,0 +1,121 @@
+<?php
+require_once "../global.php";
+?>
+<!-- Giao diện tĩnh -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+</head>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 bg-black px-4 text-light roboto-small lineheight-40">
+            Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tẩ cả các ngày trong
+            tuần)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="header mx-4 d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <img src="<?php echo("$IMAGE_URL/Logo ngang.png") ?>" alt="">
+                </div>
+                <div class="menu d-flex justify-content-between">
+                    <a href="index.php" class="text-dark">Trang chủ</a>
+                    <a href="" class="text-dark">Sản phẩm mới</a>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle text-dark">
+                            Áo Nam
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo thun</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo Polo</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo sơ mi</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác Jeans</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác nỉ</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo - Blazer</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Cardigan</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle text-dark">
+                            Quần Nam
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Âu</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jeans</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Kaki</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jogger</a>
+                            <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Short</a>
+                        </div>
+                    </div>
+                    <a href="" class="text-dark">Về chúng tôi</a>
+                </div>
+                <div class="right">
+                    <a href="#" class="text-dark">
+                        <div class="cart right-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="roboto-mini">Giỏ hàng</div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="cart right-icon">
+                            <i class="fa-solid fa-bell"></i>
+                            <div class="roboto-mini">Thông báo</div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="cart right-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <pdiv class="roboto-mini">Đăng nhập</pdiv>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 slideshow-container">
+            <div class="mySlides fade">
+                <img src="<?php echo("$IMAGE_URL/banner1.jpg") ?>" >
+            </div>
+            <div class="mySlides fade">
+                <img src="<?php echo("$IMAGE_URL/banner2.jpg") ?>" >
+            </div>
+            <div class="mySlides fade">
+                <img src="<?php echo("$IMAGE_URL/banner3.jpg") ?>" >
+            </div>
+
+            <a class="next"><i class="fa-solid fa-chevron-right"></i></a>
+            <a class="pre"><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+
+<body>
+    <script src="index.js"></script>
+    <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

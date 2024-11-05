@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;700&display=swap");
+:root {
+  --primary_color: #000000;
+  --primary_color2: #ffffff;
+  --hover_color: rgb(192, 40, 40);
+}
+* {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  box-sizing: border-box;
+}
+.bg-black {
+  background-color: var(--primary_color);
+}
+.roboto-bold {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.roboto-title {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+}
+.roboto-small {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
+.roboto-mini {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+}
+.linehieght-40 {
+  line-height: 40px;
+}
+
+/* Header */
+
+.header {
+  height: 70px;
+}
+.menu {
+  width: 700px;
+}
+.menu a:hover {
+  color: var(--hover_color) !important;
+  text-decoration: none;
+}
+.right {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menu {
+  display: none;
+  padding: 0;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.right-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+}
+
+/* Slideshow */
+
+.slideshow-container {
+  position: relative;
+  margin: 0;
+}
+.mySlides {
+  display: none;
+}
+.mySlides img {
+  vertical-align: middle;
+  width: 100%;
+}
+.pre,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Hiệu ứng fade */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
