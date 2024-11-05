@@ -86,17 +86,17 @@ require_once "../global.php";
     <div class="row">
         <div class="col-lg-12 slideshow-container">
             <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner1.jpg") ?>" >
+                <img src="<?php echo("$IMAGE_URL/banner1.jpg") ?>">
             </div>
             <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner2.jpg") ?>" >
+                <img src="<?php echo("$IMAGE_URL/banner2.jpg") ?>">
             </div>
             <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner3.jpg") ?>" >
+                <img src="<?php echo("$IMAGE_URL/banner3.jpg") ?>">
             </div>
 
             <a class="next"><i class="fa-solid fa-chevron-right"></i></a>
-            <a class="pre"><i class="fa-solid fa-chevron-left"></i></a>
+            <a class="prev"><i class="fa-solid fa-chevron-left"></i></a>
         </div>
     </div>
 </div>
