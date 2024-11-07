@@ -1,20 +1,36 @@
-let slideIndex = 0;
-showSlides();
+const listImage = document.querySelector(".list-images");
+const imgs = document.querySelectorAll(".img");
+const btnLeft = document.querySelector(".btn-left");
+const btnRight = document.querySelector(".btn-right");
+const width = imgs[0].clientWidth;
+let current = 0;
 
-function showSlides() {
-  let slides = document.getElementsByClassName("mySlides");
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+const changeSlide = () => {
+  if (current == imgs.length - 1) {
+    current = 0;
+    listImage.style.transform = `translateX(0px)`;
+  } else {
+    current++;
+    listImage.style.transform = `translateX(${width * -1 * current}px)`;
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-  slides[slideIndex - 1].style.display = "block";
-  setTimeout(showSlides, 3000); // Thay đổi ảnh sau 3 giây
-}
+};
 
-function plusSlides(n) {
-  slideIndex += n - 1;
-  showSlides();
-}
+let interval = setInterval(changeSlide, 3000);
+
+btnRight.addEventListener("click", () => {
+  clearInterval(interval);
+  changeSlide();
+  interval = setInterval(changeSlide, 3000);
+});
+
+btnLeft.addEventListener("click", () => {
+  clearInterval(interval);
+  if (current == 0) {
+    current = imgs.length - 1;
+    listImage.style.transform = `translateX(${width * -1 * current}px)`;
+  } else {
+    current--;
+    listImage.style.transform = `translateX(${width * -1 * current}px)`;
+  }
+  interval = setInterval(changeSlide, 3000);
+});

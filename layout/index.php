@@ -18,7 +18,7 @@ require_once "../global.php";
 </head>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12 bg-black px-4 text-light roboto-small lineheight-40">
+        <div class="col-lg-12 bg-black px-4 text-light roboto-small">
             Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tẩ cả các ngày trong
             tuần)
         </div>
@@ -27,7 +27,7 @@ require_once "../global.php";
         <div class="col-lg-12">
             <div class="header mx-4 d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <img src="<?php echo("$IMAGE_URL/Logo ngang.png") ?>" alt="">
+                    <a href="index.php"><img src="<?php echo ("$IMAGE_URL/Logo ngang.png") ?>"></a>
                 </div>
                 <div class="menu d-flex justify-content-between">
                     <a href="index.php" class="text-dark">Trang chủ</a>
@@ -84,21 +84,23 @@ require_once "../global.php";
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12 slideshow-container">
-            <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner1.jpg") ?>">
+        <div class="slide-show">
+            <div class="list-images">
+                <img src="../images/banner1.jpg" class="img">
+                <img src="../images/banner2.jpg" class="img">
+                <img src="../images/banner3.jpg" class="img">
             </div>
-            <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner2.jpg") ?>">
+            <div class="btns">
+                <div class="btn-left btn">
+                    <i class="fa-solid fa-chevron-left fa-2x"></i>
+                </div>
+                <div class="btn-right btn">
+                    <i class="fa-solid fa-chevron-right fa-2x"></i>
+                </div>
             </div>
-            <div class="mySlides fade">
-                <img src="<?php echo("$IMAGE_URL/banner3.jpg") ?>">
-            </div>
-
-            <a class="next"><i class="fa-solid fa-chevron-right"></i></a>
-            <a class="prev"><i class="fa-solid fa-chevron-left"></i></a>
         </div>
     </div>
+
 </div>
 </div>
 
