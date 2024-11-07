@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;700&display=swap");
+:root {
+  --primary_color: #000000;
+  --primary_color2: #ffffff;
+  --hover_color: rgb(192, 40, 40);
+}
+* {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  box-sizing: border-box;
+}
+.bg-black {
+  background-color: var(--primary_color);
+}
+.roboto-bold {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.roboto-title {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+}
+.roboto-small {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+}
+.roboto-mini {
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+}
+
+/* Header */
+
+.header {
+  height: 70px;
+}
+.menu {
+  width: 700px;
+}
+.menu a:hover {
+  color: var(--hover_color) !important;
+  text-decoration: none;
+}
+.right {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-menu {
+  display: none;
+  padding: 0;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.right-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+}
+
+/* slideshow */
+
+.slide-show {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+.list-images {
+  display: flex;
+  transition: 0.7s ease-in-out;
+}
+.list-images img {
+  width: 100%;
+  object-fit: cover;
+}
+.btns {
+  transition: 0.5s;
+  justify-content: space-between;
+  width: 100%;
+}
+.btn-right {
+  right: 0;
+}
+.btn-left,
+.btn-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-60px);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 40px;
+  opacity: 0.4;
+}
+.btn-right {
+  transform: translateY(-50%) translateX(60px);
+}
+.slide-show:hover .btn-left {
+  transform: translateY(-50%) translateX(0);
+}
+.btn-left:hover,
+.btn-right:hover {
+  opacity: 0.55;
+}
+.slide-show:hover .btn-right {
+  transform: translateY(-50%) translateX(0);
+}
