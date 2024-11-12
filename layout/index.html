@@ -1,88 +1,106 @@
-<!-- Giao diện tĩnh -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="slide.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bich Diep Store - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 bg-black px-4 text-light roboto-small">
-                Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tẩ cả các ngày trong
-                tuần)
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="header mx-4 d-flex justify-content-between align-items-center">
-                    <div class="logo">
-                        <a href="index.html"><img src="../images/Logo ngang.png"></a>
-                    </div>
-                    <div class="menu d-flex justify-content-between">
-                        <a href="index.html" class="text-dark">Trang chủ</a>
-                        <a href="" class="text-dark">Sản phẩm mới</a>
-                        <div class="dropdown">
-                            <a href="#" class="dropdown-toggle text-dark">
-                                Áo Nam
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo thun</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo Polo</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo sơ mi</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác Jeans</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác nỉ</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo - Blazer</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Cardigan</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <a href="#" class="dropdown-toggle text-dark">
-                                Quần Nam
-                            </a>
-                            <div class="dropdown-menu">
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Âu</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jeans</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Kaki</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jogger</a>
-                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Short</a>
-                            </div>
-                        </div>
-                        <a href="" class="text-dark">Về chúng tôi</a>
-                    </div>
-                    <div class="right">
-                        <a href="#" class="text-dark">
-                            <div class="cart right-icon">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                                <div class="roboto-mini">Giỏ hàng</div>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="cart right-icon">
-                                <i class="fa-solid fa-bell"></i>
-                                <div class="roboto-mini">Thông báo</div>
-                            </div>
-                        </a>
-                        <a href="#" class="text-dark">
-                            <div class="cart right-icon">
-                                <i class="fa-solid fa-user"></i>
-                                <pdiv class="roboto-mini">Đăng nhập</pdiv>
-                            </div>
-                        </a>
-                    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bich Diep Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Category</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="d-flex ms-3">
+                    <a class="nav-link" href="#">Cart</a>
+                    <a class="nav-link" href="#">Notifications</a>
+                    <a class="nav-link" href="#">Login</a>
                 </div>
             </div>
         </div>
+    </nav>
+
+    <!-- Main Banner -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <img src="https://via.placeholder.com/1200x400" class="img-fluid" alt="Main Banner">
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Categories -->
+    <div class="container text-center my-5">
+        <h2 class="mb-4">Danh Mục Sản Phẩm</h2>
+        <div class="row justify-content-center">
+            <div class="col-2"><p>Áo Khoác</p></div>
+            <div class="col-2"><p>Áo Nỉ</p></div>
+            <div class="col-2"><p>Sơ Mi</p></div>
+            <div class="col-2"><p>Áo Khoác Gió</p></div>
+            <div class="col-2"><p>Quần Jogger</p></div>
+            <div class="col-2"><p>Quần Kaki</p></div>
+            <div class="col-2"><p>Quần Jeans</p></div>
+            <div class="col-2"><p>Quần Âu</p></div>
+        </div>
+    </div>
+
+    <!-- New Products Section -->
+    <div class="container my-5">
+        <h3>Sản phẩm mới</h3>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên sản phẩm</h5>
+                        <p class="text-danger">$500</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other new products -->
+        </div>
+    </div>
+
+    <!-- Bestsellers Section -->
+    <div class="container my-5">
+        <h3>Sản phẩm bán chạy</h3>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="Bestseller Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Tên sản phẩm</h5>
+                        <p class="text-danger">$500</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat similar blocks for other bestsellers -->
+        </div>
+    </div>
+
+    <!-- Product Reviews Section -->
+    <div class="container my-5">
+        <h3>Đánh giá sản phẩm</h3>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <div class="d-flex align-items-center">
+                        <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="Reviewer 1">
+                        <p>Lorem ipsum dolor sit amet consectetur...</p>
+
         <div class="row">
             <div class="slide-show">
                 <div class="list-images">
@@ -96,12 +114,20 @@
                     </div>
                     <div class="btn-right btn">
                         <i class="fa-solid fa-chevron-right fa-2x"></i>
+
                     </div>
                 </div>
             </div>
+            <!-- Repeat similar blocks for other reviews -->
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4">
+        <p>&copy; 2023 Bich Diep Store. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js"></script>
     <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
@@ -116,5 +142,4 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
         </script>
 </body>
-
 </html>
