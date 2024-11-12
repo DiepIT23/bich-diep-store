@@ -1,37 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
-<body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">Bich Diep Store</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Category</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-                <div class="d-flex ms-3">
-                    <a class="nav-link" href="#">Cart</a>
-                    <a class="nav-link" href="#">Notifications</a>
-                    <a class="nav-link" href="#">Login</a>
+<body>
+    <!-- Header -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 bg-black px-4 text-light roboto-small">
+                Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tẩ cả các ngày trong
+                tuần)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header mx-4 d-flex justify-content-between align-items-center">
+                    <div class="logo">
+                        <a href="index.html"><img src="../images/Logo ngang.png"></a>
+                    </div>
+                    <div class="menu d-flex justify-content-between">
+                        <a href="index.html" class="text-dark">Trang chủ</a>
+                        <a href="" class="text-dark">Sản phẩm mới</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle text-dark">
+                                Áo Nam
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo thun</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo Polo</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo sơ mi</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác Jeans</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác nỉ</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo - Blazer</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Cardigan</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle text-dark">
+                                Quần Nam
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Âu</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jeans</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Kaki</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jogger</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Short</a>
+                            </div>
+                        </div>
+                        <a href="" class="text-dark">Về chúng tôi</a>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <div class="roboto-mini">Giỏ hàng</div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-bell"></i>
+                                <div class="roboto-mini">Thông báo</div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-user"></i>
+                                <pdiv class="roboto-mini">Đăng nhập</pdiv>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </nav>
-
+    </div>
     <!-- Product Details Section -->
     <div class="container my-5">
         <div class="row">
@@ -91,16 +138,20 @@
     <div class="container my-5">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Mô tả sản phẩm</button>
+                <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
+                    type="button" role="tab">Mô tả sản phẩm</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">Đánh giá</button>
+                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
+                    role="tab">Đánh giá</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="return-policy-tab" data-bs-toggle="tab" data-bs-target="#return-policy" type="button" role="tab">Chính sách đổi trả</button>
+                <button class="nav-link" id="return-policy-tab" data-bs-toggle="tab" data-bs-target="#return-policy"
+                    type="button" role="tab">Chính sách đổi trả</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="privacy-policy-tab" data-bs-toggle="tab" data-bs-target="#privacy-policy" type="button" role="tab">Chính sách bảo mật</button>
+                <button class="nav-link" id="privacy-policy-tab" data-bs-toggle="tab" data-bs-target="#privacy-policy"
+                    type="button" role="tab">Chính sách bảo mật</button>
             </li>
         </ul>
         <div class="tab-content border p-3" id="myTabContent">
@@ -117,7 +168,8 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh</div>
+                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh
+                    </div>
                     <div class="card-body text-center">
                         <h5 class="card-title">Tên sản phẩm</h5>
                         <p class="text-danger fw-bold">$500</p>
@@ -126,7 +178,8 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh</div>
+                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh
+                    </div>
                     <div class="card-body text-center">
                         <h5 class="card-title">Tên sản phẩm</h5>
                         <p class="text-danger fw-bold">$500</p>
@@ -141,7 +194,8 @@
     <footer class="bg-light text-center py-4">
         <p>&copy; 2023 Bich Diep Store. All rights reserved.</p>
     </footer>
-
+    <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
