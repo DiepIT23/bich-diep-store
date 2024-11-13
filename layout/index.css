@@ -54,6 +54,10 @@ a:hover {
   color: var(--hover_color);
   text-decoration: none;
 }
+a:hover {
+  color: var(--hover_color);
+  text-decoration: none;
+}
 .right {
   width: 300px;
   display: flex;
