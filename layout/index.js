@@ -35,5 +35,3 @@ btnLeft.addEventListener("click", () => {
   }
   interval = setInterval(changeSlide, 3000);
 });
-
-// Sản phẩm
