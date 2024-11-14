@@ -84,8 +84,37 @@
         <div class="row">
             <!-- Product Image Slider -->
             <div class="col-md-6">
-                <div class="bg-light border d-flex align-items-center justify-content-center" style="height: 400px;">
-                    <p>Ảnh chạy slideshow</p>
+                <div id="productCarousel" class="carousel slide bg-light border" data-bs-ride="carousel"
+                    style="height: 400px;">
+                    <div class="carousel-inner" style="height: 100%;">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <img src="/images/QATTK408-1-1.png" class="d-block w-100" alt="Product Image 1"
+                                style="height: 100%; object-fit: cover;">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <img src="/images/QGNTK506-1-510x510.png" class="d-block w-100" alt="Product Image 2"
+                                style="height: 100%; object-fit: cover;">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <img src="/images/QJDTK506-1-768x768.png" class="d-block w-100" alt="Product Image 3"
+                                style="height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                    <!-- Carousel Controls -->
+                    <button class="carousel-control-prev custom-carousel-control" type="button"
+                        data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next custom-carousel-control" type="button"
+                        data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
                 </div>
             </div>
 
@@ -186,7 +215,26 @@
                     </div>
                 </div>
             </div>
-            <!-- Repeat similar blocks for other related products -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tên sản phẩm</h5>
+                        <p class="text-danger fw-bold">$500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="bg-light d-flex align-items-center justify-content-center" style="height: 200px;">Ảnh
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Tên sản phẩm</h5>
+                        <p class="text-danger fw-bold">$500</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
