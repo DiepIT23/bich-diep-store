@@ -172,3 +172,26 @@ a:hover {
   opacity: 1;
   z-index: 1;
 }
+/* Custom CSS for gray navigation buttons centered vertically */
+.custom-carousel-control {
+  background-color: rgba(128, 128, 128, 0.3); /* Light gray background with transparency */
+  border-radius: 50%; /* Round button shape */
+  width: 40px;
+  height: 40px;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Align exactly to the center */
+  color: gray; /* Icon color */
+}
+
+.carousel-control-prev {
+  left: 10px; /* Slightly inset from the left edge */
+}
+
+.carousel-control-next {
+  right: 10px; /* Slightly inset from the right edge */
+}
+
+.custom-icon {
+   /* Gray color for the icon */
+  background-size: 100%, 100%;
+}
