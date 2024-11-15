@@ -172,9 +172,15 @@ a:hover {
   opacity: 1;
   z-index: 1;
 }
+
 /* Custom CSS for gray navigation buttons centered vertically */
 .custom-carousel-control {
-  background-color: rgba(128, 128, 128, 0.3); /* Light gray background with transparency */
+  background-color: rgba(
+    128,
+    128,
+    128,
+    0.3
+  ); /* Light gray background with transparency */
   border-radius: 50%; /* Round button shape */
   width: 40px;
   height: 40px;
@@ -192,6 +198,136 @@ a:hover {
 }
 
 .custom-icon {
-   /* Gray color for the icon */
+  /* Gray color for the icon */
   background-size: 100%, 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ccc;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.right-icons a {
+  margin-left: 10px;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.categories a:hover {
+  border-bottom: 2px solid black;
+}
+
+.search-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-filter input[type="text"] {
+  padding: 5px;
+  width: 200px;
+}
+
+.search-filter button {
+  padding: 5px 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.product-image {
+  background-color: #eee;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: gray;
+}
+
+.product-info p {
+  margin-top: 10px;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: black;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
 }
