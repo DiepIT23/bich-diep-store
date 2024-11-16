@@ -243,14 +243,18 @@ main {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 32px;
   margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .categories {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
+ 
 }
 
 .categories a {
@@ -309,6 +313,7 @@ h2 {
 
 .pagination {
   margin-top: 20px;
+  justify-content: center;
   text-align: center;
 }
 
