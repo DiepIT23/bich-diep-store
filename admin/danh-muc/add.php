@@ -19,14 +19,21 @@
             <div class="col-lg-9 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        THÊM MỚI LOẠI HÀNG
+                        THÊM MỚI DANH MỤC
                     </div>
                     <form class="p-4" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tên loại hàng</label>
+                            <label for="exampleInputEmail1">Tên danh mục</label>
                             <input type="text" class="form-control" name="ten_loai" required>
                         </div>
-                        <button type="" name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Phân loại</label>
+                            <select name="phan_loai" class="form-control">
+                                <option value="Áo">Áo</option>
+                                <option value="Quần">Quần</option>
+                            </select>
+                        </div>
+                        <button type="submit" name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
                         <a href="index.php?btn_list"><button type="button" class="btn btn-outline-dark">Danh
                                 sách</button></a>

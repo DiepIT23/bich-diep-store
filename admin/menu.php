@@ -21,40 +21,37 @@ require_once "../../global.php"
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="index.php"><img src="../images/Logo ngang.png" alt="">
+                <a href="<?= $ADMIN_URL ?>/trang-chinh/"><img src="<?= $IMAGES_URL ?>/Logo ngang.png" alt=""
+                        height="50px">
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="<?= $ADMIN_URL ?>/trang-chinh/" class="nav-link">Trang chủ</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="#" class="nav-link">Danh mục</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Help
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="#">FAQ</a>
-                    <a class="dropdown-item" href="#">Support</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Contact</a>
-                </div>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Sản phẩm</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Bình luận</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Khách hàng</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Nhân viên</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Đơn hàng</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Thống kê</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="#" class="nav-link">Client</a>
             </li>
         </ul>
-
-        <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Messages Dropdown Menu -->
@@ -148,6 +145,17 @@ require_once "../../global.php"
             </li>
         </ul>
     </nav>
+    <!-- SEARCH FORM -->
+    <form class="form-inline col-lg-3">
+        <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
     <!-- /.navbar -->
     <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
