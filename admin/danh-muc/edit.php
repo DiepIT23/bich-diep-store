@@ -18,15 +18,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
                         CHỈNH SỬA DANH MỤC
                     </div>
                     <form class="p-4" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Tên danh mục</label>
-                            <input type="text" class="form-control" name="ten_loai"
-                                value="<?php //echo $id_lh->ten_loai 
-                                        ?>">
+                            <input type="text" class="form-control" name="ten_loai" value="<?php //echo $id_lh->ten_loai 
+                                                                                            ?>">
                         </div>
                         <button type="submit" name="btn_submit" class="btn btn-outline-dark">Sửa</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>

@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
                         THÊM MỚI DANH MỤC
                     </div>
                     <form class="p-4" method="post" enctype="multipart/form-data">

@@ -69,8 +69,7 @@
                                                 type="button" name="" id="" class="form-control btn-outline-dark"
                                                 value="Sửa"></a>
                                         <input onclick="
-                                        delCF('index.php?btn_del&id=<?php //echo $loaihang->ma_loai
-                                                                    ?> ')" type="button"
+                                        delCF('index.php?btn_del&id=')" type="button"
                                             name="" id="" class="form-control btn-outline-dark" value="Xóa">
                                     </div>
                                 </form>
