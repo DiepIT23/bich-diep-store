@@ -224,11 +224,6 @@ header {
   align-items: center;
 }
 
-.logo img {
-  width: 50px;
-  margin-right: 10px;
-}
-
 nav {
   display: flex;
   gap: 20px;
@@ -260,7 +255,6 @@ h2 {
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
- 
 }
 
 .categories a {
