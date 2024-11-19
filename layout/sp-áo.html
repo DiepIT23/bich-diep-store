@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Áo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+     <!-- Header -->
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 bg-black px-4 text-light roboto-small">
+                Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tất cả các ngày trong
+                tuần)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header mx-4 d-flex justify-content-between align-items-center">
+                    <div class="logo">
+                        <a href="index.html"><img src="../images/Logo ngang.png"></a>
+                    </div>
+                    <div class="menu d-flex justify-content-between">
+                        <a href="index.html" class="text-dark">Trang chủ</a>
+                        <a href="" class="text-dark">Sản phẩm mới</a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle text-dark">
+                                Áo Nam
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo thun</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo Polo</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo sơ mi</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác Jeans</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo khoác nỉ</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Áo - Blazer</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Cardigan</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle text-dark">
+                                Quần Nam
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Âu</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jeans</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Kaki</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Jogger</a>
+                                <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Short</a>
+                            </div>
+                        </div>
+                        <a href="" class="text-dark">Về chúng tôi</a>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <div class="roboto-mini">Giỏ hàng</div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-bell"></i>
+                                <div class="roboto-mini">Thông báo</div>
+                            </div>
+                        </a>
+                        <a href="#" class="text-dark">
+                            <div class="cart right-icon">
+                                <i class="fa-solid fa-user"></i>
+                                <pdiv class="roboto-mini">Đăng nhập</pdiv>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h2>Áo</h2>
+        <div class="categories">
+            <a href="#">Áo thun</a>
+            <a href="#">Áo sơ mi</a>
+            <a href="#">Áo Polo</a>
+            <a href="#">Áo - Quần ni</a>
+            <a href="#">Áo Blazer</a>
+            <a href="#">Áo khoác jeans</a>
+            <a href="#">Áo khoác ni</a>
+            <a href="#">Cardigan</a>
+        </div>
+        <div class="search-filter">
+            <input type="text" placeholder="Tìm kiếm">
+            <button>Tìm kiếm</button>
+            <select>
+                <option>--Lọc sản phẩm--</option>
+            </select>
+            <select>
+                <option>--Chọn khoảng giá--</option>
+            </select>
+        </div>
+
+        <div class="product-grid">
+            <!-- Lặp lại phần tử này cho từng sản phẩm -->
+            <div class="product-card">
+                <div class="product-image">ảnh</div>
+                <div class="product-info">
+                    <p>Tên sản phẩm</p>
+                    <p>$500</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">ảnh</div>
+                <div class="product-info">
+                    <p>Tên sản phẩm</p>
+                    <p>$500</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">ảnh</div>
+                <div class="product-info">
+                    <p>Tên sản phẩm</p>
+                    <p>$500</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">ảnh</div>
+                <div class="product-info">
+                    <p>Tên sản phẩm</p>
+                    <p>$500</p>
+                </div>
+            </div>
+            <!-- Hết lặp -->
+        </div>
+
+        <div class="pagination">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </main>
+
+     <!-- Footer -->
+     <footer class="bg-light text-center py-4">
+        <p>&copy; 2023 Bich Diep Store. All rights reserved.</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
