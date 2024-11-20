@@ -1,6 +1,5 @@
 <?php
-require_once "../../global.php";
-require_once "$MODEL_URL/Product.php";
+require_once "../../models/Product.php";
 class ProductController
 {
     public function getAllProduct()

@@ -4,4 +4,3 @@ $ADMIN_URL = "$ROOT_URL/admin";
 $VIEWS_URL = "$ROOT_URL/views";
 $LAYOUT_URL = "$ROOT_URL/layout";
 $IMAGES_URL = "$ROOT_URL/images";
-$MODEL_URL = "$ROOT_URL/models";
