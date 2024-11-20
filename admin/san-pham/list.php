@@ -31,7 +31,7 @@
 
                                 </div>
                                 <p class="col-lg-1">ID</p>
-                                <p class="col-lg-2">Tên hàng</p>
+                                <p class="col-lg-2">Tên sản phẩm</p>
                                 <p class="col-lg-1">Hình ảnh</p>
                                 <p class="col-lg-2">Mô tả</p>
                                 <p class="col-lg-1">Đơn giá</p>

@@ -20,7 +20,7 @@
                     <div class="card-header text-uppercase font-weight-bold bg-dark text-white">
                         <div class="container">
                             <div class="row">
-                                <p class="col-lg-5">Hàng hóa</p>
+                                <p class="col-lg-5">Sản phẩm</p>
                                 <p class="col-lg-2">Số bình luận</p>
                                 <p class="col-lg-2">Mới nhất</p>
                                 <p class="col-lg-2">Cũ nhất</p>
