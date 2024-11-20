@@ -1,6 +1,3 @@
-<?php
-require_once "../../global.php"
-?>
 <!doctype html>
 <html lang="en">
 
@@ -14,6 +11,15 @@ require_once "../../global.php"
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+<style>
+.multiline-truncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Giới hạn 3 dòng */
+    -webkit-box-orient: vertical;
+}
+</style>
 
 <body>
     <!-- Navbar -->
@@ -21,35 +27,34 @@ require_once "../../global.php"
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="<?= $ADMIN_URL ?>/trang-chinh/"><img src="<?= $IMAGES_URL ?>/Logo ngang.png" alt=""
-                        height="50px">
+                <a href="<?= $ADMIN_URL ?>/"><img src="<?= $IMAGES_URL ?>/Logo ngang.png" alt="" height="50px">
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/trang-chinh/" class="nav-link">Trang chủ</a>
+                <a href="<?= $ADMIN_URL ?>/" class="nav-link">Trang chủ</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Danh mục</a>
+                <a href="<?= $ADMIN_URL ?>/?act=danh-muc" class="nav-link">Danh mục</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Sản phẩm</a>
+                <a href="<?= $ADMIN_URL ?>/?act=san-pham" class="nav-link">Sản phẩm</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Bình luận</a>
+                <a href="<?= $ADMIN_URL ?>/?act=binh-luan" class="nav-link">Bình luận</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Khách hàng</a>
+                <a href="<?= $ADMIN_URL ?>/?act=khach-hang" class="nav-link">Khách hàng</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Nhân viên</a>
+                <a href="<?= $ADMIN_URL ?>/?act=nhan-vien" class="nav-link">Nhân viên</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Đơn hàng</a>
+                <a href="<?= $ADMIN_URL ?>/?act=don-hang" class="nav-link">Đơn hàng</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Thống kê</a>
+                <a href="<?= $ADMIN_URL ?>/?act=thong-ke" class="nav-link">Thống kê</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Client</a>
+                <a href="<?= $ROOT_URL ?>/" class="nav-link">Client</a>
             </li>
         </ul>
         <!-- Right navbar links -->
@@ -145,17 +150,6 @@ require_once "../../global.php"
             </li>
         </ul>
     </nav>
-    <!-- SEARCH FORM -->
-    <form class="form-inline col-lg-3">
-        <div class="input-group input-group-sm">
-            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
     <!-- /.navbar -->
     <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->

@@ -29,13 +29,15 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">Phân loại</label>
                             <select name="phan_loai" class="form-control">
+                                <option value="0"> --Phân loại-- </option>
                                 <option value="Áo">Áo</option>
                                 <option value="Quần">Quần</option>
                             </select>
                         </div>
                         <button type="submit" name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
-                        <a href="index.php?btn_list"><button type="button" class="btn btn-outline-dark">Danh
+                        <a href="<?= $ADMIN_URL ?>/?act=danh-muc"><button type="button"
+                                class="btn btn-outline-dark">Danh
                                 sách</button></a>
                     </form>
                 </div>
