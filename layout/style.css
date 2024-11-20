@@ -1,244 +1,234 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-  }
-  .breadcrumb {
-    margin: 20px;
-    font-size: 0.9rem;
-  }
-  
-  .breadcrumb a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  .breadcrumb span {
-    color: #666;
-  }
-  
-  .login-container {
-    display: flex;
-    margin: 20px auto;
-    max-width: 900px;
-    gap: 20px;
-  }
-  
-  .sidebar {
-    width: 20%;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background: #f9f9f9;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-  }
-  
-  .sidebar li {
-    margin: 10px 0;
-  }
-  
-  .login-form {
-    width: 75%;
-    border: 1px solid #ddd;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-  }
-  
-  .login-form h1 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  .login-form form label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .login-form form input[type="text"],
-  .login-form form input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .checkbox-group {
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .checkbox-group input {
-    margin-right: 5px;
-  }
-  
-  .login-form form a {
-    display: inline-block;
-    margin: 10px 0;
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .login-form form button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .login-form form button:hover {
-    background: #0056b3;
-  }
-  
-  .footer {
-    text-align: center;
-    margin-top: 20px;
-    padding: 10px;
-    background: #f5f5f5;
-    font-size: 0.8rem;
-    color: #666;
-  }
-  .breadcrumb {
-    margin: 20px;
-    font-size: 0.9rem;
-  }
-  
-  .breadcrumb a {
-    text-decoration: none;
-    color: #007bff;
-  }
-  
-  .breadcrumb span {
-    color: #666;
-  }
-  
-  .register-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    gap: 20px;
-  }
-  
-  .sidebar {
-    width: 20%;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background: #f9f9f9;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-  }
-  
-  .sidebar li {
-    margin: 10px 0;
-  }
-  
-  .register-form {
-    width: 75%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background: #fff;
-  }
-  
-  .register-form h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .register-form label {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .register-form input[type="text"],
-  .register-form input[type="password"],
-  .register-form input[type="email"],
-  .register-form input[type="tel"],
-  .register-form input[type="date"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .name-group {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .name-group div {
-    width: 50%;
-  }
-  
-  .register-form button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px;
-    cursor: pointer;
-  }
-  
-  .register-form button:hover {
-    background: #0056b3;
-  }
-  
-  .footer {
-    padding: 20px;
-    background: #f5f5f5;
-    text-align: center;
-    color: #666;
-  }
-  
-  .footer-info {
-    margin-bottom: 10px;
-  }
-  
-  .footer-links {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 10px;
-  }
-  
-  .footer-links ul {
-    list-style: none;
-  }
-  
-  .newsletter {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .newsletter input {
-    flex: 1;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .newsletter button {
-    padding: 5px 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.breadcrumb {
+  margin: 20px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.breadcrumb span {
+  color: #666;
+}
+
+.login-container {
+  display: flex;
+  margin: 20px auto;
+  max-width: 900px;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 20%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #f9f9f9;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.login-form {
+  width: 75%;
+  border: 1px solid #ddd;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.login-form h1 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.login-form form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.login-form form input[type="text"],
+.login-form form input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.checkbox-group {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input {
+  margin-right: 5px;
+}
+
+.login-form form a {
+  display: inline-block;
+  margin: 10px 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-form form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form form button:hover {
+  background: #0056b3;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background: #f5f5f5;
+  font-size: 0.8rem;
+  color: #666;
+}
+.breadcrumb {
+  margin: 20px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.breadcrumb span {
+  color: #666;
+}
+
+.register-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 20%;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: #f9f9f9;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.register-form {
+  width: 75%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.register-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="password"],
+.register-form input[type="email"],
+.register-form input[type="tel"],
+.register-form input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.name-group {
+  display: flex;
+  gap: 10px;
+}
+
+.name-group div {
+  width: 50%;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.register-form button:hover {
+  background: #0056b3;
+}
+
+.footer {
+  padding: 20px;
+  background: #f5f5f5;
+  text-align: center;
+  color: #666;
+}
+
+.footer-info {
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.newsletter {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.newsletter button {
+  padding: 5px 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
