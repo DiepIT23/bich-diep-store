@@ -120,11 +120,11 @@
 </body>
 
 <script>
-function delCF(dellUrl) {
-    if (confirm('Bạn chắc chứ?')) {
-        document.location = dellUrl
+    function delCF(dellUrl) {
+        if (confirm('Bạn chắc chứ?')) {
+            document.location = dellUrl
+        }
     }
-}
 </script>
 
 </html>
