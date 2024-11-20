@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Hình ảnh</label>
-                            <input type="file" class="form-control" name="hinh_anh[]" accept="image/*" multiple>
+                            <input type="file" class="form-control" name="hinh_anh[]" multiple>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày nhập</label>
@@ -68,7 +68,8 @@
                         </div>
                         <button name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
-                        <a href="index.php?btn_list"><button type="button" class="btn btn-outline-dark">Danh
+                        <a href="<?= $ADMIN_URL ?>/?act=san-pham"><button type="button"
+                                class="btn btn-outline-dark">Danh
                                 sách</button></a>
                     </form>
                 </div>
@@ -88,11 +89,11 @@
     </script>
 </body>
 <script>
-    document.getElementById("myTextarea").addEventListener("keydown", function(event) {
-        if (event.key === "Enter" && !event.shiftKey) {
-            event.preventDefault();
-        }
-    });
+document.getElementById("myTextarea").addEventListener("keydown", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+    }
+});
 </script>
 
 

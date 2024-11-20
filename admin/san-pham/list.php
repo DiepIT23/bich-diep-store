@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
-                        Danh sách loại hàng hóa
+                        Danh sách sản phẩm
                     </div>
                     <div class="card-header text-uppercase font-weight-bold">
                         <div class="container-fluid">
@@ -31,7 +31,7 @@
 
                                 </div>
                                 <p class="col-lg-1">ID</p>
-                                <p class="col-lg-2">Tên hàng</p>
+                                <p class="col-lg-2">Tên sản phẩm</p>
                                 <p class="col-lg-1">Hình ảnh</p>
                                 <p class="col-lg-2">Mô tả</p>
                                 <p class="col-lg-1">Đơn giá</p>
@@ -76,12 +76,13 @@
                             <div class="col-lg-1">
                                 <form action="">
                                     <div class="form-group d-flex">
-                                        <a href="index.php?btn_edit&id=<?php echo $hanghoa->ma_hh ?>"
-                                            style="text-decoration: none;"><input type="button" name="" id=""
-                                                class="form-control btn-outline-dark" value="Sửa"></a>
-                                        <input onclick="delCF('index.php?btn_del&id=<?php echo $hanghoa->ma_hh ?>')"
-                                            type="button" name="" id="" class="form-control btn-outline-dark"
-                                            value="Xóa">
+                                        <a href="index.php?btn_edit&id=<?php //echo $hanghoa->ma_hh 
+                                                                        ?>" style="text-decoration: none;"><input
+                                                type="button" name="" id="" class="form-control btn-outline-dark"
+                                                value="Sửa"></a>
+                                        <input onclick="delCF('index.php?btn_del&id=<?php //echo $hanghoa->ma_hh 
+                                                                                    ?>')" type="button" name="" id=""
+                                            class="form-control btn-outline-dark" value="Xóa">
                                     </div>
                                 </form>
                             </div>
@@ -93,10 +94,13 @@
                 </div>
                 <form action="">
                     <div class=" form-group d-flex w-25 mx-auto mt-3">
-                        <input type="button" name="" id="" class="form-control" value="Chọn tất cả">
-                        <input type="button" name="" id="" class="form-control" value="Bỏ chọn tất cả">
-                        <a href="index.php?btn_add" style="text-decoration: none;"><input type="button" name="" id=""
-                                class="form-control" value="Nhập thêm"></a>
+                        <input type="button" name="" id="" class="form-control btn btn-outline-dark"
+                            value="Chọn tất cả">
+                        <input type="button" name="" id="" class="form-control btn btn-outline-dark"
+                            value="Bỏ chọn tất cả">
+                        <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;"><input
+                                type="button" name="" id="" class="form-control btn btn-outline-dark"
+                                value="Nhập thêm"></a>
                     </div>
                 </form>
             </div>

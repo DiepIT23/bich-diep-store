@@ -19,7 +19,7 @@
             <div class="col-lg-6 mx-auto">
                 <div class="card">
                     <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
-                        Danh sách loại hàng hóa
+                        Danh mục
                     </div>
                     <div class="card-header text-uppercase font-weight-bold">
                         <div class="container-fluid">
@@ -69,8 +69,8 @@
                                                 type="button" name="" id="" class="form-control btn-outline-dark"
                                                 value="Sửa"></a>
                                         <input onclick="
-                                        delCF('index.php?btn_del&id=')" type="button"
-                                            name="" id="" class="form-control btn-outline-dark" value="Xóa">
+                                        delCF('index.php?btn_del&id=')" type="button" name="" id=""
+                                            class="form-control btn-outline-dark" value="Xóa">
                                     </div>
                                 </form>
                             </div>
@@ -84,8 +84,8 @@
                     <div class=" form-group d-flex w-25 mx-auto mt-3">
                         <input type="button" name="" id="" class="form-control" value="Chọn tất cả">
                         <input type="button" name="" id="" class="form-control" value="Bỏ chọn tất cả">
-                        <a href="index.php?btn_add" style="text-decoration: none;"><input type="button" name="" id=""
-                                class="form-control" value="Nhập thêm"></a>
+                        <a href="<?= $ADMIN_URL ?>/?act=them-danhmuc" style="text-decoration: none;"><input
+                                type="button" name="" id="" class="form-control" value="Nhập thêm"></a>
                     </div>
                 </form>
             </div>
@@ -105,11 +105,11 @@
 </body>
 
 <script>
-    // function delCF(dellUrl) {
-    //     if (confirm('Bạn chắc chứ?')) {
-    //         document.location = dellUrl
-    //     }
-    // }
+// function delCF(dellUrl) {
+//     if (confirm('Bạn chắc chứ?')) {
+//         document.location = dellUrl
+//     }
+// }
 </script>
 
 </html>
