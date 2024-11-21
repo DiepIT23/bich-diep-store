@@ -24,7 +24,7 @@
                     <form class="p-4" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên sản phẩm</label>
-                            <input type="text" class="form-control" name="ten_hh" required>
+                            <input type="text" class="form-control" name="ten_sp" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Đơn giá</label>

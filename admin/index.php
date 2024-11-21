@@ -3,7 +3,7 @@ require_once "../global.php";
 require_once "san-pham/index.php";
 include_once "menu.php";
 
-$sp = new ProductController();
+$cProduct = new ProductController();
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
@@ -30,13 +30,15 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once "don-hang/detail.php";
             break;
         case 'san-pham':
-            $sp->getAllProduct();
+            $cProduct->getAllProduct();
             include_once "san-pham/list.php";
             break;
         case 'them-sanpham':
-            $sp->addProduct();
+            $cProduct->addProduct();
+            include_once "san-pham/add.php";
             break;
         case 'sua-sanpham':
+            $cProduct->editDataProduct();
             include_once "san-pham/edit.php";
             break;
         case 'nhan-vien':

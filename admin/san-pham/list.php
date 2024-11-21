@@ -24,12 +24,7 @@
                     <div class="card-header text-uppercase font-weight-bold">
                         <div class="container-fluid">
                             <div class="row">
-                                <div class="col-lg-1">
-                                    STT
-                                </div>
-                                <div class="col-lg-1">
-
-                                </div>
+                            <p class="col-lg-1">STT</p>
                                 <p class="col-lg-1">ID</p>
                                 <p class="col-lg-2">Tên sản phẩm</p>
                                 <p class="col-lg-1">Hình ảnh</p>
@@ -53,11 +48,11 @@
                                 ?>
                             </div>
                             <div class="col-lg-1">
-                                <form action="">
+                                <!-- <form action="">
                                     <div class="form-group">
                                         <input type="checkbox" name="" id="" class="form-check-inline">
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                             <p class="col-lg-1"><?php //echo $hanghoa->ma_hh 
                                                 ?></p>
@@ -70,7 +65,7 @@
                             <p class="col-lg-1"><?php //echo $hanghoa->don_gia 
                                                 ?> VND</p>
                             <p class="col-lg-1"><?php //echo $hanghoa->giam_gia 
-                                                ?> VND</p>
+                                                ?> %</p>
                             <p class="col-lg-1"><?php //echo $hanghoa->ngay_nhap 
                                                 ?></p>
                             <div class="col-lg-1">

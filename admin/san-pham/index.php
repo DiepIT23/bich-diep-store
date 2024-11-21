@@ -1,5 +1,5 @@
 <?php
-require_once "../models/san-pham.php";
+require_once "../models/Sanpham.php";
 require_once "../global.php";
 class ProductController
 {
