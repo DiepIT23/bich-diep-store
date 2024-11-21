@@ -74,7 +74,7 @@
                             <p class="col-lg-1"><?php //echo $hanghoa->ngay_nhap 
                                                 ?></p>
                             <div class="col-lg-1">
-                                <form action="">
+                                <!-- <form action="">
                                     <div class="form-group d-flex">
                                         <a href="index.php?btn_edit&id=<?php //echo $hanghoa->ma_hh 
                                                                         ?>" style="text-decoration: none;"><input
@@ -84,7 +84,7 @@
                                                                                     ?>')" type="button" name="" id=""
                                             class="form-control btn-outline-dark" value="Xóa">
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@
                         <input type="button" name="" id="" class="form-control btn btn-outline-dark"
                             value="Bỏ chọn tất cả">
                         <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;"><input
-                                type="button" name="" id="" class="form-control btn btn-outline-dark"
+                                type="submit" name="" id="" class="form-control btn btn-outline-dark"
                                 value="Nhập thêm"></a>
                     </div>
                 </form>
