@@ -35,7 +35,6 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             break;
         case 'them-sanpham':
             $sp->addProduct();
-            include_once "san-pham/add.php";
             break;
         case 'sua-sanpham':
             include_once "san-pham/edit.php";
