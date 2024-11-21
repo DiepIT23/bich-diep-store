@@ -32,16 +32,16 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Giảm giá</label>
-                            <input type="checkbox" class="form-control" name="giam_gia" required>
+                            <input type="checkbox" class="form-control" name="giam_gia">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Đặc biệt</label>
-                            <input type="text" class="form-control" name="dac_biet">
+                            <input type="text" class="form-control" name="dac_biet" disabled>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleInputEmail1">Hình ảnh</label>
                             <input type="file" class="form-control" name="hinh_anh[]" multiple>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày nhập</label>
                             <input type="date" class="form-control" name="ngay_nhap" required>

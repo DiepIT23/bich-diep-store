@@ -1,12 +1,13 @@
 <?php
-require_once "../../models/Product.php";
+require_once "../models/san-pham.php";
+require_once "../global.php";
 class ProductController
 {
     public function getAllProduct()
     {
         $modelProduct = new Product();
         $listProduct = $modelProduct->getAllDataProduct();
-        include_once 'admin/san-pham/list.php';
+        include_once 'list.php';
     }
     public function addProduct()
     {
@@ -22,7 +23,7 @@ class ProductController
                 echo 'Thêm thành công';
             }
         }
-        include_once 'admin/san-pham/add.php';
+        include_once 'add.php';
     }
     public function editDataProduct()
     {
@@ -42,6 +43,6 @@ class ProductController
                 }
             }
         }
-        include_once 'admin/san-pham/edit.php';
+        include_once 'edit.php';
     }
 }
