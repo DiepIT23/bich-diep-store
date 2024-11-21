@@ -42,7 +42,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        <i class="fas fa-gem me-3"></i><img src="../images/Logo ngang.png" alt="">
+                        <i class="fas fa-gem me-3"></i><img src="<?= $IMAGES_URL ?>/Logo ngang.png" alt="">
                     </h6>
                     <p>
                         Dẫn đầu phong cách - Tự tin khẳng định chất riêng!

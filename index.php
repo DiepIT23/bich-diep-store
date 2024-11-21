@@ -11,6 +11,12 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'quan':
             include_once "views/Quan/index.php";
             break;
+        case 'lienhe':
+            include_once "views/lienhe.php";
+            break;
+        case 'gioithieu':
+            include_once "views/gioithieu.php";
+            break;
         default:
             include_once "views/trangchu.php";
             break;
