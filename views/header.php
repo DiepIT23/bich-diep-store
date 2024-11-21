@@ -9,6 +9,31 @@
     <link rel="stylesheet" href="layout/index.css">
     <link rel="stylesheet" href="layout/slide.css">
 </head>
+<style>
+.main-title {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.description p {
+    line-height: 1.8;
+}
+
+.contact-section {
+    margin: 30px 0;
+}
+
+.contact-details {
+    line-height: 1.8;
+}
+
+.map-placeholder {
+    background-color: #dcdcdc;
+    height: 300px;
+}
+</style>
 
 <body>
     <!-- header -->
@@ -62,8 +87,8 @@
                                 <a href="#" class="dropdown-item text-dark roboto-small py-3">Quần Short</a>
                             </div>
                         </div>
-                        <a href="#" class="text-dark">Về chúng tôi</a>
-                        <a href="#" class="text-dark">Liên hệ</a>
+                        <a href="<?= $ROOT_URL ?>/?act=gioithieu" class="text-dark">Về chúng tôi</a>
+                        <a href="<?= $ROOT_URL ?>/?act=lienhe" class="text-dark">Liên hệ</a>
                     </div>
                     <div class="right">
                         <a href="#" class="text-dark">
