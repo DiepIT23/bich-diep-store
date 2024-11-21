@@ -23,7 +23,7 @@ class ProductController
                 echo 'Thêm thành công';
             }
         }
-        include_once 'add.php';
+        include_once "san-pham/add.php";
     }
     public function editDataProduct()
     {

@@ -31,7 +31,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             break;
         case 'san-pham':
             $sp->getAllProduct();
-            include_once "san-pham/list.php";
+            // include_once "san-pham/list.php";
             break;
         case 'them-sanpham':
             $sp->addProduct();

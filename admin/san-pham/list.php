@@ -98,9 +98,10 @@
                             value="Chọn tất cả">
                         <input type="button" name="" id="" class="form-control btn btn-outline-dark"
                             value="Bỏ chọn tất cả">
-                        <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;"><input
-                                type="submit" name="" id="" class="form-control btn btn-outline-dark"
-                                value="Nhập thêm"></a>
+                        <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;">
+                            <input type="submit" name="" id="" class="form-control btn btn-outline-dark"
+                                value="Nhập thêm">
+                        </a>
                     </div>
                 </form>
             </div>
