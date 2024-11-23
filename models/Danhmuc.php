@@ -1,5 +1,5 @@
 <?php
-require_once 'models/ConnectDB.php';
+require_once 'ConnectDB.php';
 class Danhmuc
 {
   public $connect;
