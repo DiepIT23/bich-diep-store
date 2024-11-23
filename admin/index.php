@@ -13,7 +13,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             // ===================== CONTROLLER DANH MỤC ===================== //
 
         case 'them-danhmuc':
-           if(isset($_POST["Themmoi"])){
+           if(isset($_POST["themmoi"])){
             $id_dm = $_POST["id_dm"];
             insertDanhmuc($id_dm,$ten_loai,$phan_loai);
             $thongbao = "Thêm thành công";
@@ -34,7 +34,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             }
             include "./danh-muc/edit.php";
             break;
-            case 'update-danhmuc':
+        case 'update-danhmuc':
                 if (isset($_POST["capnhat"]) && $_POST["capnhat"]) {
                     $ten_loai = $_POST["ten_loai"];
                     $id_dm = $_POST["id_dm"];
@@ -45,7 +45,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $listdanhmuc = loadall_danhmuc();
                 include "./danh-muc/list.php";
                 break;
-            case 'list-danhmuc':
+        case 'list-danhmuc':
                 $listdanhmuc = loadall_danhmuc();
                 include "./danh-muc/list.php";
                 break;
@@ -53,7 +53,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
 
                  // ===================== CONTROLLER SẢN PHẨM ===================== //
                  case 'them-sanpham':
-                    if (isset($_POST["Themmoi"]) && $_POST["Themmoi"]) {
+                    if (isset($_POST["themmoi"]) && $_POST["themmoi"]) {
                         $id_dm = $_POST["id_dm"];
                         $id_sp = $_POST["id_sp"];
                         $ten_sp = $_POST["ten_sp"];

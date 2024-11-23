@@ -19,11 +19,10 @@
                                 <option value="Quần">Quần</option>
                             </select>
                         </div>
-                        <button type="submit" name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
-                        <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
-                        <a href="<?= $ADMIN_URL ?>/?act=danh-muc"><button type="button"
-                                class="btn btn-outline-dark">Danh
-                                sách</button></a>
+                        <input class="btn btn-primary mr20" type="submit" name="themmoi" value="THÊM MỚI">
+                        <input class="btn btn-secondary mr20" type="reset" value="NHẬP LẠI">
+                        <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc"><input class="btn btn-success mr20" type="button" value="DANH SÁCH"></a>
+                        
                     </form>
                 </div>
             </div>
