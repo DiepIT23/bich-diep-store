@@ -1,7 +1,7 @@
 <?php 
- function insertDanhmuc($ten_loai,$phan_loai)
+ function insertDanhmuc($id_dm,$ten_loai,$phan_loai)
  {
-  $sql = "INSERT INTO danh_muc(ten_loai,phan_loai) VALUES('$ten_loai','$phan_loai)";
+  $sql = "INSERT INTO danh_muc(id_dm,ten_loai,phan_loai) VALUES('$id_dm','$ten_loai','$phan_loai)";
   pdo_execute($sql);
  }
  function deleteDanhmuc($id_dm)

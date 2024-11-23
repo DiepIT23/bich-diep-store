@@ -5,9 +5,9 @@ function insertSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap,$dac_biet, $giam_gi
     pdo_execute($sql);
 }
 
-function delete_sanpham($id_dm)
+function delete_sanpham($id_sp)
 {
-    $sql = "DELETE FROM sanp_ham WHERE id_dm=" . $id_dm;
+    $sql = "DELETE FROM sanp_ham WHERE id_sp=" . $id_sp;
     pdo_execute($sql);
 }
 
