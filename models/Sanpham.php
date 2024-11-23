@@ -1,35 +1,74 @@
 <?php
-require_once 'connectDB.php';
-require_once "../global.php";
-class Product
+function insertSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap,$dac_biet, $giam_gia,$mo_ta,$so_luot_xem,$id_dm)
 {
-  public $connect;
-  public function __construct()
-  {
-    $this->connect = new connectDB();
-  }
-  public function getAllDataProduct()
-  {
-    $sql = "SELECT * FROM `san_pham`";
-    $this->connect->setQuery($sql);
-    return $this->connect->loadData();
-  }
-  public function insertDataProduct($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $ma_loai)
-  {
-    $sql = "INSERT INTO `san_pham` VALUES (?,?,?,?,?,?,?,?,?)";
-    $this->connect->setQuery($sql);
-    return $this->connect->loadData([$id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $ma_loai]);
-  }
-  public function getIdDataProduct($id_sp)
-  {
-    $sql = "SELECT * FROM `san_pham` WHERE id_sp= ?";
-    $this->connect->setQuery($sql);
-    return $this->connect->loadData([$id_sp], false);
-  }
-  public function updateDataProduct($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $ma_loai, $id_sp)
-  {
-    $sql = "UPDATE `san_pham` SET `ten_sp`= ?,`don_gia`= ?,`ngay_nhap`= ?,`dac_biet`= ?,`giam_gia`= ?,`mo_ta`=?,`so_luot_xem`=?,`ma_loai`=? WHERE `id_sp`= ?";
-    $this->connect->setQuery($sql);
-    return $this->connect->loadData([$ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $ma_loai, $id_sp], false);
-  }
+    $sql = " INSERT INTO san_pham(id_sp,ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$id_sp', '$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
+    pdo_execute($sql);
 }
+
+function delete_sanpham($id_dm)
+{
+    $sql = "DELETE FROM sanp_ham WHERE id_dm=" . $id_dm;
+    pdo_execute($sql);
+}
+
+function loadall_sanpham($kewword = " ", $id_dm = 0)
+{
+    $sql = "SELECT * FROM san_pham WHERE 1";
+    if ($kewword != "") {
+        $sql .= " and ten_sp like '%" . $kewword . "%'";
+    }
+    if ($id_dm > 0) {
+        $sql .= " and id_dm ='" . $id_dm . "'";
+    }
+    $sql .= " ORDER BY id_dm desc";
+    $list_sp = pdo_query($sql);
+    return $list_sp;
+}
+function loadall_sanpham_home()
+{
+    $sql = "SELECT * FROM san_pham ORDER BY id_dm DESC";
+    $list_sp = pdo_query($sql);
+    return $list_sp;
+}
+function loadall_sanpham_banchay()
+{
+    $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
+    $list_sp = pdo_query($sql);
+    return $list_sp;
+}
+function loadall_sanpham_gia()
+{
+    $sql = "SELECT * FROM san_pham WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
+    $list_sp = pdo_query($sql);
+    return $list_sp;
+}
+function loadone_sanpham($id_dm)
+{
+    $sql = "SELECT * FROM san_pham WHERE id_dm='$id_dm'";
+    $san_pham = pdo_query_one($sql);
+    return $san_pham;
+}
+function load_ten_dm($id_danh_muc)
+{
+    if($id_danh_muc >0){
+        $sql = "SELECT * FROM danh_muc WHERE id='$id_danh_muc'";
+        $dm = pdo_query_one($sql);
+        extract($dm);
+        return $name;
+    }else{
+        return "";
+    }
+}
+function load_sanpham_cungloai($id_sp,$id_dm)
+{
+    $sql = "SELECT * FROM san_pham WHERE id_dm='$id_dm' AND id_sp !='$id_sp'";
+    $list_sp = pdo_query($sql);
+    return $list_sp;
+}
+function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap,$dac_biet, $giam_gia,$mo_ta,$so_luot_xem,$id_dm)
+{
+  $sql = " UPDATE san_pham SET ten_sp='$ten_sp', don_gia='$don_gia',ngay_nhap='$ngay_nhap', dac_biet='$dac_biet', giam_gia='$giam_gia', mo_ta='$mo_ta', so_luot_xem='$so_luot_xem',id_dm='$id_dm' WHERE id_sp = '$id_sp' ";
+  pdo_execute($sql);
+}
+
+?>
