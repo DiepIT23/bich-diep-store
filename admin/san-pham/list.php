@@ -60,28 +60,28 @@
                                 </form>
                             </div>
                             <p class="col-lg-1"><?php //echo $hanghoa->ma_hh 
-                                                ?></p>
+                            ?></p>
                             <p class="col-lg-2"><?php //echo $hanghoa->ten_hh 
-                                                ?></p>
+                            ?></p>
                             <img class="col-lg-1" src="<?php //echo $hanghoa->hinh_anh 
-                                                        ?>" alt="">
+                            ?>" alt="">
                             <p class="col-lg-2 multiline-truncate"><?php //echo $hanghoa->mo_ta 
-                                                                    ?></p>
+                            ?></p>
                             <p class="col-lg-1"><?php //echo $hanghoa->don_gia 
-                                                ?> VND</p>
+                            ?> VND</p>
                             <p class="col-lg-1"><?php //echo $hanghoa->giam_gia 
-                                                ?> VND</p>
+                            ?> VND</p>
                             <p class="col-lg-1"><?php //echo $hanghoa->ngay_nhap 
-                                                ?></p>
+                            ?></p>
                             <div class="col-lg-1">
                                 <!-- <form action="">
                                     <div class="form-group d-flex">
                                         <a href="index.php?btn_edit&id=<?php //echo $hanghoa->ma_hh 
-                                                                        ?>" style="text-decoration: none;"><input
+                                        ?>" style="text-decoration: none;"><input
                                                 type="button" name="" id="" class="form-control btn-outline-dark"
                                                 value="Sửa"></a>
                                         <input onclick="delCF('index.php?btn_del&id=<?php //echo $hanghoa->ma_hh 
-                                                                                    ?>')" type="button" name="" id=""
+                                        ?>')" type="button" name="" id=""
                                             class="form-control btn-outline-dark" value="Xóa">
                                     </div>
                                 </form> -->
@@ -93,16 +93,15 @@
                     ?>
                 </div>
                 <form action="">
-                    <div class=" form-group d-flex w-25 mx-auto mt-3">
-                        <input type="button" name="" id="" class="form-control btn btn-outline-dark"
-                            value="Chọn tất cả">
-                        <input type="button" name="" id="" class="form-control btn btn-outline-dark"
-                            value="Bỏ chọn tất cả">
-                        <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;">
-                            <input type="submit" name="" id="" class="form-control btn btn-outline-dark"
-                                value="Nhập thêm">
+                    <div class="form-group d-flex w-25 mx-auto mt-3">
+                        <input type="button" class="form-control btn btn-outline-dark" value="Chọn tất cả">
+                        <input type="button" class="form-control btn btn-outline-dark" value="Bỏ chọn tất cả">
+                        <a href="http://localhost/bich-diep-store/admin/?act=them-sanpham"
+                            class="btn btn-outline-dark w-100 text-center" style="text-decoration: none;">
+                            Nhập thêm
                         </a>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -111,13 +110,13 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 <script>
