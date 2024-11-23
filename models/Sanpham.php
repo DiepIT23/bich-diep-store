@@ -1,11 +1,12 @@
 <?php
-require_once 'ConnectDB.php';
+require_once 'connectDB.php';
+require_once "../global.php";
 class Product
 {
   public $connect;
   public function __construct()
   {
-    $this->connect = new ConnectDB();
+    $this->connect = new connectDB();
   }
   public function getAllDataProduct()
   {
