@@ -1,15 +1,27 @@
     <!-- thêm mới -->
     <div class="container">
+        
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="card">
                     <div class="card-header">
                         THÊM MỚI SẢN PHẨM
+                        
                     </div>
-                    <form class="p-4" method="post" enctype="multipart/form-data">
+                    <form action="index.php?act=them-sanpham" class="p-4" method="POST" enctype="multipart/form-data">
+                    <label>Danh mục</label>
+                <select name="iddm" >
+                    <?php
+                        foreach($listDanhmuc as $dm){
+                            extract($dm);
+                            echo "<option value =$id>$name</option>";
+                        }
+                    ?>
+                </select>
+                   
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên sản phẩm</label>
-                            <input type="text" class="form-control" name="ten_hh" required>
+                            <input type="text" class="form-control" name="ten_sp" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Đơn giá</label>
@@ -51,12 +63,12 @@
                                 ?>
                             </select>
                         </div>
-                        <button name="btn_submit" class="btn btn-outline-dark">Thêm mới</button>
+                        <button type="submit" name="themmoi" class="btn btn-outline-dark">Thêm mới</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
-                        <a href="<?= $ADMIN_URL ?>/?act=san-pham"><button type="button"
+                        <a href="index.php/?act=san-pham"><button type="button"
                                 class="btn btn-outline-dark">Danh
                                 sách</button></a>
-                    </form>
+                      </form>
                 </div>
             </div>
         </div>

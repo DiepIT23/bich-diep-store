@@ -1,5 +1,7 @@
 <?php
+
 require_once "../models/san-pham.php";
+
 class ProductController
 {
     public function getAllProduct()

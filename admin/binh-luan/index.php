@@ -1,10 +1,11 @@
 <?php 
-require_once 'models/Binhluan.php';
+require_once "../models/Binhluan.php";
+require_once "../global.php";
  class BinhluanController{
   public function getAllBinhluan(){
     $modelBinhluan = new Binhluan();
     $listBinhluan = $modelBinhluan->getAllDataBinhluan();
-    include_once 'admin/binh-luan/list.php';
+    include_once 'binh-luan/list.php';
 
 }
      public function addBinhluan(){
@@ -21,7 +22,7 @@ require_once 'models/Binhluan.php';
 
      }
  }
-   include_once 'admin/binh-luan/add.php';
+   include_once 'binh-luan/add.php';
  }
      public function editDataBinhluan(){
        if(isset($_GET['id_bl'])){
@@ -40,7 +41,7 @@ require_once 'models/Binhluan.php';
 }
  }
 }
-   include_once 'admin/binh-luan/edit.php';
+   include_once 'binh-luan/edit.php';
 }
  }
 
