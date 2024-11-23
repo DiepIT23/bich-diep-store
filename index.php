@@ -5,6 +5,9 @@ include_once "views/header.php";
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
     switch ($act) {
+
+            // ======================= CONTROLLER SẢN PHẨM ======================= //
+
         case 'ao':
             include_once "views/Ao/index.php";
             break;
@@ -14,12 +17,12 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'ds-sp':
             include_once "views/ds-sp.php";
             break;
-        case 'lienhe':
-            include_once "views/lienhe.php";
+        case 'sp-chitiet':
+            include_once "views/spchitiet.php";
             break;
-        case 'gioithieu':
-            include_once "views/gioithieu.php";
-            break;
+
+            // ======================= CONTROLLER TÀI KHOẢN ======================= //
+
         case 'dangnhap':
             include_once "views/taikhoan/dang-nhap.php";
             break;
@@ -31,6 +34,15 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             break;
         case 'quenmk':
             include_once "views/taikhoan/quenmk.php";
+            break;
+
+
+
+        case 'lienhe':
+            include_once "views/lienhe.php";
+            break;
+        case 'gioithieu':
+            include_once "views/gioithieu.php";
             break;
         default:
             include_once "views/trangchu.php";

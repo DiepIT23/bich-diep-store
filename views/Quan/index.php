@@ -19,7 +19,9 @@ if (isset($_GET['quan']) && $_GET['quan'] !== '') {
             include_once "views/Quan/quan-short.php";
             break;
         default:
-            # code...
+            include_once "views/Quan/trangchu.php";
             break;
     }
+} else {
+    include_once "views/Quan/trangchu.php";
 }
