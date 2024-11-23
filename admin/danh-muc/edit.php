@@ -26,7 +26,7 @@
                         </div>
                         <button type="submit" name="btn_submit" class="btn btn-outline-dark">Sửa</button>
                         <button type="reset" class="btn btn-outline-dark">Nhập lại</button>
-                        <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc"><button type="button"
+                        <a href="index.php/?act=list-danhmuc"><button type="button"
                                 class="btn btn-outline-dark">Danh
                                 sách</button></a>
                     </form>

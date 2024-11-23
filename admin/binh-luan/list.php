@@ -1,3 +1,6 @@
+<?php
+$loadbl = loadbl_binhluan(0);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -14,6 +17,7 @@
 
 <body>
     <div class="container">
+    <h1>DANH SÁCH BÌNH LUẬN</h1>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -28,29 +32,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-text">
-                        <?php
-                        // foreach ($thongke_bl as $binhluan) {
-                        ?>
-                        <div class="container">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-5"><?php //echo $binhluan->ten_hh 
-                                                        ?></div>
-                                <div class="col-lg-2"><?php //echo $binhluan->so_luong 
-                                                        ?></div>
-                                <div class="col-lg-2"><?php //echo $binhluan->cu_nhat 
-                                                        ?></div>
-                                <div class="col-lg-2"><?php //echo $binhluan->moi_nhat 
-                                                        ?></div>
-                                <a href="index.php?ma_hh=<?php //echo $binhluan->ma_hh 
-                                                            ?>" class="col-lg-1"><button
-                                        class="btn btn-default btn-outline-dark">Xem</button></a>
-                            </div>
-                        </div>
-                        <?php
-                        //}
-                        ?>
-                    </div>
+                    <?php
+                    foreach ($listbinhluan as $binhluan) {
+                        extract($binhluan);
+                        $xoa_bl = "index.php?act=xoa-binhluan&id_bl=" . $id_bl;
+                        echo '<tr>
+                <td><input type="checkbox" name="" id="" /></td>
+                    <td>' . $id_bl . '</td>
+                    <td>' . $noidung_bl. '</td>
+                    <td>' . $id_sp . '</td>
+                    <td>' . $id_khachhang . '</td>
+                    <td>' . $ngay_bl . '</td>
+                <td>
+                    <a href="' . $xoa_bl . '"><input type="button" value="Xóa" /></a>
+                </td>
+            </tr>';
+                    }
+                    ?>
                 </div>
             </div>
         </div>
