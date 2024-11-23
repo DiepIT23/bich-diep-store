@@ -11,6 +11,9 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'quan':
             include_once "views/Quan/index.php";
             break;
+        case 'ds-sp':
+            include_once "views/ds-sp.php";
+            break;
         case 'lienhe':
             include_once "views/lienhe.php";
             break;
@@ -36,5 +39,5 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 } else {
     include_once "views/trangchu.php";
 }
-
+include_once "views/timkiem.php";
 include_once "views/footer.php";
