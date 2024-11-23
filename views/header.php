@@ -10,29 +10,29 @@
     <link rel="stylesheet" href="layout/slide.css">
 </head>
 <style>
-    .main-title {
-        text-align: center;
-        margin: 30px 0;
-        font-size: 28px;
-        font-weight: bold;
-    }
+.main-title {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-    .description p {
-        line-height: 1.8;
-    }
+.description p {
+    line-height: 1.8;
+}
 
-    .contact-section {
-        margin: 30px 0;
-    }
+.contact-section {
+    margin: 30px 0;
+}
 
-    .contact-details {
-        line-height: 1.8;
-    }
+.contact-details {
+    line-height: 1.8;
+}
 
-    .map-placeholder {
-        background-color: #dcdcdc;
-        height: 300px;
-    }
+.map-placeholder {
+    background-color: #dcdcdc;
+    height: 300px;
+}
 </style>
 
 <body>
@@ -108,7 +108,7 @@
                                 <div class="roboto-mini">Thông báo</div>
                             </div>
                         </a>
-                        <a href="dang-nhap.html" class="text-dark">
+                        <a href="<?=$ROOT_URL?>/?act=dangnhap" class="text-dark">
                             <div class="cart right-icon">
                                 <i class="fa-solid fa-user"></i>
                                 <pdiv class="roboto-mini">Đăng nhập</pdiv>
