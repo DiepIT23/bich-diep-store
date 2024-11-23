@@ -31,13 +31,9 @@
             <img src="<?= $IMAGES_URL ?>/admin-donhang.png" height="100px">
             <h4>Đơn hàng</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=nhan-vien" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=tai-khoan" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-nhanvien.png" height="100px">
-            <h4>Nhân viên</h4>
-        </a>
-        <a href="<?= $ADMIN_URL ?>/?act=khach-hang" class="col-lg-4 d-flex flex-column align-items-center text-dark">
-            <img src="<?= $IMAGES_URL ?>/admin-khachhang.png" height="100px">
-            <h4>Khách hàng</h4>
+            <h4>Tài khoản</h4>
         </a>
         <a href="<?= $ADMIN_URL ?>/?act=thong-ke" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-thongke.png" height="100px">
