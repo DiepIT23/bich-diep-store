@@ -147,3 +147,4 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
 } else {
     include_once "home.php";
 }
+include_once "footer.php";

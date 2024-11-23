@@ -48,7 +48,7 @@
             <div class="col-lg-12">
                 <div class="header mx-4 d-flex justify-content-between align-items-center">
                     <div class="logo">
-                        <a href="index.html"><img src="<?= $IMAGES_URL ?>/Logo ngang.png"></a>
+                        <a href="<?= $ROOT_URL ?>/"><img src="<?= $IMAGES_URL ?>/Logo ngang.png"></a>
                     </div>
                     <div class="menu d-flex justify-content-between">
                         <a href="<?= $ROOT_URL ?>/" class="text-dark">Trang chủ</a>
@@ -108,7 +108,7 @@
                                 <div class="roboto-mini">Thông báo</div>
                             </div>
                         </a>
-                        <a href="dang-nhap.html" class="text-dark">
+                        <a href="<?= $ROOT_URL ?>/?act=dangnhap" class="text-dark">
                             <div class="cart right-icon">
                                 <i class="fa-solid fa-user"></i>
                                 <pdiv class="roboto-mini">Đăng nhập</pdiv>
