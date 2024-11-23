@@ -1,6 +1,5 @@
 <?php
 require_once "../models/san-pham.php";
-require_once "../global.php";
 class ProductController
 {
     public function getAllProduct()
@@ -23,7 +22,7 @@ class ProductController
                 echo 'Thêm thành công';
             }
         }
-        include_once "san-pham/add.php";
+        include_once "add.php";
     }
     public function editDataProduct()
     {
