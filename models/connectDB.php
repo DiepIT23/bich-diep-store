@@ -1,6 +1,6 @@
 <?php
 require_once 'env.php';
-class ConnectDB{
+class connectDB{
     public $pdo;
     public $sql; //chứa câu lệnh SQL 
     public $sta;

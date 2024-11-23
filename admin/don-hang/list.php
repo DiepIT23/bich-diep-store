@@ -1,3 +1,8 @@
+<?php
+require_once '../models/Donhang.php';
+require_once 'index.php';
+require_once '../global.php';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -35,6 +40,18 @@
                 </div>
             </div>
             <div class="card-body">
+            <?php foreach ($list as $value) { ?>
+                    <a href="?act=chitiet-donhang&id=<?php echo $value->id_donhang ?>" class="row text-dark text-decoration-none mb-3">
+                        <div class="col-lg-1"><?php echo $value->id_donhang ?></div>
+                        <div class="col-2"><?php echo $value->trang_thai ?></div>
+                        <div class="col-2"><?php echo $value->nguoi ?></div>
+                        <div class="col-2"><?php echo number_format($value->total_amount, 0, ",", ".") ?>đ</div>
+                        <div class="col-2"><?php echo $value->email ?></div>
+                        <div class="col-2"><?php echo $value->phone ?></div>
+                        <div class="col-1"><?php echo $value->order_date ?></div>
+                    </a>
+                <?php } ?>
+            </div>
                 <a href="<?= $ADMIN_URL ?>/?act=chitiet-donhang" class="row text-dark text-decoration-none">
                     <div class="col-lg-1">ID</div>
                     <div class="col-2">Trạng thái</div>

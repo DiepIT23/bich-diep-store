@@ -1,21 +1,34 @@
 <?php
 require_once "../global.php";
-require_once "san-pham/index.php";
+require_once "../admin/san-pham/index.php";
+require_once "../admin/danh-muc/index.php";
+require_once "../admin/binh-luan/index.php";
+require_once "../models/Binhluan.php";
+require_once "../models/Danhmuc.php";
+require_once "../models/Donhang.php";
+require_once "../models/Sanpham.php";
 include_once "menu.php";
 
+
+
 $cProduct = new ProductController();
+$cDanh = new DanhmucController();
+$cBin = new BinhluanController();
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
     switch ($act) {
         case 'danh-muc':
-            include_once "danh-muc/list.php";
+            $cDanh->getAllDanhmuc();
+            include_once "./danh-muc/list.php";
             break;
         case 'them-danhmuc':
-            include_once "danh-muc/add.php";
+            $cDanh->addDanhmuc();
+            include_once "./danh-muc/add.php";
             break;
         case 'sua-danhmuc':
-            include_once "danh-muc/edit.php";
+            $cDanh->editDataDanhmuc();
+            include_once "./danh-muc/edit.php";
             break;
         case 'binh-luan':
             include_once "binh-luan/list.php";
@@ -30,16 +43,15 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once "don-hang/detail.php";
             break;
         case 'san-pham':
-            $cProduct->getAllProduct();
-            include_once "san-pham/list.php";
+            include_once "./san-pham/list.php";
             break;
         case 'them-sanpham':
             $cProduct->addProduct();
-            include_once "san-pham/add.php";
+            include_once "./san-pham/add.php";
             break;
         case 'sua-sanpham':
             $cProduct->editDataProduct();
-            include_once "san-pham/edit.php";
+            include_once "./san-pham/edit.php";
             break;
         case 'nhan-vien':
             include_once "nhan-vien/list.php";

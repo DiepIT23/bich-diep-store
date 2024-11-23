@@ -21,6 +21,19 @@
                     <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
                         Danh sách sản phẩm
                     </div>
+                    <form action="index.php?act=san_pham" method="POST">
+        <input type="text" name="keyword" placeholder="Nhập tên/id danh mục">
+        <select name="id_dm" id="">
+            <option value="0" selected>Tất cả</option>
+            <?php
+            foreach ($listdanhmuc as $dm) {
+                extract($dm);
+                echo "<option value =$id>$name</option>";
+            }
+            ?>
+        </select>
+        <input type="submit" name="listok" value="Lọc">
+    </form>
                     <div class="card-header text-uppercase font-weight-bold">
                         <div class="container-fluid">
                             <div class="row">
@@ -93,7 +106,7 @@
                             value="Chọn tất cả">
                         <input type="button" name="" id="" class="form-control btn btn-outline-dark"
                             value="Bỏ chọn tất cả">
-                        <a href="<?= $ADMIN_URL ?>/?act=them-sanpham" style="text-decoration: none;"><input
+                        <a href="index.php/?act=them-sanpham" style="text-decoration: none;"><input
                                 type="submit" name="" id="" class="form-control btn btn-outline-dark"
                                 value="Nhập thêm"></a>
                     </div>

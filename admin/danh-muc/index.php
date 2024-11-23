@@ -1,10 +1,11 @@
 <?php 
-require_once 'models/Danhmuc.php';
+require_once "../models/Danhmuc.php";
+require_once "../global.php";
  class DanhmucController{
   public function getAllDanhmuc(){
     $modelDanhmuc = new Danhmuc();
     $listDanhmuc = $modelDanhmuc->getAllDataDanhmuc();
-    include_once 'admin/danh-muc/list.php';
+    include_once './danh-muc/list.php';
 
 }
      public function addDanhmuc(){
@@ -21,12 +22,12 @@ require_once 'models/Danhmuc.php';
 
      }
  }
-   include_once 'admin/danh-muc/add.php';
+   include_once './danh-muc/add.php';
  }
      public function editDataDanhmuc(){
        if(isset($_GET['id_dm'])){
       $mDan = new Danhmuc();
-      $cDanhmuc = $mDan->getIdDataDanhmuc($_GET['id_dm']);
+      $cDanh = $mDan->getIdDataDanhmuc($_GET['id_dm']);
       if(isset($_POST['btn-submit'])){
         // var_dump($_FILES['image']);
         // $target_dir = 'images/';
@@ -40,7 +41,7 @@ require_once 'models/Danhmuc.php';
 }
  }
 }
-   include_once 'admin/danh-muc/edit.php';
+   include_once '../danh-muc/edit.php';
 }
  }
 
