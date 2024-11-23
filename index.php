@@ -17,6 +17,18 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'gioithieu':
             include_once "views/gioithieu.php";
             break;
+        case 'dangnhap':
+            include_once "views/taikhoan/dang-nhap.php";
+            break;
+        case 'dangky':
+            include_once "views/taikhoan/dang-ky.php";
+            break;
+        case 'edit-tk':
+            include_once "views/taikhoan/edit-tk.php";
+            break;
+        case 'quenmk':
+            include_once "views/taikhoan/quenmk.php";
+            break;
         default:
             include_once "views/trangchu.php";
             break;
