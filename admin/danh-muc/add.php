@@ -6,7 +6,7 @@
                     <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
                         THÊM MỚI DANH MỤC
                     </div>
-                    <form class="p-4" method="post" enctype="multipart/form-data">
+                    <form class="p-4" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên danh mục</label>
                             <input type="text" class="form-control" name="ten_loai" required>
@@ -21,8 +21,9 @@
                         </div>
                         <input class="btn btn-primary mr20" type="submit" name="themmoi" value="THÊM MỚI">
                         <input class="btn btn-secondary mr20" type="reset" value="NHẬP LẠI">
-                        <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc"><input class="btn btn-success mr20" type="button" value="DANH SÁCH"></a>
-                        
+                        <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc"><input class="btn btn-success mr20" type="button"
+                                value="DANH SÁCH"></a>
+
                     </form>
                 </div>
             </div>
