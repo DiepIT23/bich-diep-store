@@ -1,19 +1,10 @@
 <?php
-function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $mo_ta, $id_dm) {
-    // Chuyển đổi ngày sang định dạng MySQL
-    $date_obj = DateTime::createFromFormat('Y/m/d', $ngay_nhap);
-    
-    // Nếu không tạo được đối tượng ngày, báo lỗi
-    if (!$date_obj) {
-        throw new Exception("Ngày nhập không hợp lệ: $ngay_nhap");
-    }
 
-    // Chuyển đổi sang định dạng MySQL
-    $ngay_nhap_mysql = $date_obj->format('Y-m-d');
+function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
+{
+  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
+  pdo_execute($sql);
 
-    $sql = "INSERT INTO san_pham (ten_sp, don_gia, ngay_nhap, mo_ta, id_dm) 
-            VALUES ('$ten_sp', '$don_gia', '$ngay_nhap_mysql', '$mo_ta', '$id_dm')";
-    pdo_execute($sql);
 }
 
 function delete_sanpham($id_sp)
