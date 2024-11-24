@@ -2,25 +2,39 @@
 session_start();
 ob_start();
 require_once "global.php";
-require_once "models/pdo.php";
-include_once "models/taikhoan.php";
 include_once "views/header.php";
+include_once "models/Sanpham.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
     switch ($act) {
+
+            // ======================= CONTROLLER SẢN PHẨM ======================= //
+
         case 'ao':
             include_once "views/Ao/index.php";
             break;
         case 'quan':
             include_once "views/Quan/index.php";
             break;
-        case 'lienhe':
-            include_once "views/lienhe.php";
+        case 'ds-sp':
+            // Lấy từ khóa tìm kiếm 
+            $searchQuery = isset($_GET['q']) ? trim($_GET['q']) : '';
+            $products = [];
+            include_once "views/ds-sp.php";
             break;
-        case 'gioithieu':
-            include_once "views/gioithieu.php";
+        case 'sp-chitiet':
+            include_once "views/spchitiet.php";
             break;
+        case 'thanhtoan':
+            include_once 'views/thanhtoan.php';
+            break;
+        case 'giohang':
+            include_once "views/giohang.php";
+            break;
+
+            // ======================= CONTROLLER TÀI KHOẢN ======================= //
+
         case 'dangnhap':
             if (isset($_POST["dangnhap"]) ) {
                 $ten_dang_nhap = $_POST["ten_dang_nhap"];
@@ -57,6 +71,15 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'quenmk':
             include_once "views/taikhoan/quenmk.php";
             break;
+
+
+
+        case 'lienhe':
+            include_once "views/lienhe.php";
+            break;
+        case 'gioithieu':
+            include_once "views/gioithieu.php";
+            break;
         default:
             include_once "views/trangchu.php";
             break;
@@ -64,6 +87,6 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 } else {
     include_once "views/trangchu.php";
 }
-
+include_once "views/timkiem.php";
 include_once "views/footer.php";
 ob_end_flush(); 

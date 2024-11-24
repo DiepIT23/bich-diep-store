@@ -15,15 +15,15 @@
             <img src="<?= $IMAGES_URL ?>/web-client.png" height="100px">
             <h4>Web client</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=san-pham" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=listsp" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-sanpham.png" height="100px">
             <h4>Sản phẩm</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=danh-muc" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/danh-muc-icon 1.png" height="100px">
             <h4>Danh mục</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=binh-luan" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=list_bl" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-binhluan.png" height="100px">
             <h4>Bình luận</h4>
         </a>
