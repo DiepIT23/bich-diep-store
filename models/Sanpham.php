@@ -26,7 +26,7 @@ function loadall_sanpham($kewword = "", $id_dm = 0)
   }
 
   $sql .= " ORDER BY id_dm DESC";
-  $list_sp = pdo_query($sql, ...$params); // Truyền tham số an toàn vào PDO
+  $list_sp = pdo_query($sql, ...$params);
   return $list_sp;
 }
 function loadall_sanpham_home()

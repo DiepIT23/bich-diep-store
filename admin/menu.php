@@ -12,13 +12,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <style>
-    .multiline-truncate {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        /* Giới hạn 3 dòng */
-        -webkit-box-orient: vertical;
-    }
+.multiline-truncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Giới hạn 3 dòng */
+    -webkit-box-orient: vertical;
+}
 </style>
 
 <body>
@@ -33,19 +33,16 @@
                 <a href="<?= $ADMIN_URL ?>/" class="nav-link">Trang chủ</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=danh-muc" class="nav-link">Danh mục</a>
+                <a href="<?= $ADMIN_URL ?>/?act=list-danhmuc" class="nav-link">Danh mục</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=san-pham" class="nav-link">Sản phẩm</a>
+                <a href="<?= $ADMIN_URL ?>/?act=list-sanpham" class="nav-link">Sản phẩm</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=binh-luan" class="nav-link">Bình luận</a>
+                <a href="<?= $ADMIN_URL ?>/?act=list-bl" class="nav-link">Bình luận</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=khach-hang" class="nav-link">Khách hàng</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=nhan-vien" class="nav-link">Nhân viên</a>
+                <a href="<?= $ADMIN_URL ?>/?act=tai-khoan" class="nav-link">Tài khoản</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="<?= $ADMIN_URL ?>/?act=don-hang" class="nav-link">Đơn hàng</a>

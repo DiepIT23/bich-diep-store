@@ -124,11 +124,11 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             break;
 
             //==================== CONTROLLER BÌNH LUẬN ========================//
-        case 'list_bl':
+        case 'list-bl':
             $listbinhluan = loadbl_binhluan(0);
             include "./binh-luan/list.php";
             break;
-        case 'xoa_bl':
+        case 'xoa-bl':
             if (isset($_GET["id_bl"]) && $_GET["id_bl"] > 0) {
                 //$id = $_GET["id"];
                 deleteBinhluan($_GET["id_bl"]);
