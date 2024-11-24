@@ -5,6 +5,7 @@ include_once "../models/pdo.php";
 include_once "../models/Sanpham.php";
 include_once "../models/Binhluan.php";
 include_once "../models/Danhmuc.php";
+include_once "../models/Donhang.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== "") {
     $act = $_GET['act'];
@@ -30,17 +31,17 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             if (isset($_GET["id_dm"]) && $_GET["id_dm"] > 0) {
                 $dm = loadone_danhmuc($_GET["id_dm"]);
             }
-            include "./danh-muc/edit.php";
+            include "./danh-muc/update.php";
             break;
         case 'update-danhmuc':
-            if (isset($_POST["capnhat"]) && $_POST["capnhat"]) {
+       
+            if (isset($_POST["sua"]) ) {
                 $ten_dm = $_POST["ten_dm"];
-                $id_dm = $_POST["id_dm"];
                 $phan_loai = $_POST["phan_loai"];
-
-                editDanhmuc($id_dm, $ten_dm, $phan_loai);
+                $id_dm = $_POST["id_dm"];
+                updateDanhmuc($id_dm, $ten_dm, $phan_loai);
                 $thongbao = "Cập nhật thành công";
-                exit;
+                
             }
             $listdanhmuc = loadall_danhmuc();
             include "./danh-muc/list.php";
@@ -49,6 +50,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             $listdanhmuc = loadall_danhmuc();
             include "./danh-muc/list.php";
             break;
+
 
 
             // ===================== CONTROLLER SẢN PHẨM ===================== //
@@ -60,9 +62,8 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $don_gia = $_POST["don_gia"];
                 $giam_gia = $_POST["giam_gia"];
                 $ngay_nhap = $_POST["ngay_nhap"];
-
-                insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
-                $thongbao = "Thêm thành công";
+ insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
+  $thongbao = "Thêm thành công";
             }
             $listdanhmuc = loadall_danhmuc();
             include "./san-pham/add.php";
@@ -130,6 +131,11 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             $listbinhluan = loadbl_binhluan(0);
             include "./binh-luan/list.php";
             break;
+
+                    // ===================== CONTROLLER ĐƠN HÀNG ===================== //
+                    case 'list-donhang':
+                        $listdonhang = loadDonhang(0);
+                        include "./don-hang/list.php";
 
         default:
             include "home.php";

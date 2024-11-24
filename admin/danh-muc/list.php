@@ -30,7 +30,7 @@
 
                                 echo '<tr class="text-center align-middle">
                                         <td>' . $stt++ . '</td>
-                                        <td><input type="checkbox" name="select[]" value="' . $id_dm . '"></td>
+                                        <td><input type="checkbox" name="" id=""/></td>
                                         <td>' . $id_dm . '</td>
                                         <td>' . $ten_dm . '</td>
                                         <td>' . $phan_loai . '</td>

@@ -23,7 +23,7 @@ function loadone_danhmuc($id_dm)
   return $dm;
 }
 
-function editDanhmuc($id_dm, $ten_dm, $phan_loai)
+function updateDanhmuc($id_dm, $ten_dm, $phan_loai)
 {
   $sql = " UPDATE danh_muc SET ten_dm='$ten_dm', phan_loai='$phan_loai' WHERE id_dm = '$id_dm' ";
   pdo_execute($sql);
