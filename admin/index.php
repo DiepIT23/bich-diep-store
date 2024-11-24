@@ -31,17 +31,17 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             if (isset($_GET["id_dm"]) && $_GET["id_dm"] > 0) {
                 $dm = loadone_danhmuc($_GET["id_dm"]);
             }
-            include "./danh-muc/edit.php";
+            include "./danh-muc/update.php";
             break;
         case 'update-danhmuc':
-            if (isset($_POST["capnhat"]) && $_POST["capnhat"]) {
+       
+            if (isset($_POST["sua"]) ) {
                 $ten_dm = $_POST["ten_dm"];
-                $id_dm = $_POST["id_dm"];
                 $phan_loai = $_POST["phan_loai"];
-
-                editDanhmuc($id_dm, $ten_dm, $phan_loai);
+                $id_dm = $_POST["id_dm"];
+                updateDanhmuc($id_dm, $ten_dm, $phan_loai);
                 $thongbao = "Cập nhật thành công";
-                exit;
+                
             }
             $listdanhmuc = loadall_danhmuc();
             include "./danh-muc/list.php";
