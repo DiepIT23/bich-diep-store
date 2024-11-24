@@ -37,8 +37,10 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $ten_dm = $_POST["ten_dm"];
                 $id_dm = $_POST["id_dm"];
                 $phan_loai = $_POST["phan_loai"];
+
                 editDanhmuc($id_dm, $ten_dm, $phan_loai);
                 $thongbao = "Cập nhật thành công";
+                exit;
             }
             $listdanhmuc = loadall_danhmuc();
             include "./danh-muc/list.php";
