@@ -33,6 +33,20 @@
         background-color: #dcdcdc;
         height: 300px;
     }
+
+    .product-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    .cart-summary {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+    }
 </style>
 
 <body>
@@ -96,7 +110,7 @@
                         <a href="<?= $ROOT_URL ?>/?act=lienhe" class="text-dark">Liên hệ</a>
                     </div>
                     <div class="right">
-                        <a href="#" class="text-dark">
+                        <a href="<?= $ROOT_URL ?>/?act=giohang" class="text-dark">
                             <div class="cart right-icon">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <div class="roboto-mini">Giỏ hàng</div>

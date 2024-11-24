@@ -7,21 +7,26 @@ function insertSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_g
 
 function delete_sanpham($id_sp)
 {
-  $sql = "DELETE FROM san_pham WHERE id_dm=" . $id_dm;
+  $sql = "DELETE FROM san_pham WHERE id_sp=" . $id_sp;
   pdo_execute($sql);
 }
 
-function loadall_sanpham($kewword = " ", $id_dm = 0)
+function loadall_sanpham($kewword = "", $id_dm = 0)
 {
   $sql = "SELECT * FROM san_pham WHERE 1";
+  $params = [];
+
   if ($kewword != "") {
-    $sql .= " and ten_sp like '%" . $kewword . "%'";
+    $sql .= " AND ten_sp LIKE ?";
+    $params[] = "%" . $kewword . "%"; // Thêm tham số tìm kiếm
   }
   if ($id_dm > 0) {
-    $sql .= " and id_dm ='" . $id_dm . "'";
+    $sql .= " AND id_dm = ?";
+    $params[] = $id_dm; // Thêm tham số danh mục
   }
-  $sql .= " ORDER BY id_dm desc";
-  $list_sp = pdo_query($sql);
+
+  $sql .= " ORDER BY id_dm DESC";
+  $list_sp = pdo_query($sql, ...$params); // Truyền tham số an toàn vào PDO
   return $list_sp;
 }
 function loadall_sanpham_home()

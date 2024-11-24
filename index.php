@@ -1,6 +1,8 @@
 <?php
 require_once "global.php";
+include_once "models/pdo.php";
 include_once "views/header.php";
+include_once "models/Sanpham.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
@@ -15,10 +17,19 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once "views/Quan/index.php";
             break;
         case 'ds-sp':
+            // Lấy từ khóa tìm kiếm 
+            $searchQuery = isset($_GET['q']) ? trim($_GET['q']) : '';
+            $products = [];
             include_once "views/ds-sp.php";
             break;
         case 'sp-chitiet':
             include_once "views/spchitiet.php";
+            break;
+        case 'thanhtoan':
+            include_once 'views/thanhtoan.php';
+            break;
+        case 'giohang':
+            include_once "views/giohang.php";
             break;
 
             // ======================= CONTROLLER TÀI KHOẢN ======================= //
