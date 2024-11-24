@@ -22,13 +22,13 @@
                         </thead>
                         <tbody>
                             <?php
-                        
-                                foreach ($listdanhmuc as $danhmuc) {
-                                    extract($danhmuc);
-                                    $suadm = "index.php?act=sua-danhmuc&id_dm=" . $id_dm;
-                                    $xoadm = "index.php?act=xoa-danhmuc&id_dm=" . $id_dm;
+                            $stt = 1;
+                            foreach ($listdanhmuc as $danhmuc) {
+                                extract($danhmuc);
+                                $suadm = $ADMIN_URL . "/?act=sua-danhmuc&id_dm=" . $id_dm;
+                                $xoadm = $ADMIN_URL . "/?act=xoa-danhmuc&id_dm=" . $id_dm;
 
-                                    echo '<tr class="text-center align-middle">
+                                echo '<tr class="text-center align-middle">
                                         <td>' . $stt++ . '</td>
                                         <td><input type="checkbox" name="select[]" value="' . $id_dm . '"></td>
                                         <td>' . $id_dm . '</td>
@@ -39,8 +39,8 @@
                                             <a href="' . $xoadm . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\')">Xóa</a>
                                         </td>
                                     </tr>';
-                                }
-                           
+                            }
+
                             ?>
                         </tbody>
                     </table>
@@ -50,9 +50,10 @@
                 <div class="card-footer text-center">
                     <form method="post" action="">
                         <button type="button" class="btn btn-primary btn-sm mr-2" id="select-all">Chọn tất cả</button>
-                        <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselect-all">Bỏ chọn tất cả</button>
-                        <a href="index.php?act=them-danhmuc" class="btn btn-success btn-sm">Thêm Mới</a>
-                       
+                        <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselect-all">Bỏ chọn tất
+                            cả</button>
+                        <a href="<?= $ADMIN_URL ?>/?act=them-danhmuc" class="btn btn-success btn-sm">Thêm Mới</a>
+
                     </form>
                 </div>
             </div>
@@ -63,11 +64,11 @@
 <!-- JavaScript -->
 <script>
     // JavaScript cho nút chọn tất cả và bỏ chọn
-    document.getElementById('select-all').addEventListener('click', function () {
+    document.getElementById('select-all').addEventListener('click', function() {
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = true);
     });
 
-    document.getElementById('deselect-all').addEventListener('click', function () {
+    document.getElementById('deselect-all').addEventListener('click', function() {
         document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
     });
 </script>

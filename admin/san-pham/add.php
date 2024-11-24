@@ -1,27 +1,14 @@
     <!-- thêm mới -->
     <div class="container">
-        
+
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <div class="card">
                     <div class="card-header">
                         THÊM MỚI SẢN PHẨM
-                        
+
                     </div>
                     <form action="index.php?act=them-sanpham" class="p-4" method="POST" enctype="multipart/form-data">
-                    <label>Danh mục</label>
-                <select name="id_dm" >
-                    <?php
-                        foreach($lisdanhmuc as $dm){
-                            extract($dm);
-                            echo "<option value =$id_dm>$ten_dm>$phan_loai</option>";
-                        }
-                    ?>
-                </select>
-                <div class="form-group">
-                            <label for="exampleInputEmail1">ID</label>
-                            <input type="text" class="form-control" name="id_sp" required>
-                        </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên sản phẩm</label>
                             <input type="text" class="form-control" name="ten_sp" required>
@@ -31,14 +18,14 @@
                             <input type="text" class="form-control" name="don_gia" required>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Giảm giá</label>
-                            <input type="checkbox" class="form-control" name="giam_gia">
+                            <label for="exampleInputEmail1">Đặc biệt</label>
+                            <input type="checkbox" name="dac_biet" id="dac-biet">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Đặc biệt</label>
-                            <input type="text" class="form-control" name="dac_biet" disabled>
+                            <label for="exampleInputEmail1">Giảm giá</label>
+                            <input type="number" class="form-control" name="giam_gia" id="giam-gia" disabled>
                         </div>
-          
+
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ngày nhập</label>
                             <input type="date" class="form-control" name="ngay_nhap" required>
@@ -53,22 +40,21 @@
                                 <option value="0">--Chọn danh mục--</option>
                                 <?php
                                 foreach ($listdanhmuc as $danhmuc) {
+                                    extract($danhmuc)
                                 ?>
-                                <option value="<?php echo $danhmuc->id_dm 
-                                                    ?>"><?php echo $danhmuc->ten_dm 
-                                                        ?> 
+                                <option value="<?php echo $id_dm ?>">
+                                    <?php echo $ten_dm ?>
                                 </option>
                                 <?php
-                                 }
+                                }
                                 ?>
                             </select>
                         </div>
-                        <button type="submit" name="themmoi" class="btn btn-primary mr20">Thêm mới</button>
-                        <button type="reset" class="btn btn-secondary mr20">Nhập lại</button>
-                        <a href="index.php/?act=listsp"><button type="button"
-                        class="btn btn-success mr20">Danh
+                        <button type="submit" name="themmoi" class="btn btn-primary">Thêm mới</button>
+                        <button type="reset" class="btn btn-secondary ">Nhập lại</button>
+                        <a href="index.php/?act=list-sanpham"><button type="button" class="btn btn-success ">Danh
                                 sách</button></a>
-                      </form>
+                    </form>
                 </div>
             </div>
         </div>
