@@ -5,6 +5,7 @@ include_once "../models/pdo.php";
 include_once "../models/Sanpham.php";
 include_once "../models/Binhluan.php";
 include_once "../models/Danhmuc.php";
+include_once "../models/Donhang.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== "") {
     $act = $_GET['act'];
@@ -85,7 +86,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                         $id_dm = 0;
                     }
                     $listdanhmuc = loadall_danhmuc();
-                    $listsanpham = loadall_sanpham($kewword, $iddm);
+                    $listsanpham = loadall_sanpham($kewword, $id_dm);
                     include "./san-pham/list.php";
                     break;
                 case 'xoa-sanpham':
@@ -101,7 +102,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                         $san_pham = loadone_sanpham($_GET['id_sp']);
                     }
                     $listdanhmuc = loadall_danhmuc();
-                    include "./san_pham/edit.php";
+                    include "./san-pham/edit.php";
                     break;
                 case 'update-sanpham':
                     if (isset($_POST["capnhat_sp"]) && $_POST["capnhat_sp"]) {
@@ -123,7 +124,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                     }
                     $listdanhmuc = loadall_danhmuc();
                     $listsanpham = loadall_sanpham("",0);
-                    include "./san_pham/list.php";
+                    include "./san-pham/list.php";
                     break;
 
                      //==================== CONTROLLER BÌNH LUẬN ========================//
@@ -139,6 +140,11 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                         $listbinhluan = loadbl_binhluan(0);
                         include "./binh-luan/list.php";
                     break;  
+
+                    // ===================== CONTROLLER ĐƠN HÀNG ===================== //
+                    case 'list-donhang':
+                        $listdonhang = loadDonhang(0);
+                        include "./don-hang/list.php";
 
         default:
             include "home.php";
