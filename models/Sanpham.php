@@ -1,7 +1,7 @@
 <?php
-function insertSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
+function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
 {
-  $sql = " INSERT INTO san_pham(id_sp,ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$id_sp', '$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
+  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
   pdo_execute($sql);
 }
 
