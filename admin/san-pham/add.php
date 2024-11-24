@@ -9,15 +9,6 @@
 
                     </div>
                     <form action="index.php?act=them-sanpham" class="p-4" method="POST" enctype="multipart/form-data">
-                        <label>Danh mục</label>
-                        <select name="id_dm">
-                            <?php
-                            foreach ($lisdanhmuc as $dm) {
-                                extract($dm);
-                                echo "<option value =$id_dm>$ten_dm>$phan_loai</option>";
-                            }
-                            ?>
-                        </select>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tên sản phẩm</label>
                             <input type="text" class="form-control" name="ten_sp" required>
@@ -49,11 +40,11 @@
                                 <option value="0">--Chọn danh mục--</option>
                                 <?php
                                 foreach ($listdanhmuc as $danhmuc) {
+                                    extract($danhmuc)
                                 ?>
-                                    <option value="<?php echo $danhmuc->id_dm
-                                                    ?>"><?php echo $danhmuc->ten_dm
-                                                        ?>
-                                    </option>
+                                <option value="<?php echo $id_dm ?>">
+                                    <?php echo $ten_dm ?>
+                                </option>
                                 <?php
                                 }
                                 ?>

@@ -53,22 +53,21 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
         case 'them-sanpham':
             if (isset($_POST["themmoi"]) && $_POST["themmoi"]) {
                 $id_dm = $_POST["id_dm"];
-                $id_sp = $_POST["id_sp"];
                 $ten_sp = $_POST["ten_sp"];
-                $filename = $_FILES["hinh"]["name"];
-                $target_dir = "../images/";
-                $target_file = $target_dir . basename($filename);
-                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    echo "File" . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " đã được up load.";
-                } else {
-                    echo "Lỗi up load file.";
-                }
+                // $filename = $_FILES["hinh"]["name"];
+                // $target_dir = "../images/";
+                // $target_file = $target_dir . basename($filename);
+                // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                //     echo "File" . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " đã được up load.";
+                // } else {
+                //     echo "Lỗi up load file.";
+                // }
                 $mo_ta = $_POST["mo_ta"];
                 $don_gia = $_POST["don_gia"];
                 $giam_gia = $_POST["giam_gia"];
                 $ngay_nhap = $_POST["ngay_nhap"];
 
-                insertSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
+                insertSanpham(null, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
                 $thongbao = "Thêm thành công";
             }
             $listdanhmuc = loadall_danhmuc();
