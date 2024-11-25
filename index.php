@@ -6,6 +6,7 @@ include_once "models/pdo.php";
 include_once "views/header.php";
 include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
+include_once "models/taikhoan.php";
 
 // Hiển thị danh mục 
 $list_dm = loadall_danhmuc();
@@ -48,7 +49,8 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $checkuser = check_user($ten_dang_nhap, $mat_khau);
                 if (is_array($checkuser)) {
                     $_SESSION["ten_dang_nhap"] = $checkuser;
-                    header("location:index.php");
+                    print_r($checkuser);
+                    header("location:$ROOT_URL/");
                     exit;
                 } else {
                     $thongbao = "Tài khoản không tồn tại , vui lòng kiểm tra hoặc đăng ký !";
@@ -66,10 +68,16 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 // $hinh_anh = $_POST["hinh_anh"];
                 $dia_chi = $_POST["dia_chi"];
                 $sdt = $_POST["sdt"];
-                insert_taikhoan($ten_user, $email, $ten_dang_nhap, $mat_khau,  $dia_chi, $sdt);
+                insert_taikhoan($ten_user, $email, $ten_dang_nhap, $mat_khau, $dia_chi, $sdt);
                 $thongbao = "Đăng ký thành công . Vui lòng đăng nhập để bình luận hoặc mua hàng";
             }
             include_once "views/taikhoan/dang-ky.php";
+            break;
+        case "thoat":
+            if (isset($_SESSION['ten_dang_nhap'])) {
+                unset($_SESSION['ten_dang_nhap']);
+                header("location:$ROOT_URL/");
+            }
             break;
         case 'edit-tk':
             include_once "views/taikhoan/edit-tk.php";
