@@ -1,8 +1,12 @@
 <?php
 require_once "global.php";
 include_once "models/pdo.php";
-include_once "views/header.php";
 include_once "models/Sanpham.php";
+include_once "models/Danhmuc.php";
+
+// Hiển thị danh mục 
+$list_dm = loadall_danhmuc();
+include_once "views/header.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
