@@ -17,8 +17,8 @@ if (is_array($san_pham)) {
                     <div class="card-header">
                         CHỈNH SỬA SẢN PHẨM
                     </div>
-                    <form action="index.php?act=sua-sanpham" class="p-4" method="post" enctype="multipart/form-data">
-                    <div class="row2 mb10 form_content_container">
+                    <form action="index.php?act=update-sanpham" class="p-4" method="post" enctype="multipart/form-data">
+                    <!-- <div class="row2 mb10 form_content_container">
                 <select name="iddm">
                     <option value="0">Tất cả</option>
                     <?php
@@ -28,7 +28,12 @@ if (is_array($san_pham)) {
                     }
                     ?>
                 </select>
-            </div>
+            </div> --> <div class="form-group">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id_sp" value="<?php echo $san_pham['id_sp'] ?>">
+                        </div>
+           
                         <div class="form-group">
                             <label>Tên sản phẩm</label>
                             <input type="text" class="form-control" name="ten_sp" value="<?php echo $san_pham['ten_sp'] ?>">
@@ -37,10 +42,10 @@ if (is_array($san_pham)) {
                             <label>Đơn giá</label>
                             <input type="text" class="form-control" name="don_gia" value="<?php echo $san_pham['don_gia']  ?>">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Giảm giá</label>
                             <input type="text" class="form-control" name="giam_gia" value="<?php echo $san_pham['giam_gia'] ?>">
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group">
                             <label>Hình ảnh</label>
                             <input type="file" class="form-control" name="hinh_anh">
@@ -55,43 +60,30 @@ if (is_array($san_pham)) {
                             <label>Mô tả</label>
                             <textarea name="mo_ta" id="myTextarea" class="form-control"><?php echo $san_pham['mo_ta'] ?></textarea>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Đặc biệt</label>
-                            <input type="text" class="form-control" name="dac_biet" value="<?php echo $san_pham['dac_biet']  ?>">
-                        </div>
+                            <input type="text" class="form-control" name="dac_biet" value="">
+                        </div> -->
                         <div class="form-group">
                             <label>Danh mục</label>
                             <select name="id_dm" class="form-control">
+                                <option value="0">--Chọn danh mục--</option>
                                 <?php
                                 foreach ($listdanhmuc as $danhmuc) {
-                                    if ($listdanhmuc->id_dm == $id_dm->id_dm) {
-                                
+                                    extract($danhmuc)
                                 ?>
-                                <option selected value="<?php echo $listdanhmuc->id_dm ?>">
-                                    <?php echo $listdanhmuc->ten_dm 
-                                    ?>
-                                     <?php echo $listdanhmuc->phan_loai 
-                                    ?>
-                                    
-
+                                <option value="<?php echo $id_dm ?>">
+                                    <?php echo $ten_dm ?>
                                 </option>
                                 <?php
-                                } else {
+                                }
                                 ?>
-                                <option value="<?php echo $listdanhmuc->id_dm 
-                                                ?>"><?php echo $listdanhmuc->ten_dm 
-                                                    ?>
-                                                    <?php echo $listdanhmuc->phan_loai
-                                                    ?>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
+                                
                             </select>
                         </div>
-                        <button type="submit" name="btn_submit" class="btn btn-primary mr20">Sửa</button>
+                        <button type="submit" name="capnhat_sp" class="btn btn-primary mr20">Sửa</button>
                         <button type="reset" class="btn btn-secondary mr20">Nhập lại</button>
-                        <a href="index.php/?act=listsp"><button type="button"
+                        <a href="index.php/?act=list-sanpham"><button type="button"
                         class="btn btn-success mr20">Danh
                                 sách</button></a>
                     </form>
