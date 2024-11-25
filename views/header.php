@@ -125,12 +125,19 @@
                             <div class="">
                                 <a class="roboto-mini cart right-icon" style="cursor: pointer;" id="triggerId"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="<?= $hinh_anh ?>" width="20px" class="rounded-5">
+                                    <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg" width="20px" class="rounded-5">
                                     <div class="roboto-mini"><?= $ten_user ?></div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
                                     <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=edit-tk">Thông tin của bạn</a>
                                     <a class="dropdown-item" href="#">Lịch sử mua hàng</a>
+                                    <?php
+                                    if ($vai_tro == 1) {
+                                    ?>
+                                        <a class="dropdown-item" href="<?= $ADMIN_URL ?>/">Vào trang quản trị</a>
+                                    <?php
+                                    }
+                                    ?>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=thoat">Thoát</a>
                                 </div>

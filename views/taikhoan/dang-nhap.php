@@ -19,6 +19,9 @@
                 </div>
                 <button name="dangnhap" class="btn btn-primary w-100">Đăng nhập</button>
             </form>
+            <li class="form_li"><a href="index.php?act=quenmk">Quên mật khẩu</a></li>
+            <li class="form_li"><a href="index.php?act=dangky">Đăng kí thành viên</a></li>
+
         </div>
     </div>
 </main>
