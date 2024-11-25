@@ -131,6 +131,13 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
                                     <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=edit-tk">Thông tin của bạn</a>
                                     <a class="dropdown-item" href="#">Lịch sử mua hàng</a>
+                                    <?php
+                                    if ($vai_tro == 1) {
+                                    ?>
+                                        <a class="dropdown-item" href="<?= $ADMIN_URL ?>/">Vào trang quản trị</a>
+                                    <?php
+                                    }
+                                    ?>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=thoat">Thoát</a>
                                 </div>

@@ -99,14 +99,14 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $id_sp = $_POST["id_sp"];
                 $id_dm = $_POST["id_dm"];
                 $ten_sp = $_POST["ten_sp"];
-                $filename = $_FILES["hinh"]["name"];
-                $target_dir = "../uploads/";
-                $target_file = $target_dir . basename($filename);
-                if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    //echo "File" . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " đã được up load.";
-                } else {
-                    //echo "Lỗi up load file.";
-                }
+                // $filename = $_FILES["hinh"]["name"];
+                // $target_dir = "../uploads/";
+                // $target_file = $target_dir . basename($filename);
+                // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                //     //echo "File" . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " đã được up load.";
+                // } else {
+                //     //echo "Lỗi up load file.";
+                // }
                 $mo_ta = $_POST["mo_ta"];
                 $don_gia = $_POST["don_gia"];
                 editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
