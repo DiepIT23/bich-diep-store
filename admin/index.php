@@ -136,6 +136,12 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include "./binh-luan/list.php";
             break;
 
+                    //==================== CONTROLLER TÀI KHOẢN ========================//
+                    case 'list-tk':
+                        $listaikhoan = loadall_taikhoan();
+                        include "./tai-khoan/list.php";
+                    break;
+
                     // ===================== CONTROLLER ĐƠN HÀNG ===================== //
                     case 'list-donhang':
                         $listdonhang = loadDonhang(0);

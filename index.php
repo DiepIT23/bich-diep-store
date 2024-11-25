@@ -3,6 +3,7 @@ require_once "global.php";
 include_once "models/pdo.php";
 include_once "views/header.php";
 include_once "models/Sanpham.php";
+include_once "views/taikhoan.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
@@ -46,6 +47,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
         case 'quenmk':
             include_once "views/taikhoan/quenmk.php";
             break;
+       
 
 
 

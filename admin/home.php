@@ -31,7 +31,7 @@
             <img src="<?= $IMAGES_URL ?>/admin-donhang.png" height="100px">
             <h4>Đơn hàng</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=tai-khoan" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=list-tk" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-nhanvien.png" height="100px">
             <h4>Tài khoản</h4>
         </a>
