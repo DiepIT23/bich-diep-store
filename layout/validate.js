@@ -11,48 +11,64 @@ function validateLogin() {
       return;
   }
 
-  alert('Đăng nhập thành công!');
+
 }
-  function validateForm() {
-    const username = document.getElementById('username').value.trim();
+function validateForm() {
+    const tenUser = document.getElementById('username').value.trim();
+    const tenDangNhap = document.getElementById('firstname').value.trim();
     const password = document.getElementById('password').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const firstname = document.getElementById('firstname').value.trim();
-    const lastname = document.getElementById('lastname').value.trim();
-    const birthdate = document.getElementById('birthdate').value;
+    const diaChi = document.getElementById('address').value.trim();
+    const hinhAnh = document.getElementById('uploadImage').value;
 
-    if (!username) {
-        alert('Vui lòng nhập tên đăng nhập!');
-        return;
+    // Kiểm tra tên đầy đủ
+    if (tenUser.length < 3) {
+        alert('Vui lòng nhập họ và tên (tối thiểu 3 ký tự)!');
+        return false;
     }
-    if (!password) {
-        alert('Vui lòng nhập mật khẩu!');
-        return;
+
+    // Kiểm tra tên đăng nhập
+    if (tenDangNhap.length < 3) {
+        alert('Vui lòng nhập tên đăng nhập (tối thiểu 3 ký tự)!');
+        return false;
     }
-    if (!email || !email.includes('@')) {
+
+    // Kiểm tra mật khẩu
+    if (password.length < 6) {
+        alert('Mật khẩu phải có ít nhất 6 ký tự!');
+        return false;
+    }
+
+    // Kiểm tra email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
         alert('Vui lòng nhập email hợp lệ!');
-        return;
-    }
-    if (!phone || isNaN(phone)) {
-        alert('Vui lòng nhập số điện thoại hợp lệ!');
-        return;
-    }
-    if (!firstname) {
-        alert('Vui lòng nhập tên!');
-        return;
-    }
-    if (!lastname) {
-        alert('Vui lòng nhập họ!');
-        return;
-    }
-    if (!birthdate) {
-        alert('Vui lòng nhập ngày sinh!');
-        return;
+        return false;
     }
 
-    alert('Đăng ký thành công!');
+    // Kiểm tra số điện thoại
+    const phoneRegex = /^[0-9]{10,15}$/;
+    if (!phone || !phoneRegex.test(phone)) {
+        alert('Vui lòng nhập số điện thoại hợp lệ (10-15 chữ số)!');
+        return false;
+    }
+
+    // Kiểm tra địa chỉ
+    if (diaChi.length < 5) {
+        alert('Vui lòng nhập địa chỉ đầy đủ (tối thiểu 5 ký tự)!');
+        return false;
+    }
+
+    // Kiểm tra tệp hình ảnh (không bắt buộc)
+    if (hinhAnh && !/\.(jpg|jpeg|png|gif)$/i.test(hinhAnh)) {
+        alert('Chỉ chấp nhận tệp hình ảnh với định dạng JPG, JPEG, PNG, hoặc GIF!');
+        return false;
+    }
+
+    return true;
 }
+
 // validate trang thanh toán
 document.getElementById("checkoutForm").addEventListener("submit", function (e) {
     e.preventDefault(); // Ngăn chặn form gửi đi
