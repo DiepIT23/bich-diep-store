@@ -29,10 +29,11 @@ if (is_array($san_pham)) {
                     ?>
                 </select>
             </div> --> <div class="form-group">
-            <div class="form-group">
+                        <div class="form-group">
                             <label>ID</label>
-                            <input type="text" class="form-control" name="id_sp" value="<?php echo $id_sp ?>">
+                            <input type="text" class="form-control" name="id_sp" value="<?php echo $san_pham['id_sp'] ?>">
                         </div>
+           
                         <div class="form-group">
                             <label>Tên sản phẩm</label>
                             <input type="text" class="form-control" name="ten_sp" value="<?php echo $san_pham['ten_sp'] ?>">
@@ -61,7 +62,7 @@ if (is_array($san_pham)) {
                         </div>
                         <!-- <div class="form-group">
                             <label>Đặc biệt</label>
-                            <input type="text" class="form-control" name="dac_biet" value="<?php echo $san_pham['dac_biet']  ?>">
+                            <input type="text" class="form-control" name="dac_biet" value="">
                         </div> -->
                         <div class="form-group">
                             <label>Danh mục</label>

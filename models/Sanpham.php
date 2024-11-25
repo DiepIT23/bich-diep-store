@@ -1,8 +1,8 @@
 <?php
 
-function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
+function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $mo_ta,  $id_dm)
 {
-  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
+  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,mo_ta,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$mo_ta','$id_dm')";
   pdo_execute($sql);
 
 }
@@ -49,9 +49,9 @@ function loadall_sanpham_gia()
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
-function loadone_sanpham($id_dm)
+function loadone_sanpham($id_sp)
 {
-  $sql = "SELECT * FROM san_pham WHERE id_dm='$id_dm'";
+  $sql = "SELECT * FROM san_pham WHERE id_sp='$id_sp'";
   $san_pham = pdo_query_one($sql);
   return $san_pham;
 }

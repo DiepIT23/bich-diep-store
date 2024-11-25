@@ -59,10 +59,11 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $ten_sp = $_POST["ten_sp"];
                 $mo_ta = $_POST["mo_ta"];
                 $don_gia = $_POST["don_gia"];
-                $giam_gia = $_POST["giam_gia"];
-                $ngay_nhap = $_POST["ngay_nhap"];
                 
- insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm);
+                $ngay_nhap = $_POST["ngay_nhap"];
+                $id_dm = $_POST["id_dm"];
+                
+ insertSanpham($ten_sp, $don_gia, $ngay_nhap,   $mo_ta,  $id_dm);
   $thongbao = "Thêm thành công";
 
             }
@@ -99,7 +100,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
         case 'update-sanpham':
             if (isset($_POST["capnhat_sp"]) ) {
                 $id_sp = $_POST["id_sp"];
-                
                 $ten_sp = $_POST["ten_sp"];
                 // $filename = $_FILES["hinh"]["name"];
                 // $target_dir = "../images/";
