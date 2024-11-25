@@ -1,8 +1,10 @@
 <?php
-function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
+
+function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $mo_ta,  $id_dm)
 {
-  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,dac_biet,giam_gia,mo_ta,so_luot_xem,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$dac_biet', '$giam_gia','$mo_ta','$so_luot_xem','$id_dm')";
+  $sql = " INSERT INTO san_pham(ten_sp,don_gia,ngay_nhap,mo_ta,id_dm) VALUES('$ten_sp', '$don_gia', '$ngay_nhap','$mo_ta','$id_dm')";
   pdo_execute($sql);
+
 }
 
 function delete_sanpham($id_sp)
@@ -14,20 +16,20 @@ function delete_sanpham($id_sp)
 function loadall_sanpham($kewword = "", $id_dm = 0)
 {
   $sql = "SELECT * FROM san_pham WHERE 1";
-  $params = [];
+  
 
   if ($kewword != "") {
-    $sql .= " AND ten_sp LIKE ?";
-    $params[] = "%" . $kewword . "%"; // Thêm tham số tìm kiếm
+    $sql .= " AND ten_sp LIKE '%" . $kewword . "%'";
+   
   }
   if ($id_dm > 0) {
-    $sql .= " AND id_dm = ?";
-    $params[] = $id_dm; // Thêm tham số danh mục
+    $sql .= " AND id_dm = '" . $id_dm . "'";
+   
   }
 
-  $sql .= " ORDER BY id_dm DESC";
-  $list_sp = pdo_query($sql, ...$params);
-  return $list_sp;
+  $sql .= " ORDER BY id_sp DESC";
+  $listsp = pdo_query($sql);
+  return $listsp;
 }
 function loadall_sanpham_home()
 {
@@ -47,9 +49,9 @@ function loadall_sanpham_gia()
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
-function loadone_sanpham($id_dm)
+function loadone_sanpham($id_sp)
 {
-  $sql = "SELECT * FROM san_pham WHERE id_dm='$id_dm'";
+  $sql = "SELECT * FROM san_pham WHERE id_sp='$id_sp'";
   $san_pham = pdo_query_one($sql);
   return $san_pham;
 }
@@ -70,8 +72,8 @@ function load_sanpham_cungloai($id_sp, $id_dm)
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
-function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $so_luot_xem, $id_dm)
+function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap,  $mo_ta,  $id_dm)
 {
-  $sql = " UPDATE san_pham SET ten_sp='$ten_sp', don_gia='$don_gia',ngay_nhap='$ngay_nhap', dac_biet='$dac_biet', giam_gia='$giam_gia', mo_ta='$mo_ta', so_luot_xem='$so_luot_xem',id_dm='$id_dm' WHERE id_sp = '$id_sp' ";
+  $sql = " UPDATE san_pham SET ten_sp='$ten_sp', don_gia='$don_gia',ngay_nhap='$ngay_nhap', mo_ta='$mo_ta', id_dm='$id_dm' WHERE id_sp = '$id_sp' ";
   pdo_execute($sql);
 }
