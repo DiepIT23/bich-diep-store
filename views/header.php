@@ -71,22 +71,17 @@
                                 Áo Nam
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-thun">Áo thun</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-somi">Áo sơ mi</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-polo">Áo Polo</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-quan-ni">Áo - Quần nỉ</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-blazer">Áo Blazer</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-khoac-jeans">Áo khoác jeans</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=ao-khoac-ni">Áo khoác nỉ</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=ao&ao=cardigan">Cardigan</a>
+                                <?php
+                                foreach ($list_dm as $danhmuc) {
+                                    extract($danhmuc);
+                                    if ($phan_loai == "Áo") {
+                                ?>
+                                        <a class="dropdown-item text-dark roboto-small py-3"
+                                            href="<?= $ROOT_URL ?>/?act=ao&id_dm=<?= $id_dm ?>"><?= $ten_dm ?></a>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                         <div class="dropdown">
@@ -94,16 +89,17 @@
                                 Quần Nam
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=quan&quan=quan-au">Quần âu</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=quan&quan=quan-jeans">Quần Jeans</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=quan&quan=quan-kaki">Quần Kaki</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=quan&quan=quan-jogger">Quần Jogger</a>
-                                <a class="dropdown-item text-dark roboto-small py-3"
-                                    href="<?= $ROOT_URL ?>/?act=quan&quan=quan-short">Quần Short</a>
+                                <?php
+                                foreach ($list_dm as $danhmuc) {
+                                    extract($danhmuc);
+                                    if ($phan_loai == "Quần") {
+                                ?>
+                                        <a class="dropdown-item text-dark roboto-small py-3"
+                                            href="<?= $ROOT_URL ?>/?act=quan&id_dm=<?= $id_dm ?>"><?= $ten_dm ?></a>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                         <a href="<?= $ROOT_URL ?>/?act=gioithieu" class="text-dark">Về chúng tôi</a>
@@ -122,12 +118,35 @@
                                 <div class="roboto-mini">Thông báo</div>
                             </div>
                         </a>
-                        <a href="<?= $ROOT_URL ?>/?act=dangnhap" class="text-dark">
-                            <div class="cart right-icon">
-                                <i class="fa-solid fa-user"></i>
-                                <pdiv class="roboto-mini">Đăng nhập</pdiv>
+                        <?php
+                        if (isset($_SESSION['ten_dang_nhap'])) {
+                            extract($_SESSION['ten_dang_nhap'])
+                        ?>
+                            <div class="">
+                                <a class="roboto-mini cart right-icon" style="cursor: pointer;" id="triggerId"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="<?= $hinh_anh ?>" width="20px" class="rounded-5">
+                                    <div class="roboto-mini"><?= $ten_user ?></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
+                                    <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=edit-tk">Thông tin của bạn</a>
+                                    <a class="dropdown-item" href="#">Lịch sử mua hàng</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=thoat">Thoát</a>
+                                </div>
                             </div>
-                        </a>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="<?= $ROOT_URL ?>/?act=dangnhap" class="text-dark">
+                                <div class="cart right-icon">
+                                    <i class="fa-solid fa-user"></i>
+                                    <pdiv class="roboto-mini">Đăng nhập</pdiv>
+                                </div>
+                            </a>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
