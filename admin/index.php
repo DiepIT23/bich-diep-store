@@ -146,6 +146,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                     case 'list-donhang':
                         $listdonhang = loadDonhang(0);
                         include "./don-hang/list.php";
+                        break;
 
         default:
             include "home.php";

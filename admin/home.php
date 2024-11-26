@@ -23,11 +23,11 @@
             <img src="<?= $IMAGES_URL ?>/danh-muc-icon 1.png" height="100px">
             <h4>Danh mục</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=list_bl" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=list-bl" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-binhluan.png" height="100px">
             <h4>Bình luận</h4>
         </a>
-        <a href="<?= $ADMIN_URL ?>/?act=don-hang" class="col-lg-4 d-flex flex-column align-items-center text-dark">
+        <a href="<?= $ADMIN_URL ?>/?act=list-donhang" class="col-lg-4 d-flex flex-column align-items-center text-dark">
             <img src="<?= $IMAGES_URL ?>/admin-donhang.png" height="100px">
             <h4>Đơn hàng</h4>
         </a>
