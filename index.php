@@ -3,7 +3,6 @@ session_start();
 ob_start();
 require_once "global.php";
 include_once "models/pdo.php";
-include_once "views/header.php";
 include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
 include_once "models/taikhoan.php";
@@ -95,8 +94,8 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 
                 update_taikhoan($id_user, $ten_user, $email, $ten_dang_nhap, $mat_khau, $hinh_anh, $dia_chi, $sdt);
                 $_SESSION["ten_dang_nhap"] =  check_user($ten_dang_nhap, $mat_khau);
-                    header("location:$ROOT_URL/");
-                    exit;
+                header("location:$ROOT_URL/");
+                exit;
             }
             include_once "views/taikhoan/edit-tk.php";
             break;
