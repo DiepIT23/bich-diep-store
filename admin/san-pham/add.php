@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Giảm giá</label>
-                            <input type="number" class="form-control" name="giam_gia" id="giam-gia" disabled>
+                            <input type="number" class="form-control" name="giam_gia" id="giam-gia">
                         </div>
                         <div class="form-group">
                             <label for="">Hình ảnh</label>

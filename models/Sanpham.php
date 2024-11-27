@@ -1,7 +1,7 @@
 <?php
-function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm)
+function insertSanpham($ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm)
 {
-  $sql = "INSERT INTO `san_pham`(`ten_sp`, `don_gia`, `ngay_nhap`, `dac_biet`, `giam_gia`, `mo_ta`, `id_dm`) VALUES ( '$ten_sp', '$don_gia', '$ngay_nhap', '$dac_biet', '$giam_gia', '$mo_ta', '$id_dm')";
+  $sql = "INSERT INTO `san_pham`(`ten_sp`, `don_gia`, `ngay_nhap`, `giam_gia`, `mo_ta`, `id_dm`) VALUES ( '$ten_sp', '$don_gia', '$ngay_nhap', '$giam_gia', '$mo_ta', '$id_dm')";
   $id_sp = pdo_execute_insert($sql);
   return $id_sp;
 }
@@ -69,9 +69,9 @@ function load_sanpham_cungloai($id_sp, $id_dm)
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
-function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm)
+function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm)
 {
-  $sql = "UPDATE `san_pham` SET `ten_sp`='$ten_sp',`don_gia`='$don_gia',`ngay_nhap`='$ngay_nhap',`dac_biet`='$dac_biet',`giam_gia`='$giam_gia',`mo_ta`='$mo_ta',`id_dm`='$id_dm' WHERE `id_sp`='$id_sp'";
+  $sql = "UPDATE `san_pham` SET `ten_sp`='$ten_sp',`don_gia`='$don_gia',`ngay_nhap`='$ngay_nhap',`giam_gia`='$giam_gia',`mo_ta`='$mo_ta',`id_dm`='$id_dm' WHERE `id_sp`='$id_sp'";
   pdo_execute($sql);
 }
 function insertAnh($id_sp, $url_anh, $ngay_dang)
