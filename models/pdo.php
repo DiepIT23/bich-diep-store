@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Mở kết nối đến CSDL sử dụng PDO
  */
-function pdo_get_connection() {
+function pdo_get_connection()
+{
     $dburl = "mysql:host=localhost;dbname=bich_diep_store;charset=utf8";
     $username = 'root';
     $password = '';
@@ -21,16 +23,36 @@ function pdo_get_connection() {
  * @param string $sql Câu lệnh SQL
  * @param array $args Mảng giá trị cho các tham số
  */
-function pdo_execute($sql, ...$args) {
+function pdo_execute($sql, ...$args)
+{
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
         $stmt->execute($args);
+
+        return $conn->lastInsertId();
     } catch (PDOException $e) {
         throw $e;
     } finally {
         unset($conn);
     }
+}
+
+function pdo_execute_insert($sql, ...$args)
+{
+    $id = null;
+    try {
+        $conn = pdo_get_connection();
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($args);
+
+        $id =  $conn->lastInsertId();
+    } catch (PDOException $e) {
+        throw $e;
+    } finally {
+        unset($conn);
+    }
+    return $id;
 }
 
 /**
@@ -39,7 +61,8 @@ function pdo_execute($sql, ...$args) {
  * @param array $args Mảng giá trị cho các tham số
  * @return array Mảng các bản ghi
  */
-function pdo_query($sql, ...$args) {
+function pdo_query($sql, ...$args)
+{
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
@@ -58,7 +81,8 @@ function pdo_query($sql, ...$args) {
  * @param array $args Mảng giá trị cho các tham số
  * @return array|null Bản ghi hoặc null nếu không tồn tại
  */
-function pdo_query_one($sql, ...$args) {
+function pdo_query_one($sql, ...$args)
+{
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);
@@ -78,7 +102,8 @@ function pdo_query_one($sql, ...$args) {
  * @param array $args Mảng giá trị cho các tham số
  * @return mixed Giá trị của trường đầu tiên hoặc null nếu không tồn tại
  */
-function pdo_query_value($sql, ...$args) {
+function pdo_query_value($sql, ...$args)
+{
     try {
         $conn = pdo_get_connection();
         $stmt = $conn->prepare($sql);

@@ -56,14 +56,28 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
         case 'them-sanpham':
             if (isset($_POST["themmoi"])) {
                 $ten_sp = $_POST["ten_sp"];
-                $mo_ta = $_POST["mo_ta"];
                 $don_gia = $_POST["don_gia"];
-                
+                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
+                $mo_ta = $_POST['mo_ta'] ?: null;
+                $giam_gia = $_POST['giam_gia'] ?: 0;
                 $ngay_nhap = $_POST["ngay_nhap"];
                 $id_dm = $_POST["id_dm"];
-                
- insertSanpham($ten_sp, $don_gia, $ngay_nhap,   $mo_ta,  $id_dm);
-  $thongbao = "Thêm thành công";
+                $id_sp = insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm);
+
+                // Thêm ảnh sản phẩm
+
+                $img_dir = "../images/";
+
+                foreach ($_FILES['hinh_anh']['name'] as $key => $image) {
+                    $fileTmpPath = $_FILES['hinh_anh']['tmp_name'][$key];
+                    $fileName = time() . "_" . basename($image);
+                    $targetFile = $img_dir . $fileName;
+
+                    if (move_uploaded_file($fileTmpPath, $targetFile)) {
+                        insertAnh($id_sp, $fileName, $ngay_nhap);
+                    }
+                }
+                $thongbao = "Thêm thành công";
             }
             $listdanhmuc = loadall_danhmuc();
             include "./san-pham/add.php";
@@ -78,6 +92,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             }
             $listdanhmuc = loadall_danhmuc();
             $listsanpham = loadall_sanpham($kewword, $id_dm);
+            $list_sp = loadOneAnh();
             include "./san-pham/list.php";
             break;
         case 'xoa-sanpham':
@@ -91,39 +106,47 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
         case 'sua-sanpham':
             if (isset($_GET['id_sp']) && $_GET['id_sp'] > 0) {
                 $san_pham = loadone_sanpham($_GET['id_sp']);
+                $listAnh = listAnh($_GET['id_sp']);
             }
             $listdanhmuc = loadall_danhmuc();
             include "./san-pham/edit.php";
             break;
         case 'update-sanpham':
-            if (isset($_POST["capnhat_sp"]) ) {
-                $id_sp = $_POST["id_sp"];
+            if (isset($_POST["capnhat_sp"])) {
+                $id_sp = $_POST['id_sp'];
                 $ten_sp = $_POST["ten_sp"];
-                // $filename = $_FILES["hinh"]["name"];
-<<<<<<< HEAD
-                // $target_dir = "../uploads/";
-=======
-                // $target_dir = "../images/";
->>>>>>> 3160708e0b0a7dd3a5c63f693caac575bdce47da
-                // $target_file = $target_dir . basename($filename);
-                // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                //     //echo "File" . htmlspecialchars(basename($_FILES["hinh"]["name"])) . " đã được up load.";
-                // } else {
-                //     //echo "Lỗi up load file.";
-                // }
-<<<<<<< HEAD
-                $mo_ta = $_POST["mo_ta"];
-=======
->>>>>>> 3160708e0b0a7dd3a5c63f693caac575bdce47da
                 $don_gia = $_POST["don_gia"];
-                $ngay_nhap= $_POST["ngay_nhap"];
-                $mo_ta = $_POST["mo_ta"];
+                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
+                $mo_ta = $_POST['mo_ta'] ?: null;
+                $giam_gia = $_POST['giam_gia'];
+                $ngay_nhap = $_POST["ngay_nhap"];
                 $id_dm = $_POST["id_dm"];
-               
-                editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $mo_ta, $id_dm);
-                $thongbao = "Cập nhật thành công";
+
+                if (isset($_FILES['hinh_anh']['name'][0]) && $_FILES['hinh_anh']['name'][0] != '') {
+                    $listAnh = listAnh($id_sp);
+                    foreach ($listAnh as $anh) {
+                        extract($anh);
+                        if (file_exists($url_anh)) {
+                            unlink($url_anh);
+                        }
+                    }
+                    deleteAnh($id_sp);
+                    $img_dir = "../images/";
+                    foreach ($_FILES['hinh_anh']['name'] as $key => $anh) {
+                        $fileTmpPath = $_FILES['hinh_anh']['tmp_name'][$key];
+                        $fileName = time() . "_" . basename($anh);
+                        $targetFile = $img_dir . $fileName;
+
+                        if (move_uploaded_file($fileTmpPath, $targetFile)) {
+                            insertAnh($id_sp, $fileName, $ngay_nhap);
+                        }
+                    }
+                }
+
+                editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm);
             }
             $listdanhmuc = loadall_danhmuc();
+            $list_sp = loadOneAnh();
             $listsanpham = loadall_sanpham("", 0);
             include "./san-pham/list.php";
             break;

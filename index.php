@@ -12,6 +12,10 @@ include_once "models/taikhoan.php";
 $list_dm = loadall_danhmuc();
 include_once "views/header.php";
 
+// Hiển thị sản phẩm 
+$list_sp = loadOneAnh();
+
+
 if (isset($_GET['act']) && $_GET['act'] !== '') {
     $act = $_GET['act'];
     switch ($act) {
