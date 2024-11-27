@@ -20,7 +20,6 @@
                     <!-- Nút Xem chi tiết -->
                     <a href="<?= $ROOT_URL ?>/?act=sp-chitiet" class="btn btn-light mb-2">Xem chi tiết</a>
 
-
                     <!-- Nút Mua hàng -->
                     <a href="<?= $ROOT_URL ?>/?act=thanhtoan&ten_sp=<?= $ten_sp ?>&don_gia=<?= $don_gia ?>&hinh_anh=<?= $hinh_anh ?>"
                         class="btn btn-dark">Mua hàng</a>
