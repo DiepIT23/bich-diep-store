@@ -57,7 +57,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             if (isset($_POST["themmoi"])) {
                 $ten_sp = $_POST["ten_sp"];
                 $don_gia = $_POST["don_gia"];
-                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
                 $mo_ta = $_POST['mo_ta'] ?: null;
                 $giam_gia = $_POST['giam_gia'] ?: 0;
                 $ngay_nhap = $_POST["ngay_nhap"];
@@ -116,7 +115,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $id_sp = $_POST['id_sp'];
                 $ten_sp = $_POST["ten_sp"];
                 $don_gia = $_POST["don_gia"];
-                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
                 $mo_ta = $_POST['mo_ta'] ?: null;
                 $giam_gia = $_POST['giam_gia'];
                 $ngay_nhap = $_POST["ngay_nhap"];
