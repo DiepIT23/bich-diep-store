@@ -2,44 +2,32 @@
     <div class="container my-5">
         <div class="row">
             <!-- Product Image Slider -->
-            <div class="col-md-6">
-                <div id="productCarousel" class="carousel slide bg-light border" data-bs-ride="carousel"
-                    style="height: 550px;">
-                    <div class="carousel-inner" style="height: 100%;">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <img src="/images/QATTK408-1-1.png" class="d-block w-100" alt="Product Image 1"
-                                style="height: 100%; object-fit: cover;">
-                        </div>
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <img src="/images/QGNTK506-1-510x510.png" class="d-block w-100" alt="Product Image 2"
-                                style="height: 100%; object-fit: cover;">
-                        </div>
-                        <!-- Slide 3 -->
-                        <div class="carousel-item">
-                            <img src="/images/QJDTK506-1-768x768.png" class="d-block w-100" alt="Product Image 3"
-                                style="height: 100%; object-fit: cover;">
-                        </div>
+            <div class="slide-show-sm col-lg-6">
+                <div class="list-images-sm">
+                    <?php
+                    extract($san_pham);
+                    $gia_ban = $don_gia - ($don_gia * $giam_gia / 100);
+                    foreach ($listAnh as $anh) {
+                        extract($anh);
+                    ?>
+                        <img src="<?= $IMAGES_URL . "/" . $url_anh ?>" class="img-sm">
+                    <?php
+                    }
+                    ?>
+                </div>
+                <div class="btns-sm">
+                    <div class="btn-left-sm btn">
+                        <i class="fa-solid fa-chevron-left fa-2x"></i>
                     </div>
-                    <!-- Carousel Controls -->
-                    <button class="carousel-control-prev custom-carousel-control" type="button"
-                        data-bs-target="#productCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next custom-carousel-control" type="button"
-                        data-bs-target="#productCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-
+                    <div class="btn-right-sm btn">
+                        <i class="fa-solid fa-chevron-right fa-2x"></i>
+                    </div>
                 </div>
             </div>
 
             <!-- Product Information -->
             <div class="col-md-6">
-                <h1 class="display-6">Tên sản phẩm</h1>
+                <h1 class="display-6"><?= $ten_sp ?></h1>
                 <div class="d-flex align-items-center mb-3">
                     <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
                     <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
@@ -47,8 +35,15 @@
                     <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
                     <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
                 </div>
-                <p class="text-danger fs-4 fw-bold">000.000.000 VND</p>
-
+                <div class="text-danger fs-4 fw-bold"><?= number_format($gia_ban, 0, ',', '.') ?> VND
+                </div>
+                <?php
+                if ($giam_gia > 0) {
+                ?>
+                    <div class="text-decoration-line-through"><?= number_format($don_gia, 0, ',', '.') ?> VND</div>
+                <?php
+                }
+                ?>
                 <!-- Color Options -->
                 <div class="mb-3">
                     <h5>Màu sắc:</h5>
@@ -107,10 +102,119 @@
             </li>
         </ul>
         <div class="tab-content border p-3" id="myTabContent">
-            <div class="tab-pane fade show active" id="description" role="tabpanel">Lorem ipsum dolor sit amet...</div>
-            <div class="tab-pane fade" id="reviews" role="tabpanel">Customer reviews go here...</div>
-            <div class="tab-pane fade" id="return-policy" role="tabpanel">Return policy details...</div>
-            <div class="tab-pane fade" id="privacy-policy" role="tabpanel">Privacy policy information...</div>
+            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                <div id="myTextarea"><?= $mo_ta ?></div>
+            </div>
+            <div class="tab-pane fade" id="reviews" role="tabpanel">
+
+            </div>
+            <div class="tab-pane fade" id="return-policy" role="tabpanel">
+                <div id="myTextarea">
+                    <h2>Chính Sách Đổi Trả - <a href="<?= $ROOT_URL ?>/"
+                            class="text-dark text-decoration-none fw-bold h2">Bich-Diep Store</a></h2>
+
+                    Tại <a href="<?= $ROOT_URL ?>/" class="text-dark text-decoration-none fw-bold">Bich-Diep Store</a>,
+                    chúng tôi cam kết mang đến sự hài lòng và trải nghiệm mua sắm tốt nhất chokhách hàng.
+                    Chính sách đổi trả của chúng tôi được xây dựng nhằm đảm bảo quyền lợi của khách hàng
+                    trong quá trình mua sắm.
+
+                    1. Điều Kiện Đổi Trả
+                    - Sản phẩm còn nguyên tem mác, không có dấu hiệu đã qua sử dụng, không giặt ủi.
+                    - Đổi trả trong vòng 7 ngày kể từ ngày nhận hàng.
+                    - Hóa đơn mua hàng hoặc biên nhận kèm theo sản phẩm khi đổi trả.
+                    - Không áp dụng đổi trả cho các sản phẩm khuyến mãi, giảm giá trên 50% hoặc quà tặng.
+
+                    2. Các Trường Hợp Được Đổi Trả
+                    - Sản phẩm lỗi từ nhà sản xuất: Rách, hỏng, đường may lỗi, hoặc màu sắc sai khác hoàn toàn so
+                    với mô tả.
+                    - Sai mẫu mã hoặc kích cỡ: Nếu sản phẩm nhận được không đúng mẫu mã, kích cỡ đã đặt.
+                    - Sản phẩm không đúng đơn hàng: Chúng tôi sẽ hỗ trợ đổi đúng sản phẩm bạn đã đặt.
+
+                    3. Quy Trình Đổi Trả
+                    - Bước 1: Liên hệ với <a href="<?= $ROOT_URL ?>/"
+                        class="text-dark text-decoration-none fw-bold">Bich-Diep Store</a> qua hotline hoặc fanpage
+                    chính thức để thông báo về sản phẩm cần đổi trả.
+                    - Bước 2: Gửi sản phẩm về địa chỉ shop kèm thông tin khách hàng và lý do đổi trả.
+                    - Bước 3: Sau khi kiểm tra và xác nhận sản phẩm hợp lệ, chúng tôi sẽ tiến hành:
+                    - Gửi sản phẩm thay thế (nếu đổi).
+                    - Hoàn tiền qua tài khoản ngân hàng hoặc phương thức thanh toán ban đầu (nếu trả).
+
+                    4. Chi Phí Đổi Trả
+                    - Lỗi từ phía shop: Chúng tôi sẽ chịu toàn bộ chi phí vận chuyển đổi trả.
+                    - Do nhu cầu cá nhân của khách hàng: Quý khách vui lòng thanh toán phí vận chuyển 2 chiều.
+
+                    5. Lưu Ý
+                    - Thời gian xử lý đổi trả: từ 3-5 ngày làm việc kể từ khi nhận được sản phẩm.
+                    - Khách hàng vui lòng kiểm tra kỹ sản phẩm trước khi ký nhận với đơn vị giao hàng để hạn chế phát
+                    sinh không đáng có.
+
+                    Mọi thắc mắc hoặc cần hỗ trợ thêm, vui lòng liên hệ:
+                    - Hotline: 01 234 567 88 | 01 234 567 89
+                    - Email: bich-diep-store@example.com
+                    - Địa chỉ: Hà Nội, HN 10000, VN
+
+                    <a href="<?= $ROOT_URL ?>/" class="text-dark text-decoration-none fw-bold">Bich-Diep Store</a>
+                    luôn sẵn sàng đồng hành cùng bạn! ❤️
+                </div>
+            </div>
+            <div class="tab-pane fade" id="privacy-policy" role="tabpanel">
+                <div id="myTextarea">
+                    <h2>Chính Sách Bảo Mật - <a href="<?= $ROOT_URL ?>/"
+                            class="text-dark text-decoration-none fw-bold h2">Bich-Diep Store</a>
+                    </h2>
+                    <a href="<?= $ROOT_URL ?>/" class="text-dark text-decoration-none fw-bold">
+                        Bich-Diep Store</a> cam kết bảo vệ quyền riêng tư và bảo mật thông tin cá nhân của khách hàng.
+                    Chính sách bảo mật dưới đây giải thích cách chúng tôi thu thập, sử dụng và bảo vệ thông tin mà bạn
+                    cung cấp.
+
+                    1. Thông Tin Thu Thập
+                    - Khi bạn mua sắm hoặc sử dụng dịch vụ tại <a href="<?= $ROOT_URL ?>/"
+                        class="text-dark text-decoration-none fw-bold">Bich-Diep Store</a>, chúng tôi có thể thu thập
+                    các thông tin sau:
+                    - Thông tin cá nhân: Họ tên, số điện thoại, địa chỉ giao hàng, email.
+                    - Thông tin giao dịch: Sản phẩm đã mua, phương thức thanh toán, và lịch sử giao dịch.
+                    - Thông tin khác: Phản hồi, đánh giá hoặc thông tin liên hệ khi bạn tương tác với đội ngũ hỗ trợ của
+                    chúng tôi.
+
+                    2. Mục Đích Sử Dụng Thông Tin
+                    - Chúng tôi sử dụng thông tin cá nhân của bạn vào các mục đích sau:
+                    - Xử lý đơn hàng và giao hàng: Đảm bảo bạn nhận được sản phẩm đúng thời gian và địa chỉ.
+                    - Chăm sóc khách hàng: Hỗ trợ giải quyết khiếu nại, trả lời thắc mắc hoặc tư vấn sản phẩm.
+                    - Tiếp thị và quảng cáo: Cung cấp thông tin về khuyến mãi, sản phẩm mới (chỉ khi bạn đồng ý nhận
+                    thông báo).
+                    - Cải thiện dịch vụ: Phân tích và nâng cao trải nghiệm mua sắm của khách hàng.
+
+                    3. Chia Sẻ Thông Tin<a href="<?= $ROOT_URL ?>/" class="text-dark text-decoration-none fw-bold">
+                        Bich-Diep Store</a> cam kết không bán, trao đổi hoặc chia sẻ thông tin của bạn với bên thứ ba,
+                    trừ các trường hợp sau:
+                    - Đối tác giao hàng: Chia sẻ địa chỉ và số điện thoại để giao sản phẩm.
+                    - Yêu cầu pháp lý: Cung cấp thông tin khi có yêu cầu từ cơ quan pháp luật hoặc tòa án.
+                    - Bên cung cấp dịch vụ: Các đối tác hỗ trợ thanh toán, bảo trì website, với điều kiện họ phải đảm
+                    bảo bảo mật thông tin tương tự chính sách của chúng tôi.
+
+                    4. Bảo Mật Thông Tin
+                    Chúng tôi sử dụng các biện pháp kỹ thuật tiên tiến để bảo vệ thông tin của bạn, bao gồm mã hóa dữ
+                    liệu và bảo mật máy chủ.
+                    Đội ngũ nhân viên chỉ truy cập thông tin khách hàng khi cần thiết để hỗ trợ hoặc xử lý đơn hàng.
+
+                    5. Quyền Lợi Của Khách Hàng
+                    - Bạn có quyền:
+                    - Kiểm tra thông tin cá nhân: Yêu cầu xem lại hoặc chỉnh sửa thông tin mà chúng tôi lưu trữ.
+                    - Hủy nhận thông báo: Nếu bạn không muốn nhận email quảng cáo, hãy liên hệ với chúng tôi hoặc nhấn
+                    - "Hủy đăng ký" trong email.
+                    - Yêu cầu xóa thông tin: Chúng tôi sẽ xóa thông tin của bạn nếu không còn cần thiết cho mục đích đã
+                    nêu.
+
+                    6. Liên Hệ Hỗ Trợ
+                    Nếu bạn có bất kỳ câu hỏi hoặc quan ngại nào về chính sách bảo mật, vui lòng liên hệ:
+                    - Hotline: 01 234 567 88 | 01 234 567 89
+                    - Email: bich-diep-store@example.com
+                    - Địa chỉ: Hà Nội, HN 10000, VN
+
+                    <a href="<?= $ROOT_URL ?>/" class="text-dark text-decoration-none fw-bold">Bich-Diep Store</a>
+                    trân trọng sự tin tưởng của bạn và cam kết bảo vệ quyền riêng tư của bạn một cách tốt nhất! ❤️
+                </div>
+            </div>
         </div>
     </div>
 
@@ -119,111 +223,36 @@
         <h2 class="my-4 mx-5 display-5">Sản phẩm liên quan</h2>
         <div class="row text-center">
             <div class="col-1"></div>
-            <div class="col-lg-2">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                        height="300px">
-                    <div class="card-body">
-                        <p class="card-title">Tên sản phẩm</p>
-                        <p class="roboto-small">$500</p>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="<?= $ROOT_URL ?>/?act=sp-chitiet">
-                            <button class="btn btn-light mb-2">Xem chi tiết</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-light mb-2">Thêm vào giỏ</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-dark">Mua hàng</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                        height="300px">
-                    <div class="card-body">
-                        <p class="card-title">Tên sản phẩm</p>
-                        <p class="roboto-small">$500</p>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="<?= $ROOT_URL ?>/?act=sp-chitiet">
-                            <button class="btn btn-light mb-2">Xem chi tiết</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-light mb-2">Thêm vào giỏ</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-dark">Mua hàng</button>
-                        </a>
+            <?php
+            foreach ($sp_cungloai as $sp) {
+                extract($sp);
+            ?>
+                <div class="col-lg-2">
+                    <div class="card product-card">
+                        <img src="<?= $IMAGES_URL . " /" . $hinh_anh ?>" class="card-img-top" alt="New Product 1"
+                            height="300px">
+                        <div class="card-body">
+                            <p class="card-title"
+                                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 25ch;">
+                                <?= $ten_sp ?></p>
+                            <p class="roboto-small"><?= number_format($gia_ban, 0, ',', '.') ?> VND</p>
+                        </div>
+                        <div class="card-overlay">
+                            <a href="<?= $ROOT_URL ?>/?act=sp-chitiet&id_sp=<?= $id_sp ?>">
+                                <button class="btn btn-light mb-2">Xem chi tiết</button>
+                            </a>
+                            <a href="">
+                                <button class="btn btn-light mb-2">Thêm vào giỏ</button>
+                            </a>
+                            <a href="">
+                                <button class="btn btn-dark">Mua hàng</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                        height="300px">
-                    <div class="card-body">
-                        <p class="card-title">Tên sản phẩm</p>
-                        <p class="roboto-small">$500</p>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="<?= $ROOT_URL ?>/?act=sp-chitiet">
-                            <button class="btn btn-light mb-2">Xem chi tiết</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-light mb-2">Thêm vào giỏ</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-dark">Mua hàng</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                        height="300px">
-                    <div class="card-body">
-                        <p class="card-title">Tên sản phẩm</p>
-                        <p class="roboto-small">$500</p>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="<?= $ROOT_URL ?>/?act=sp-chitiet">
-                            <button class="btn btn-light mb-2">Xem chi tiết</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-light mb-2">Thêm vào giỏ</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-dark">Mua hàng</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="card product-card">
-                    <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                        height="300px">
-                    <div class="card-body">
-                        <p class="card-title">Tên sản phẩm</p>
-                        <p class="roboto-small">$500</p>
-                    </div>
-                    <div class="card-overlay">
-                        <a href="<?= $ROOT_URL ?>/?act=sp-chitiet">
-                            <button class="btn btn-light mb-2">Xem chi tiết</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-light mb-2">Thêm vào giỏ</button>
-                        </a>
-                        <a href="">
-                            <button class="btn btn-dark">Mua hàng</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
             <div class="col-1"></div>
         </div>
     </div>

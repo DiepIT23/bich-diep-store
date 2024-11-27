@@ -57,12 +57,11 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             if (isset($_POST["themmoi"])) {
                 $ten_sp = $_POST["ten_sp"];
                 $don_gia = $_POST["don_gia"];
-                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
                 $mo_ta = $_POST['mo_ta'] ?: null;
                 $giam_gia = $_POST['giam_gia'] ?: 0;
                 $ngay_nhap = $_POST["ngay_nhap"];
                 $id_dm = $_POST["id_dm"];
-                $id_sp = insertSanpham($ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm);
+                $id_sp = insertSanpham($ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm);
 
                 // Thêm ảnh sản phẩm
 
@@ -99,6 +98,8 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             if (isset($_GET["id_sp"]) && $_GET["id_sp"] > 0) {
                 delete_sanpham($_GET["id_sp"]);
             }
+            $listdanhmuc = loadall_danhmuc();
+            $list_sp = loadOneAnh();
             $listsanpham = loadall_sanpham("", 0);
             include "./san-pham/list.php";
             break;
@@ -116,7 +117,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $id_sp = $_POST['id_sp'];
                 $ten_sp = $_POST["ten_sp"];
                 $don_gia = $_POST["don_gia"];
-                $dac_biet = isset($_POST['dac_biet']) ? $_POST['dac_biet'] : 0;
                 $mo_ta = $_POST['mo_ta'] ?: null;
                 $giam_gia = $_POST['giam_gia'];
                 $ngay_nhap = $_POST["ngay_nhap"];
@@ -143,7 +143,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                     }
                 }
 
-                editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $dac_biet, $giam_gia, $mo_ta, $id_dm);
+                editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm);
             }
             $listdanhmuc = loadall_danhmuc();
             $list_sp = loadOneAnh();

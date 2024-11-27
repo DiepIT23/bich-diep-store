@@ -31,13 +31,6 @@
                                 <label>Đơn giá</label>
                                 <input type="text" class="form-control" name="don_gia" value="<?php echo $don_gia  ?>">
                             </div>
-                            <div class="form-check form-group">
-                                <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input" name="dac_biet" id="dac-biet"
-                                        value="<?= $dac_biet ?>">
-                                    Đặc biệt
-                                </label>
-                            </div>
                             <div class="form-group">
                                 <label>Giảm giá</label>
                                 <input type="text" class="form-control" name="giam_gia" id="giam-gia"
@@ -50,7 +43,7 @@
                                     foreach ($listAnh as $anh) {
                                         extract($anh);
                                     ?>
-                                        <img src="<?= $IMAGES_URL . "/" . $url_anh ?>" width="100px" class="col-1"><br>
+                                    <img src="<?= $IMAGES_URL . "/" . $url_anh ?>" width="100px" class="col-1"><br>
                                     <?php
                                     }
                                     ?>

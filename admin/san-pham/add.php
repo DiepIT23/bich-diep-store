@@ -17,15 +17,9 @@
                             <label for="">Đơn giá</label>
                             <input type="text" class="form-control" name="don_gia" required>
                         </div>
-                        <div class="form-check form-group">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="dac_biet" id="dac-biet">
-                                Đặc biệt
-                            </label>
-                        </div>
                         <div class="form-group">
                             <label for="">Giảm giá</label>
-                            <input type="number" class="form-control" name="giam_gia" id="giam-gia" disabled>
+                            <input type="number" class="form-control" name="giam_gia" id="giam-gia">
                         </div>
                         <div class="form-group">
                             <label for="">Hình ảnh</label>
@@ -48,9 +42,9 @@
                                 foreach ($listdanhmuc as $danhmuc) {
                                     extract($danhmuc)
                                 ?>
-                                    <option value="<?php echo $id_dm ?>">
-                                        <?php echo $ten_dm ?>
-                                    </option>
+                                <option value="<?php echo $id_dm ?>">
+                                    <?php echo $ten_dm ?>
+                                </option>
                                 <?php
                                 }
                                 ?>

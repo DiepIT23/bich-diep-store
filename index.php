@@ -3,7 +3,6 @@ session_start();
 ob_start();
 require_once "global.php";
 include_once "models/pdo.php";
-include_once "views/header.php";
 include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
 include_once "models/taikhoan.php";
@@ -13,8 +12,8 @@ if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 $list_dm = loadall_danhmuc();
 include_once "views/header.php";
 
-// Hiển thị sản phẩm 
-$list_sp = loadOneAnh();
+// Hiển thị sản phẩm mới
+$list_sp = sp_moi();
 
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
@@ -36,6 +35,10 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once "views/ds-sp.php";
             break;
         case 'sp-chitiet':
+            $listAnh = listAnh($_GET['id_sp']);
+            $san_pham = loadone_sanpham($_GET['id_sp']);
+            extract($san_pham);
+            $sp_cungloai = sanPham_cungLoai($id_dm, $_GET['id_sp']);
             include_once "views/spchitiet.php";
             break;
         case 'thanhtoan':
@@ -117,8 +120,8 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 
                 update_taikhoan($id_user, $ten_user, $email, $ten_dang_nhap, $mat_khau, $hinh_anh, $dia_chi, $sdt);
                 $_SESSION["ten_dang_nhap"] =  check_user($ten_dang_nhap, $mat_khau);
-                    header("location:$ROOT_URL/");
-                    exit;
+                header("location:$ROOT_URL/");
+                exit;
             }
             include_once "views/taikhoan/edit-tk.php";
             break;

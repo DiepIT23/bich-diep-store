@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bich Diep Store - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="layout/index.css">
-    <link rel="stylesheet" href="layout/slide.css">
+    <link rel="stylesheet" href="<?= $LAYOUT_URL ?>/index.css">
+    <link rel="stylesheet" href="<?= $LAYOUT_URL ?>/slide.css">
+    <link rel="stylesheet" href="<?= $LAYOUT_URL ?>/ctsp.css">
 </head>
 <style>
+    #myTextarea {
+        white-space: pre-line;
+    }
+
     .main-title {
         text-align: center;
         margin: 30px 0;
@@ -54,7 +59,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 bg-black px-4 text-light roboto-small">
-                Hotline mua hàng: 0912 345 678 (8h30 - 21h30, Tất cả các ngày trong
+                Hotline mua hàng: 01 234 567 88 | 01 234 567 89 (8h30 - 21h30, Tất cả các ngày trong
                 tuần)
             </div>
         </div>
@@ -125,7 +130,8 @@
                             <div class="">
                                 <a class="roboto-mini cart right-icon" style="cursor: pointer;" id="triggerId"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg" width="20px" class="rounded-5">
+                                    <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"
+                                        width="20px" class="rounded-5">
                                     <div class="roboto-mini"><?= $ten_user ?></div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
