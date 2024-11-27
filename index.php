@@ -84,9 +84,32 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             }
             break;
         case 'edit-tk':
+            if (isset($_POST["capnhat"])) {
+                $ten_user = $_POST["ten_user"];
+                $email = $_POST["email"];
+                $ten_dang_nhap = $_POST["ten_dang_nhap"];
+                $mat_khau = $_POST["mat_khau"];
+                $hinh_anh = $_POST["hinh_anh"];
+                $dia_chi = $_POST["dia_chi"];
+                $sdt = $_POST["sdt"];
+
+                update_taikhoan($id_user, $ten_user, $email, $ten_dang_nhap, $mat_khau, $hinh_anh, $dia_chi, $sdt);
+                $_SESSION["ten_dang_nhap"] =  check_user($ten_dang_nhap, $mat_khau);
+                    header("location:$ROOT_URL/");
+                    exit;
+            }
             include_once "views/taikhoan/edit-tk.php";
             break;
         case 'quenmk':
+            if (isset($_POST["guimk"])) {
+                $email = $_POST["email"];
+                $checkemail = checkemail($email);
+                if (is_array($checkemail)) {
+                    $thongbao = "Mật khẩu của bạn là : " . $checkemail["mat_khau"];
+                } else {
+                    $thongbao = "Email này không tồn tại";
+                }
+            }
             include_once "views/taikhoan/quenmk.php";
             break;
 
