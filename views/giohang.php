@@ -7,59 +7,42 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Hình ảnh</th>
                         <th>Sản Phẩm</th>
                         <th>Giá</th>
                         <th>Số Lượng</th>
                         <th>Tạm Tính</th>
+                        <th>Thao tác</th>
                     </tr>
+                    <?php
+$tong = 0;
+$i=0;
+foreach ($_SESSION['mycart'] as $cart) {
+    $hinh_anh = $IMAGES_URL . "/" . $cart[2]; // Đường dẫn đầy đủ tới ảnh
+    $ttien = $cart[3] * $cart[1]; // Tính thành tiền
+    $tong += $ttien;
+    $xoasp='<a href="index.php?act=delcart&idcart='.$i.'"><button class="btn btn-danger btn-sm">Xóa</button></a>';
+    echo '<tr>
+            <td>
+                <img src="' . $hinh_anh . '" alt="" class="product-img me-3" style="width:80px; height:80px;">
+            </td>
+            <td>' . $cart[0] . '</td>
+            <td>' . $cart[1] . 'VNĐ</td>
+            <td>' . $cart[3] . '</td>
+            <td>' . $ttien . '</td>
+            <td>'.$xoasp.'</td>
+        </tr>';
+        $i+=1;
+}
+echo '<tr>
+        <td colspan="100"><strong>Tổng đơn hàng</strong></td>
+        <td><strong>' . $tong . 'VNĐ</strong></td>
+    </tr>';
+?>
+
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/80" alt="product" class="product-img me-3">
-                                <div>
-                                    <p class="mb-1">Áo polo nam POHTK401</p>
-                                    <small>Màu sắc: Xanh rêu</small><br>
-                                    <small>Cỡ: L</small><br>
-                                    <a href="#" class="text-danger">Xóa</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>399.000 VNĐ</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary">-</button>
-                                <input type="text" value="1" class="form-control form-control-sm text-center mx-2"
-                                    style="width: 50px;">
-                                <button class="btn btn-sm btn-outline-secondary">+</button>
-                            </div>
-                        </td>
-                        <td>399.000 VNĐ</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/80" alt="product" class="product-img me-3">
-                                <div>
-                                    <p class="mb-1">Áo polo nam POHTK401</p>
-                                    <small>Màu sắc: Xanh rêu</small><br>
-                                    <small>Cỡ: L</small><br>
-                                    <a href="#" class="text-danger">Xóa</a>
-                                </div>
-                            </div>
-                        </td>
-                        <td>399.000 VNĐ</td>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-sm btn-outline-secondary">-</button>
-                                <input type="text" value="1" class="form-control form-control-sm text-center mx-2"
-                                    style="width: 50px;">
-                                <button class="btn btn-sm btn-outline-secondary">+</button>
-                            </div>
-                        </td>
-                        <td>399.000 VNĐ</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -69,13 +52,14 @@
             <div class="cart-summary">
                 <h5 class="mb-3">Tóm Tắt Đơn Hàng</h5>
                 <p class="d-flex justify-content-between">
-                    <span>Tạm Tính</span>
-                    <span>798.000 VNĐ</span>
-                </p>
-                <p class="d-flex justify-content-between">
-                    <span>Tổng</span>
-                    <span>798.000 VNĐ</span>
-                </p>
+    <span>Tạm Tính</span>
+    <span><?= number_format($tong, 0, ',', '.') ?> VNĐ</span>
+</p>
+<p class="d-flex justify-content-between">
+    <span>Tổng</span>
+    <span><?= number_format($tong, 0, ',', '.') ?> VNĐ</span>
+</p>
+
                 <a href="<?= $ROOT_URL ?>/?act=thanhtoan" class="btn btn-danger w-100">Thanh Toán</a>
                 <div class="mt-3">
                     <label for="promoCode" class="form-label">Mã Áp Dụng</label>

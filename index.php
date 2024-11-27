@@ -8,6 +8,7 @@ include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
 include_once "models/taikhoan.php";
 
+if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
 // Hiển thị danh mục 
 $list_dm = loadall_danhmuc();
 include_once "views/header.php";
@@ -41,8 +42,29 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once 'views/thanhtoan.php';
             break;
         case 'giohang':
+            if (isset($_POST["giohang"])) {
+                $ten_sp = $_POST['ten_sp'];
+                $don_gia = $_POST['don_gia'];
+                $hinh_anh = $_POST['hinh_anh'];
+                $so_luong = 1; // Số lượng mặc định là 1
+                
+                // Lưu sản phẩm vào giỏ hàng (đảm bảo lưu đúng đường dẫn ảnh)
+                $sanpham = [$ten_sp, $don_gia, $hinh_anh, $so_luong];
+                $_SESSION['mycart'][] = $sanpham;
+            }
             include_once "views/giohang.php";
             break;
+            case 'delcart':
+                if (isset($_GET['idcart'])) {
+                    $idcart = $_GET['idcart'];
+                    unset($_SESSION['mycart'][$idcart]); // Xóa phần tử theo chỉ số
+                    $_SESSION['mycart'] = array_values($_SESSION['mycart']); // Reset lại chỉ số mảng
+                } else {
+                    $_SESSION['mycart'] = []; // Xóa toàn bộ giỏ hàng
+                }
+                header("Location:$ROOT_URL/?act=giohang");
+                break;
+              
 
             // ======================= CONTROLLER TÀI KHOẢN ======================= //
 
