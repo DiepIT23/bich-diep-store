@@ -3,7 +3,7 @@ const listImage = document.querySelector(".list-images");
 const imgs = document.querySelectorAll(".img");
 const btnLeft = document.querySelector(".btn-left");
 const btnRight = document.querySelector(".btn-right");
-const slideWidth = imgs[0].clientWidth;
+const slideWidth = 1623;
 let current = 0;
 
 const changeSlide = () => {

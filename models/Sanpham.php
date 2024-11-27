@@ -88,10 +88,19 @@ function loadSanphamById($id_sp)
 
 function loadOneAnh()
 {
-  $sql = "SELECT sp.id_sp, sp.ten_sp, sp.don_gia, sp.ngay_nhap, sp.mo_ta, MIN(a.url_anh) AS hinh_anh
+  $sql = "SELECT sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.id_dm, MIN(a.url_anh) AS hinh_anh
   FROM san_pham sp
   LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
   GROUP BY sp.id_sp";
+  return pdo_query($sql);
+}
+
+function sp_moi()
+{
+  $sql = "SELECT sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.id_dm, MIN(a.url_anh) AS hinh_anh
+  FROM san_pham sp
+  LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
+  GROUP BY sp.id_sp limit 0, 6";
   return pdo_query($sql);
 }
 
@@ -109,4 +118,14 @@ function deleteAnh($id_sp)
 {
   $sql = "DELETE FROM `anh_sanpham` WHERE `id_sp` = $id_sp";
   pdo_execute($sql);
+}
+
+function sanPham_cungLoai($id_dm, $id_sp)
+{
+  $sql = "SELECT sp.* , MIN(a.url_anh) as hinh_anh
+FROM san_pham sp
+LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
+WHERE sp.id_dm = $id_dm AND sp.id_sp <> $id_sp
+GROUP BY sp.id_sp LIMIT 0, 5";
+  return pdo_query($sql);
 }
