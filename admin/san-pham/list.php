@@ -28,7 +28,7 @@
                         <th><input type="checkbox" id="checkAll"></th>
                         <th>ID</th>
                         <th>Tên Sản Phẩm</th>
-                        <!-- <th>Hình Ảnh</th> -->
+                        <th>Hình Ảnh</th>
                         <th>Đơn Giá</th>
                         <th>Ngày Nhập</th>
                         <th>Mô Tả</th>

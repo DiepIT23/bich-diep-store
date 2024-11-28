@@ -13,7 +13,7 @@ function loadone_taikhoan($id_user){
 }
 function insert_taikhoan($ten_user, $mat_khau, $email,$sdt)
 {
-    $sql = " INSERT INTO tai_khoan(ten_user,mar_khau,email,sdt) VALUES('$ten_user','$mat_khau','$email','$sdt')";
+    $sql = " INSERT INTO tai_khoan(ten_user,mat_khau,email,sdt) VALUES('$ten_user','$mat_khau','$email','$sdt')";
     pdo_execute($sql);
 }
 // function check_user($user, $pass)

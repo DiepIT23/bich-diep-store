@@ -6,6 +6,7 @@ include_once "../models/Sanpham.php";
 include_once "../models/Binhluan.php";
 include_once "../models/Danhmuc.php";
 include_once "../models/Donhang.php";
+include_once "../models/Taikhoan.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== "") {
     $act = $_GET['act'];
@@ -138,7 +139,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
 
                     //==================== CONTROLLER TÀI KHOẢN ========================//
                     case 'list-tk':
-                        $listaikhoan = loadall_taikhoan();
+                        $listtaikhoan = loadall_taikhoan();
                         include "./tai-khoan/list.php";
                     break;
 

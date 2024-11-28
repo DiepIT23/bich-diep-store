@@ -1,11 +1,12 @@
 <div class="row2">
-  <div class="row2 font_title">
+  <div class="card-header text-black text-uppercase font-weight-bold text-center">
     <h1>DANH SÁCH TÀI KHOẢN</h1>
   </div>
   <div class="row2 form_content">
     <form action="index.php/?act=list-tk" class="d-flex justify-content-center mb-4" method="POST">
-      <div class="row2 mb10 formds_loai">
-        <table>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
           <tr>
             <th></th>
             <th>ID</th>
@@ -15,6 +16,8 @@
             <th>SĐT</th>
             <th>VAI TRÒ</th>
           </tr>
+          </thead>
+          <tbody>
           <?php
             foreach($listtaikhoan as $taikhoan){
               extract($taikhoan);
@@ -39,12 +42,14 @@
             </tr>';
             }
           ?>
+          </tbody>
         </table>
       </div>
-      <div class="row mb10">
+      
+    </form>
+    <div class="card-footer text-center">
         <input class="mr20" type="button" id="selectAllBtn" value="CHỌN TẤT CẢ" />
         <input class="mr20" type="button" id="selectAllBtn" value="BỎ CHỌN TẤT CẢ" />
       </div>
-    </form>
   </div>
 </div>
