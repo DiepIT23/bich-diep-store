@@ -9,10 +9,16 @@ include_once "models/taikhoan.php";
 
 // Hiển thị danh mục 
 $list_dm = loadall_danhmuc();
+$dm_ao = loadOneDM_Ao();
+$dm_quan = loadOneDM_Quan();
 include_once "views/header.php";
 
+
 // Hiển thị sản phẩm mới
-$list_sp = sp_moi();
+$list_sp_moi = sp_moi();
+
+// Hiển thị sản phẩm 
+$list_sp = loadall_sanpham();
 
 
 if (isset($_GET['act']) && $_GET['act'] !== '') {
@@ -21,16 +27,19 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 
             // ======================= CONTROLLER SẢN PHẨM ======================= //
 
-        case 'ao':
-            include_once "views/Ao/index.php";
-            break;
-        case 'quan':
-            include_once "views/Quan/index.php";
-            break;
         case 'ds-sp':
-            // Lấy từ khóa tìm kiếm 
-            $searchQuery = isset($_GET['q']) ? trim($_GET['q']) : '';
-            $products = [];
+            if (isset($_POST['keyword']) && $_POST['keyword'] !== "") {
+                $kyw = $_POST['keyword'];
+            } else {
+                $kyw = "";
+            }
+            if (isset($_GET['id_dm']) && $_GET['id_dm'] > 0) {
+                $id_dm = $_GET['id_dm'];
+            } else {
+                $id_dm = 0;
+            }
+
+            $list_sp = loadall_sanpham($kyw, $id_dm);
             include_once "views/ds-sp.php";
             break;
         case 'sp-chitiet':

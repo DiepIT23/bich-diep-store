@@ -36,25 +36,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($list_sp as $sanpham) :
+                    <?php foreach ($listsanpham as $sanpham) :
                         extract($sanpham);
                         $suasp = "index.php?act=sua-sanpham&id_sp=" . $id_sp;
                         $xoasp = "index.php?act=xoa-sanpham&id_sp=" . $id_sp;
                     ?>
-                    <tr>
-                        <td><input type="checkbox" class="checkItem"></td>
-                        <td><?= $id_sp ?></td>
-                        <td><?= $ten_sp ?></td>
-                        <td><img src="<?= $IMAGES_URL . "/" . $hinh_anh ?>" alt="Ảnh sản phẩm" class="img-thumbnail"
-                                style="width: 50px; height: 50px;"></td>
-                        <td><?= number_format($don_gia, 0, ',', '.') ?> VNĐ</td>
-                        <td><?= $ngay_nhap ?></td>
-                        <td class="multiline-truncate"><?= $mo_ta ?></td>
-                        <td>
-                            <a href="<?= $suasp ?>" class="btn btn-warning btn-sm">Sửa</a>
-                            <a href="<?= $xoasp ?>" class="btn btn-danger btn-sm">Xóa</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkItem"></td>
+                            <td><?= $id_sp ?></td>
+                            <td><?= $ten_sp ?></td>
+                            <td><img src="<?= $IMAGES_URL . "/" . $hinh_anh ?>" alt="Ảnh sản phẩm" class="img-thumbnail"
+                                    style="width: 50px; height: 50px;"></td>
+                            <td><?= number_format($don_gia, 0, ',', '.') ?> VNĐ</td>
+                            <td><?= $ngay_nhap ?></td>
+                            <td class="multiline-truncate"><?= $mo_ta ?></td>
+                            <td>
+                                <a href="<?= $suasp ?>" class="btn btn-warning btn-sm">Sửa</a>
+                                <a href="<?= $xoasp ?>" class="btn btn-danger btn-sm">Xóa</a>
+                            </td>
+                        </tr>
                     <?php endforeach;
                     ?>
                 </tbody>
@@ -70,21 +70,21 @@
 
 <!-- JavaScript -->
 <script>
-// Chọn tất cả checkbox
-document.getElementById("checkAll").addEventListener("change", function() {
-    const checkItems = document.querySelectorAll(".checkItem");
-    checkItems.forEach(item => item.checked = this.checked);
-});
+    // Chọn tất cả checkbox
+    document.getElementById("checkAll").addEventListener("change", function() {
+        const checkItems = document.querySelectorAll(".checkItem");
+        checkItems.forEach(item => item.checked = this.checked);
+    });
 
-// Chọn tất cả
-document.getElementById("selectAllBtn").addEventListener("click", function() {
-    const checkItems = document.querySelectorAll(".checkItem");
-    checkItems.forEach(item => item.checked = true);
-});
+    // Chọn tất cả
+    document.getElementById("selectAllBtn").addEventListener("click", function() {
+        const checkItems = document.querySelectorAll(".checkItem");
+        checkItems.forEach(item => item.checked = true);
+    });
 
-// Bỏ chọn tất cả
-document.getElementById("deselectAllBtn").addEventListener("click", function() {
-    const checkItems = document.querySelectorAll(".checkItem");
-    checkItems.forEach(item => item.checked = false);
-});
+    // Bỏ chọn tất cả
+    document.getElementById("deselectAllBtn").addEventListener("click", function() {
+        const checkItems = document.querySelectorAll(".checkItem");
+        checkItems.forEach(item => item.checked = false);
+    });
 </script>

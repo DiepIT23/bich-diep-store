@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include_once "menu-dssp.php";
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kết quả tìm kiếm</title>
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <h3>Kết quả tìm kiếm cho: "<?= htmlspecialchars($searchQuery) ?>"</h3>
-            <?php if (!empty($list_sp)): ?>
-                <?php extract($list_sp) ?>
-                <!-- Hiển thị sản phẩm -->
+?>
+<div class="container my-4">
+    <div class="row">
+        <?php
+        foreach ($list_sp as $sp) {
+            extract($sp);
+            if ($dm = $_GET['id_dm']) {
+        ?>
                 <div class="col-lg-3">
                     <div class="card product-card">
-                        <img src="https://via.placeholder.com/200x200" class="card-img-top" alt="New Product 1"
-                            height="300px">
+                        <img src="<?= $IMAGES_URL . '/' . $hinh_anh ?>" class="card-img-top" alt="New Product 1" height="400px">
                         <div class="card-body">
                             <p class="card-title"><?= $ten_sp ?></p>
                             <p class="roboto-small"><?= $don_gia ?> VND</p>
@@ -35,11 +29,9 @@
                         </div>
                     </div>
                 </div>
-            <?php else: ?>
-                <p>Không tìm thấy sản phẩm nào phù hợp.</p>
-            <?php endif; ?>
-        </div>
+        <?php
+            }
+        }
+        ?>
     </div>
-</body>
-
-</html>
+</div>

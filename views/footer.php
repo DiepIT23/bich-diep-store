@@ -123,6 +123,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="<?= $LAYOUT_URL ?>/index.js"></script>
 <script src="<?= $LAYOUT_URL ?>/ctsp.js"></script>
+<script src="<?= $LAYOUT_URL ?>/dssp.js"></script>
 <script src="<?= $LAYOUT_URL ?>/validate.js"></script>
 <script src="https://kit.fontawesome.com/e42cab711e.js" crossorigin="anonymous"></script>
 <!-- Optional JavaScript -->
