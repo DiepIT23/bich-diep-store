@@ -17,7 +17,7 @@ include_once "menu-dssp.php";
                             <p class="roboto-small"><?= $don_gia ?> VND</p>
                         </div>
                         <div class="card-overlay">
-                            <a href="sp-chitiet.html">
+                            <a href="<?= $ROOT_URL ?>/?act=sp-chitiet&id_sp=<?= $id_sp ?>">
                                 <button class="btn btn-light mb-2">Xem chi tiết</button>
                             </a>
                             <a href="">
