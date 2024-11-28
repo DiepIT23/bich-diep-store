@@ -12,22 +12,26 @@ function delete_sanpham($id_sp)
   pdo_execute($sql);
 }
 
-function loadall_sanpham($kewword = "", $id_dm = 0)
+function loadall_sanpham($keyword = "", $id_dm = 0)
 {
-  $sql = "SELECT * FROM `san_pham` WHERE 1";
+  $sql = "SELECT sp.*, MIN(a.url_anh) AS hinh_anh
+            FROM san_pham sp
+            LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
+            WHERE 1";
 
-
-  if ($kewword != "") {
-    $sql .= " AND ten_sp LIKE '%" . $kewword . "%'";
+  if (!empty($keyword)) {
+    $sql .= " AND sp.ten_sp LIKE '%" . $keyword . "%'";
   }
+
   if ($id_dm > 0) {
-    $sql .= " AND id_dm = '" . $id_dm . "'";
+    $sql .= " AND sp.id_dm = '" . $id_dm . "'";
   }
 
-  $sql .= " ORDER BY id_sp DESC";
-  $listsp = pdo_query($sql);
-  return $listsp;
+  $sql .= " GROUP BY sp.id_sp ORDER BY sp.id_sp DESC";
+
+  return pdo_query($sql);
 }
+
 function loadall_sanpham_home()
 {
   $sql = "SELECT * FROM `san_pham` ORDER BY id_dm DESC";
@@ -35,12 +39,6 @@ function loadall_sanpham_home()
   return $list_sp;
 }
 function loadall_sanpham_banchay()
-{
-  $sql = "SELECT * FROM `san_pham` WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
-  $list_sp = pdo_query($sql);
-  return $list_sp;
-}
-function loadall_sanpham_gia()
 {
   $sql = "SELECT * FROM `san_pham` WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
   $list_sp = pdo_query($sql);
@@ -62,12 +60,6 @@ function load_ten_dm($id_danh_muc)
   } else {
     return "";
   }
-}
-function load_sanpham_cungloai($id_sp, $id_dm)
-{
-  $sql = "SELECT * FROM `san_pham` WHERE id_dm='$id_dm' AND id_sp !='$id_sp'";
-  $list_sp = pdo_query($sql);
-  return $list_sp;
 }
 function editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm)
 {
@@ -128,4 +120,16 @@ LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
 WHERE sp.id_dm = $id_dm AND sp.id_sp <> $id_sp
 GROUP BY sp.id_sp LIMIT 0, 5";
   return pdo_query($sql);
+}
+
+function loadOneDM_Ao()
+{
+  $sql = "SELECT * FROM `danh_muc` WHERE `phan_loai` = 'Áo' limit 1";
+  return pdo_query_one($sql);
+}
+
+function loadOneDM_Quan()
+{
+  $sql = "SELECT * FROM `danh_muc` WHERE `phan_loai` = 'Quần' limit 1";
+  return pdo_query_one($sql);
 }

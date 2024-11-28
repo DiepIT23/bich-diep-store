@@ -91,7 +91,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             }
             $listdanhmuc = loadall_danhmuc();
             $listsanpham = loadall_sanpham($kewword, $id_dm);
-            $list_sp = loadOneAnh();
             include "./san-pham/list.php";
             break;
         case 'xoa-sanpham':
@@ -99,7 +98,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 delete_sanpham($_GET["id_sp"]);
             }
             $listdanhmuc = loadall_danhmuc();
-            $list_sp = loadOneAnh();
             $listsanpham = loadall_sanpham("", 0);
             include "./san-pham/list.php";
             break;
@@ -146,7 +144,6 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 editSanpham($id_sp, $ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm);
             }
             $listdanhmuc = loadall_danhmuc();
-            $list_sp = loadOneAnh();
             $listsanpham = loadall_sanpham("", 0);
             include "./san-pham/list.php";
             break;
