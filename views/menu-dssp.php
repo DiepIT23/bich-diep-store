@@ -1,29 +1,4 @@
-<main class="p-2">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <a href="<?= $ROOT_URL ?>/?act=ao">
-                    <h1 class="mt-2 fw-semibold text-center">Áo</h1>
-                </a>
-            </div>
-            <div class="col-6">
-                <a href="<?= $ROOT_URL ?>/?act=quan">
-                    <h1 class="mt-2 fw-semibold text-center">Quần</h1>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center gap-3 mb-3 categories">
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-thun">Áo thun</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-somi">Áo sơ mi</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-polo">Áo Polo</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-quan-ni">Áo - Quần nỉ</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-blazer">Áo Blazer</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-khoac-jeans">Áo khoác jeans</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=ao-khoac-ni">Áo khoác nỉ</a>
-        <a href="<?= $ROOT_URL ?>/?act=ao&ao=cardigan">Cardigan</a>
-    </div>
-    <div class="container-fluid">
+    <div class="container-fluid my-3">
         <div class="row">
             <div class="d-flex mb-5 col-6">
                 <input type="text" placeholder="Bạn cần gì?" class="rounded-start-3 w-50 p-2 form-control">

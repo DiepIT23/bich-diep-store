@@ -16,6 +16,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    height: 85px;
     /* Giới hạn 3 dòng */
     -webkit-box-orient: vertical;
 }
