@@ -1,10 +1,18 @@
 <?php
-function insert_taikhoan($ten_user, $email, $ten_dang_nhap, $mat_khau, $dia_chi, $sdt)
+function loadall_taikhoan()
 {
-    $sql = "INSERT INTO `tai_khoan`( `ten_user`, `email`, `ten_dang_nhap`, `mat_khau`,  `dia_chi`, `sdt`) 
-    VALUES ('$ten_user','$email','$ten_dang_nhap','$mat_khau','$dia_chi','$sdt')";
+  $sql = "SELECT * FROM tai_khoan";
+  $listtaikhoan = pdo_query($sql);
+  return $listtaikhoan;
+}
+
+function insert_taikhoan($ten_user,$mat_khau, $email, $ten_dang_nhap,  $dia_chi, $sdt)
+
+{
+    $sql = " INSERT INTO tai_khoan(ten_user,mat_khau,email,ten_dang_nhap,dia_chi,sdt) VALUES('$ten_user','$mat_khau','$email','$ten_dang_nhap','$dia_chi','$sdt')";
     pdo_execute($sql);
 }
+
 
 function check_user($ten_dang_nhap, $mat_khau)
 {
@@ -30,3 +38,4 @@ function update_taikhoan($id_user, $ten_user, $email, $ten_dang_nhap, $mat_khau,
     pdo_execute($sql);
 }
 ?>
+

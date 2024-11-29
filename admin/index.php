@@ -6,6 +6,7 @@ include_once "../models/Sanpham.php";
 include_once "../models/Binhluan.php";
 include_once "../models/Danhmuc.php";
 include_once "../models/Donhang.php";
+include_once "../models/Taikhoan.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== "") {
     $act = $_GET['act'];
@@ -34,13 +35,14 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include "./danh-muc/update.php";
             break;
         case 'update-danhmuc':
-
-            if (isset($_POST["sua"])) {
+       
+            if (isset($_POST["sua"]) ) {
                 $ten_dm = $_POST["ten_dm"];
                 $phan_loai = $_POST["phan_loai"];
                 $id_dm = $_POST["id_dm"];
                 updateDanhmuc($id_dm, $ten_dm, $phan_loai);
                 $thongbao = "Cập nhật thành công";
+                
             }
             $listdanhmuc = loadall_danhmuc();
             include "./danh-muc/list.php";
@@ -61,6 +63,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $giam_gia = $_POST['giam_gia'] ?: 0;
                 $ngay_nhap = $_POST["ngay_nhap"];
                 $id_dm = $_POST["id_dm"];
+
                 $id_sp = insertSanpham($ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm);
 
                 // Thêm ảnh sản phẩm
@@ -77,6 +80,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                     }
                 }
                 $thongbao = "Thêm thành công";
+
             }
             $listdanhmuc = loadall_danhmuc();
             include "./san-pham/add.php";
@@ -162,11 +166,22 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include "./binh-luan/list.php";
             break;
 
-            // ===================== CONTROLLER ĐƠN HÀNG ===================== //
-            // case 'list-donhang':
-            //     $listdonhang = loadDonhang(0);
-            //     include "./don-hang/list.php";
-            //     break;
+                    //==================== CONTROLLER TÀI KHOẢN ========================//
+                    case 'list-tk':
+                        $listtaikhoan = loadall_taikhoan();
+                        include "./tai-khoan/list.php";
+                    break;
+
+                    // ===================== CONTROLLER ĐƠN HÀNG ===================== //
+                    case 'list-donhang':
+                        $listdonhang = loadDonhang(0);
+                        include "./don-hang/list.php";
+                        break;
+                    case 'chitiet':
+                        include_once "./don-hang/detail.php";
+                        break;
+                    
+
         default:
             include "home.php";
             break;

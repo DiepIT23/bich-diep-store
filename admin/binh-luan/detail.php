@@ -46,7 +46,7 @@
         <div class=" form-group d-flex w-25 mx-auto mt-3">
             <input type="button" name="" id="" class="form-control" value="Chọn tất cả">
             <input type="button" name="" id="" class="form-control" value="Bỏ chọn tất cả">
-            <a href="index.php" style="text-decoration: none;"><input type="button" name="" id="" class="form-control"
+            <a href="index.php/?act=list-bl" style="text-decoration: none;"><input type="button" name="" id="" class="form-control"
                     value="Danh sách"></a>
         </div>
     </form>

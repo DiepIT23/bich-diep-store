@@ -18,22 +18,25 @@ $loadbl = loadbl_binhluan(0);
 <body>
     <div class="container mt-4">
         <h1 class="text-center">Danh sách bình luận</h1>
-        <div class="mt-4 mb-3 d-flex justify-content-end">
-    <form action="index.php?act=list_bl" method="POST" class="d-flex align-items-center">
-        <input type="text" name="keyword" class="form-control mr-2" placeholder="Tìm kiếm bình luận...">
-        <button type="submit" name="listok" class="btn btn-primary">Lọc</button>
-    </form>
-</div>
+        
+        <!-- Search Form -->
+        <div class="mt-4 mb-4 d-flex justify-content-between align-items-center">
+            <form action="index.php?act=list-bl" method="POST" class="d-flex w-50">
+                <input type="text" name="keyword" class="form-control mr-2" placeholder="Tìm kiếm bình luận...">
+                <button type="submit" name="listok" class="btn btn-primary">Lọc</button>
+            </form>
+        </div>
 
+        <!-- Comment List Table -->
         <div class="card">
             <div class="card-header bg-dark text-white text-uppercase font-weight-bold">
                 <div class="row">
-                    <div class="col-lg-1">STT</div>
-                    <div class="col-lg-3">Sản phẩm</div>
-                    <div class="col-lg-2">Nội dung</div>
-                    <div class="col-lg-2">Khách hàng</div>
-                    <div class="col-lg-2">Ngày bình luận</div>
-                    <div class="col-lg-2 text-center">Hành động</div>
+                    <div class="col-1">STT</div>
+                    <div class="col-3">Sản phẩm</div>
+                    <div class="col-2">Nội dung</div>
+                    <div class="col-2">Khách hàng</div>
+                    <div class="col-2">Ngày bình luận</div>
+                    <div class="col-2 text-center">Hành động</div>
                 </div>
             </div>
             <div class="card-body">
@@ -43,7 +46,7 @@ $loadbl = loadbl_binhluan(0);
                     extract($binhluan);
                     $xoa_bl = "index.php?act=xoa-binhluan&id_bl=" . $id_bl;
 
-                    echo '<div class="row py-2 border-bottom align-items-center">
+                    echo '<div class="row py-3 border-bottom align-items-center">
                             <div class="col-lg-1">' . $stt++ . '</div>
                             <div class="col-lg-3">' . $id_sp . '</div>
                             <div class="col-lg-2">' . $noidung_bl . '</div>
