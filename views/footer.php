@@ -139,28 +139,4 @@
 </script>
 </body>
 
-<script>
-    const searchInput = document.getElementById('search'); // Ô tìm kiếm
-    const searchBtn = document.getElementById('searchBtn'); // Nút tìm kiếm
-
-    // Hàm xử lý tìm kiếm
-    function handleSearch() {
-        const query = searchInput.value.trim(); // Lấy từ khóa tìm kiếm
-        if (query) {
-            // Chuyển hướng sang trang ds-sp.php với từ khóa
-            window.location.href = `?act=ds-sp&q=${encodeURIComponent(query)}`;
-        }
-    }
-
-    // Xử lý khi nhấn nút tìm kiếm
-    searchBtn.addEventListener('click', handleSearch);
-
-    // Xử lý khi nhấn phím Enter
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            handleSearch();
-        }
-    });
-</script>
-
 </html>

@@ -1,115 +1,94 @@
-<?php
-// submit_review.php
-
-// Get the POST data
-$data = json_decode(file_get_contents('php://input'), true);
-
-// Check if review data is received
-if (isset($data['review'])) {
-    $reviewText = $data['review'];
-
-    // Validate and process the review (e.g., store in the database)
-    // For simplicity, we'll just return a success message
-    // You can extend this with database handling code
-
-    // Example of saving to the database (assuming you have a connection):
-    /*
-    $sql = "INSERT INTO reviews (product_id, review_text) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("is", $product_id, $reviewText);
-    $stmt->execute();
-    */
-
-    // Send success response
-    echo json_encode(['success' => true]);
-} else {
-    // If no review text is sent, return an error
-    echo json_encode(['success' => false]);
-}
-?>
-
-    <!-- Product Details Section -->
-    <div class="container my-5">
-        <div class="row">
-            <!-- Product Image Slider -->
-            <div class="slide-show-sm col-lg-6">
-                <div class="list-images-sm">
-                    <?php
-                    extract($san_pham);
-                    $gia_ban = $don_gia - ($don_gia * $giam_gia / 100);
-                    foreach ($listAnh as $anh) {
-                        extract($anh);
-                    ?>
-                        <img src="<?= $IMAGES_URL . "/" . $url_anh ?>" class="img-sm">
-                    <?php
-                    }
-                    ?>
-                </div>
-                <div class="btns-sm">
-                    <div class="btn-left-sm btn">
-                        <i class="fa-solid fa-chevron-left fa-2x"></i>
-                    </div>
-                    <div class="btn-right-sm btn">
-                        <i class="fa-solid fa-chevron-right fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Information -->
-            <div class="col-md-6">
-                <h1 class="display-6"><?= $ten_sp ?></h1>
-                <div class="d-flex align-items-center mb-3">
-                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
-                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
-                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
-                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
-                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
-                </div>
-                <div class="text-danger fs-4 fw-bold"><?= number_format($gia_ban, 0, ',', '.') ?> VND
-                </div>
+<!-- Product Details Section -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Product Image Slider -->
+        <div class="slide-show-sm col-lg-6">
+            <div class="list-images-sm">
                 <?php
-                if ($giam_gia > 0) {
+                extract($san_pham); // Lấy thông tin sản phẩm
+                $gia_ban = $don_gia - ($don_gia * $giam_gia / 100);
+                foreach ($listAnh as $anh) {
+                    extract($anh); // Lấy thông tin ảnh
+                   
                 ?>
-                    <div class="text-decoration-line-through"><?= number_format($don_gia, 0, ',', '.') ?> VND</div>
+                    <img src="<?= $IMAGES_URL . "/" . $url_anh ?>" class="img-sm">
                 <?php
                 }
                 ?>
-                <!-- Color Options -->
-                <div class="mb-3">
-                    <h5>Màu sắc:</h5>
-                    <div class="d-flex">
-                        <div class="bg-secondary rounded-circle me-2" style="width: 30px; height: 30px;"></div>
-                        <div class="bg-dark rounded-circle me-2" style="width: 30px; height: 30px;"></div>
-                        <div class="bg-light rounded-circle border me-2" style="width: 30px; height: 30px;"></div>
-                    </div>
+            </div>
+            <div class="btns-sm">
+                <div class="btn-left-sm btn">
+                    <i class="fa-solid fa-chevron-left fa-2x"></i>
                 </div>
-
-                <!-- Size Options -->
-                <div class="mb-3">
-                    <h5>Kích thước:</h5>
-                    <div class="d-flex">
-                        <button class="btn btn-outline-secondary me-2">S</button>
-                        <button class="btn btn-outline-secondary me-2">M</button>
-                        <button class="btn btn-outline-secondary me-2">L</button>
-                    </div>
-                </div>
-
-                <!-- Quantity Selection -->
-                <div class="mb-3 d-flex align-items-center">
-                    <h5>Số lượng:</h5>
-                    <button class="btn btn-outline-secondary ms-3 me-1">-</button>
-                    <input type="number" value="1" class="form-control w-25 text-center" min="1" disabled>
-                    <button class="btn btn-outline-secondary ms-1">+</button>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="d-flex gap-3 mt-4">
-                    <button class="btn btn-dark">Mua ngay</button>
-                    <button class="btn btn-outline-dark">Thêm vào giỏ</button>
+                <div class="btn-right-sm btn">
+                    <i class="fa-solid fa-chevron-right fa-2x"></i>
                 </div>
             </div>
         </div>
+
+        <!-- Product Information -->
+        <div class="col-md-6">
+            <h1 class="display-6"><?= $ten_sp ?></h1>
+            <div class="d-flex align-items-center mb-3">
+                <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+            </div>
+            <div class="text-danger fs-4 fw-bold"><?= number_format($gia_ban, 0, ',', '.') ?> VND</div>
+            <?php
+            if ($giam_gia > 0) {
+            ?>
+                <div class="text-decoration-line-through"><?= number_format($don_gia, 0, ',', '.') ?> VND</div>
+            <?php
+            }
+            ?>
+
+            <!-- Color Options -->
+            <div class="mb-3">
+                <h5>Màu sắc:</h5>
+                <div class="d-flex">
+                    <div class="bg-secondary rounded-circle me-2" style="width: 30px; height: 30px;"></div>
+                    <div class="bg-dark rounded-circle me-2" style="width: 30px; height: 30px;"></div>
+                    <div class="bg-light rounded-circle border me-2" style="width: 30px; height: 30px;"></div>
+                </div>
+            </div>
+
+            <!-- Size Options -->
+            <div class="mb-3">
+                <h5>Kích thước:</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-secondary me-2">S</button>
+                    <button class="btn btn-outline-secondary me-2">M</button>
+                    <button class="btn btn-outline-secondary me-2">L</button>
+                </div>
+            </div>
+
+            <!-- Quantity Selection -->
+            <div class="mb-3 d-flex align-items-center">
+                <h5>Số lượng:</h5>
+                <button class="btn btn-outline-secondary ms-3 me-1">-</button>
+                <input type="number" value="1" class="form-control w-25 text-center" min="1" name="quantity" id="quantity">
+                <button class="btn btn-outline-secondary ms-1">+</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex gap-3 mt-4">
+                <form method="POST" action="?act=add_to_cart">
+                    <input type="hidden" name="id_sp" value="<?= $san_pham['id_sp'] ?>">
+                    <input type="hidden" name="ten_sp" value="<?= $san_pham['ten_sp'] ?>">
+                    <input type="hidden" name="don_gia" value="<?= $gia_ban ?>">
+                    <input type="hidden" name="hinh_anh" value="<?= $url_anh ?>">
+                    
+                    <button type="submit" class="btn btn-dark">Mua ngay</button>
+                    <button type="submit" class="btn btn-outline-dark">Thêm vào giỏ</button>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
 
     <!-- Product Description Tabs -->
     <div class="container my-5">
