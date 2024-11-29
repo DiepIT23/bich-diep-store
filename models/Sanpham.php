@@ -32,15 +32,14 @@ function loadall_sanpham($keyword = "", $id_dm = 0)
   return pdo_query($sql);
 }
 
-function loadall_sanpham_home()
-{
-  $sql = "SELECT * FROM `san_pham` ORDER BY id_dm DESC";
-  $list_sp = pdo_query($sql);
-  return $list_sp;
-}
 function loadall_sanpham_banchay()
 {
-  $sql = "SELECT * FROM `san_pham` WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
+  $sql = "SELECT sp.*, MIN(a.url_anh) AS hinh_anh
+            FROM san_pham sp
+            LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
+            WHERE 1 
+            GROUP BY sp.id_sp
+            ORDER BY so_luot_xem DESC limit 0,6";
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
@@ -92,7 +91,9 @@ function sp_moi()
   $sql = "SELECT sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.id_dm, MIN(a.url_anh) AS hinh_anh
   FROM san_pham sp
   LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
-  GROUP BY sp.id_sp limit 0, 6";
+  GROUP BY sp.id_sp
+  ORDER BY sp.ngay_nhap DESC
+  limit 0, 6";
   return pdo_query($sql);
 }
 

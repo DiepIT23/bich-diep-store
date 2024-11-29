@@ -2,7 +2,7 @@
     <h3>Sản phẩm bán chạy</h3>
     <div class="row text-center">
         <?php
-        foreach ($list_sp as $sanpham) {
+        foreach ($list_sp_banchay as $sanpham) {
             extract($sanpham);
             $gia_ban = $don_gia - ($don_gia * $giam_gia / 100);
         ?>

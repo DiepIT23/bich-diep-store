@@ -14,6 +14,8 @@ $dm_ao = loadOneDM_Ao();
 $dm_quan = loadOneDM_Quan();
 include_once "views/header.php";
 
+// Hiển thị sản phẩm bán chạy
+$list_sp_banchay = loadall_sanpham_banchay();
 
 // Hiển thị sản phẩm mới
 $list_sp_moi = sp_moi();
@@ -40,7 +42,8 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $id_dm = 0;
             }
 
-            $list_sp = loadall_sanpham($kyw, $id_dm);
+            $dssp = loadall_sanpham($kyw, $id_dm);
+
             include_once "views/ds-sp.php";
             break;
         case 'sp-chitiet':
@@ -204,6 +207,5 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 } else {
     include_once "views/trangchu.php";
 }
-include_once "views/timkiem.php";
 include_once "views/footer.php";
 ob_end_flush();
