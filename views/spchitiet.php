@@ -1,3 +1,33 @@
+<?php
+// submit_review.php
+
+// Get the POST data
+$data = json_decode(file_get_contents('php://input'), true);
+
+// Check if review data is received
+if (isset($data['review'])) {
+    $reviewText = $data['review'];
+
+    // Validate and process the review (e.g., store in the database)
+    // For simplicity, we'll just return a success message
+    // You can extend this with database handling code
+
+    // Example of saving to the database (assuming you have a connection):
+    /*
+    $sql = "INSERT INTO reviews (product_id, review_text) VALUES (?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("is", $product_id, $reviewText);
+    $stmt->execute();
+    */
+
+    // Send success response
+    echo json_encode(['success' => true]);
+} else {
+    // If no review text is sent, return an error
+    echo json_encode(['success' => false]);
+}
+?>
+
     <!-- Product Details Section -->
     <div class="container my-5">
         <div class="row">
@@ -106,7 +136,26 @@
                 <div id="myTextarea"><?= $mo_ta ?></div>
             </div>
             <div class="tab-pane fade" id="reviews" role="tabpanel">
+               <div id="myTextarea">
+               <div class="d-flex align-items-center mb-3">
+                    <!-- Rating Stars -->
+                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                    <span class="text-warning fs-5"><i class="fa-solid fa-star"></i></span>
+                </div>
 
+                <!-- Review Form -->
+                <form id="review-form">
+                    <div class="mb-3">
+                        <label for="review-text" class="form-label">Chia sẻ cảm nhận của bạn</label>
+                        <textarea class="form-control" id="review-text" rows="4" placeholder="Viết đánh giá của bạn..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="submitReview()">Gửi đánh giá</button>
+                </form>
+
+               </div>
             </div>
             <div class="tab-pane fade" id="return-policy" role="tabpanel">
                 <div id="myTextarea">
@@ -256,3 +305,43 @@
             <div class="col-1"></div>
         </div>
     </div>
+    <script>
+        function submitReview() {
+    // Get the review text from the textarea
+    var reviewText = document.getElementById('review-text').value;
+
+    // Check if the review is not empty
+    if (reviewText.trim() === '') {
+        alert('Vui lòng nhập đánh giá của bạn!');
+        return;
+    }
+
+    // Create a data object to send in the request
+    var reviewData = {
+        review: reviewText
+    };
+
+    // Optionally, you can send this data to the server using AJAX (e.g., using fetch or jQuery)
+    fetch('submit_review.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reviewData)
+    })
+    .then(response => response.json())  // Parse the JSON response
+    .then(data => {
+        if (data.success) {
+            alert('Đánh giá của bạn đã được gửi thành công!');
+            document.getElementById('review-text').value = ''; // Clear the textarea
+        } else {
+            alert('Có lỗi xảy ra, vui lòng thử lại!');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại!');
+    });
+}
+
+    </script>

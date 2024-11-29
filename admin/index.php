@@ -168,7 +168,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
 
                     //==================== CONTROLLER TÀI KHOẢN ========================//
                     case 'list-tk':
-                        // $listtaikhoan = loadall_taikhoan();
+                        $listtaikhoan = loadall_taikhoan();
                         include "./tai-khoan/list.php";
                     break;
 
@@ -177,6 +177,10 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                         $listdonhang = loadDonhang(0);
                         include "./don-hang/list.php";
                         break;
+                    case 'chitiet':
+                        include_once "./don-hang/detail.php";
+                        break;
+                    
 
         default:
             include "home.php";
