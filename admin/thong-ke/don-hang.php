@@ -9,7 +9,6 @@
 <?php
 if (isset($list_donhang) && $list_donhang !== "") {
     foreach ($list_donhang as $donhang) {
-        print_r($donhang);
         extract($donhang);
     }
 ?>
