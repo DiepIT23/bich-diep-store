@@ -200,6 +200,9 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             $list_sp = sp_thongke($ngay_dat_hang);
             include_once "./thong-ke/sp_banchay.php";
             break;
+        case 'thong-ke':
+            include_once "./thong-ke/trang_chu.php";
+            break;
         default:
             include "home.php";
             break;

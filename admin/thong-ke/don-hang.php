@@ -24,7 +24,7 @@ if (isset($list_donhang) && $list_donhang !== "") {
             <tr>
                 <td><?= $ngay_dat_hang ?></td>
                 <td><?= isset($tong_don) ? $tong_don : "Không có đơn hàng được đặt vào ngày này" ?></td>
-                <td><?= isset($doanh_thu) ? number_format($doanh_thu, 0, ',', '.') : 0 ?></td>
+                <td><?= isset($doanh_thu) ? number_format($doanh_thu, 0, ',', '.') : 0 ?> VND</td>
             </tr>
         </tbody>
     </table>
