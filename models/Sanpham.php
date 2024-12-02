@@ -34,12 +34,23 @@ function loadall_sanpham($keyword = "", $id_dm = 0)
 
 function loadall_sanpham_banchay()
 {
-  $sql = "SELECT sp.*, MIN(a.url_anh) AS hinh_anh
-            FROM san_pham sp
-            LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
-            WHERE 1 
-            GROUP BY sp.id_sp
-            ORDER BY so_luot_xem DESC limit 0,6";
+  $sql = "SELECT 
+    sp.*,
+    hinh_anh.hinh_anh AS hinh_anh,
+    SUM(ct.so_luong) AS tong_san_pham_ban,
+    SUM(ct.so_luong * (sp.don_gia - sp.don_gia * sp.giam_gia / 100)) AS tong_doanh_thu
+FROM chi_tiet_don_hang ct
+JOIN san_pham sp ON ct.id_sp = sp.id_sp
+JOIN don_hang dh ON ct.id_donhang = dh.id_donhang
+LEFT JOIN (
+    SELECT id_sp, MIN(url_anh) AS hinh_anh
+    FROM anh_sanpham
+    GROUP BY id_sp
+) AS hinh_anh ON sp.id_sp = hinh_anh.id_sp
+WHERE dh.trang_thai = 'Đã hoàn thành'
+GROUP BY sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.so_luot_xem, sp.id_dm ,hinh_anh.hinh_anh
+ORDER BY tong_san_pham_ban DESC
+LIMIT 6";
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
