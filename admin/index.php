@@ -191,6 +191,15 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include_once "./thong-ke/don-hang.php";
             break;
 
+        case 'thongke_sp_banchay':
+            if (isset($_POST['ngay_dat_hang']) && $_POST['ngay_dat_hang'] !== "") {
+                $ngay_dat_hang = $_POST["ngay_dat_hang"];
+            } else {
+                $ngay_dat_hang = "";
+            }
+            $list_sp = sp_thongke($ngay_dat_hang);
+            include_once "./thong-ke/sp_banchay.php";
+            break;
         default:
             include "home.php";
             break;

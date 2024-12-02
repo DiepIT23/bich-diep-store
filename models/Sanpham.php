@@ -134,3 +134,23 @@ function loadOneDM_Quan()
   $sql = "SELECT * FROM `danh_muc` WHERE `phan_loai` = 'Quần' limit 1";
   return pdo_query_one($sql);
 }
+
+function sp_thongke($ngay_dat_hang = "")
+{
+  $sql = " SELECT 
+            sp.id_sp,
+            sp.ten_sp,
+            SUM(ct.so_luong) AS tong_san_pham_ban,
+            SUM(ct.so_luong * (sp.don_gia - sp.don_gia*sp.giam_gia/100)) AS tong_doanh_thu
+        FROM chi_tiet_don_hang ct
+        JOIN san_pham sp ON ct.id_sp = sp.id_sp
+        JOIN don_hang dh ON ct.id_donhang = dh.id_donhang
+        WHERE dh.trang_thai = 'Đã hoàn thành'";
+  if (!empty($ngay_dat_hang)) {
+    $sql .= "AND dh.ngay_dat_hang = '$ngay_dat_hang'";
+  }
+  $sql .= "GROUP BY sp.id_sp, sp.ten_sp
+        ORDER BY tong_san_pham_ban DESC
+        LIMIT 10";
+  return pdo_query($sql);
+}
