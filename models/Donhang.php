@@ -48,4 +48,16 @@ function getChiTietDonHang($id_donhang) {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-?>
+function thongKeDonHang($ngay_dat_hang)
+{
+    $sql = "SELECT 
+                ngay_dat_hang,
+                COUNT(*) AS tong_don,
+                SUM(tong_gia) AS doanh_thu
+            FROM don_hang
+            WHERE trang_thai = 'Đã hoàn thành'
+              AND ngay_dat_hang = '$ngay_dat_hang'
+            GROUP BY ngay_dat_hang";
+    return pdo_query($sql);
+}
+

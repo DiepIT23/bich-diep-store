@@ -6,6 +6,7 @@ include_once "../models/Sanpham.php";
 include_once "../models/Binhluan.php";
 include_once "../models/Danhmuc.php";
 include_once "../models/Donhang.php";
+include_once "../models/Taikhoan.php";
 
 if (isset($_GET['act']) && $_GET['act'] !== "") {
     $act = $_GET['act'];
@@ -61,6 +62,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
                 $giam_gia = $_POST['giam_gia'] ?: 0;
                 $ngay_nhap = $_POST["ngay_nhap"];
                 $id_dm = $_POST["id_dm"];
+
                 $id_sp = insertSanpham($ten_sp, $don_gia, $ngay_nhap, $giam_gia, $mo_ta, $id_dm);
 
                 // Thêm ảnh sản phẩm
@@ -162,11 +164,45 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include "./binh-luan/list.php";
             break;
 
+            //==================== CONTROLLER TÀI KHOẢN ========================//
+        case 'list-tk':
+            $listtaikhoan = loadall_taikhoan();
+            include "./tai-khoan/list.php";
+            break;
+
             // ===================== CONTROLLER ĐƠN HÀNG ===================== //
-            // case 'list-donhang':
-            //     $listdonhang = loadDonhang(0);
-            //     include "./don-hang/list.php";
-            //     break;
+        case 'list-donhang':
+            $listdonhang = loadDonhang(0);
+            include "./don-hang/list.php";
+            break;
+        case 'chitiet':
+            include_once "./don-hang/detail.php";
+            break;
+
+            // ===================== CONTROLLER THỐNG KÊ ===================== //
+        case 'thongke_donhang':
+            if (isset($_POST['ngay_dat_hang']) && $_POST['ngay_dat_hang'] !== "") {
+                $ngay_dat_hang = $_POST["ngay_dat_hang"];
+                $list_donhang = thongKeDonHang($ngay_dat_hang);
+            } else {
+                $ngay_dat_hang = null;
+                $list_donhang = [];
+            }
+            include_once "./thong-ke/don-hang.php";
+            break;
+
+        case 'thongke_sp_banchay':
+            if (isset($_POST['ngay_dat_hang']) && $_POST['ngay_dat_hang'] !== "") {
+                $ngay_dat_hang = $_POST["ngay_dat_hang"];
+            } else {
+                $ngay_dat_hang = "";
+            }
+            $list_sp = sp_thongke($ngay_dat_hang);
+            include_once "./thong-ke/sp_banchay.php";
+            break;
+        case 'thong-ke':
+            include_once "./thong-ke/trang_chu.php";
+            break;
         default:
             include "home.php";
             break;

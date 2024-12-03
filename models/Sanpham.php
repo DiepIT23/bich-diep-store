@@ -32,15 +32,25 @@ function loadall_sanpham($keyword = "", $id_dm = 0)
   return pdo_query($sql);
 }
 
-function loadall_sanpham_home()
-{
-  $sql = "SELECT * FROM `san_pham` ORDER BY id_dm DESC";
-  $list_sp = pdo_query($sql);
-  return $list_sp;
-}
 function loadall_sanpham_banchay()
 {
-  $sql = "SELECT * FROM `san_pham` WHERE 1 ORDER BY so_luot_xem DESC limit 0,6";
+  $sql = "SELECT 
+    sp.*,
+    hinh_anh.hinh_anh AS hinh_anh,
+    SUM(ct.so_luong) AS tong_san_pham_ban,
+    SUM(ct.so_luong * (sp.don_gia - sp.don_gia * sp.giam_gia / 100)) AS tong_doanh_thu
+FROM chi_tiet_don_hang ct
+JOIN san_pham sp ON ct.id_sp = sp.id_sp
+JOIN don_hang dh ON ct.id_donhang = dh.id_donhang
+LEFT JOIN (
+    SELECT id_sp, MIN(url_anh) AS hinh_anh
+    FROM anh_sanpham
+    GROUP BY id_sp
+) AS hinh_anh ON sp.id_sp = hinh_anh.id_sp
+WHERE dh.trang_thai = 'Đã hoàn thành'
+GROUP BY sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.so_luot_xem, sp.id_dm ,hinh_anh.hinh_anh
+ORDER BY tong_san_pham_ban DESC
+LIMIT 6";
   $list_sp = pdo_query($sql);
   return $list_sp;
 }
@@ -92,7 +102,9 @@ function sp_moi()
   $sql = "SELECT sp.id_sp, sp.ten_sp, sp.don_gia, sp.giam_gia, sp.ngay_nhap, sp.mo_ta, sp.id_dm, MIN(a.url_anh) AS hinh_anh
   FROM san_pham sp
   LEFT JOIN anh_sanpham a ON sp.id_sp = a.id_sp
-  GROUP BY sp.id_sp limit 0, 6";
+  GROUP BY sp.id_sp
+  ORDER BY sp.ngay_nhap DESC
+  limit 0, 6";
   return pdo_query($sql);
 }
 
@@ -132,4 +144,24 @@ function loadOneDM_Quan()
 {
   $sql = "SELECT * FROM `danh_muc` WHERE `phan_loai` = 'Quần' limit 1";
   return pdo_query_one($sql);
+}
+
+function sp_thongke($ngay_dat_hang = "")
+{
+  $sql = " SELECT 
+            sp.id_sp,
+            sp.ten_sp,
+            SUM(ct.so_luong) AS tong_san_pham_ban,
+            SUM(ct.so_luong * (sp.don_gia - sp.don_gia*sp.giam_gia/100)) AS tong_doanh_thu
+        FROM chi_tiet_don_hang ct
+        JOIN san_pham sp ON ct.id_sp = sp.id_sp
+        JOIN don_hang dh ON ct.id_donhang = dh.id_donhang
+        WHERE dh.trang_thai = 'Đã hoàn thành'";
+  if (!empty($ngay_dat_hang)) {
+    $sql .= "AND dh.ngay_dat_hang = '$ngay_dat_hang'";
+  }
+  $sql .= "GROUP BY sp.id_sp, sp.ten_sp
+        ORDER BY tong_san_pham_ban DESC
+        LIMIT 10";
+  return pdo_query($sql);
 }

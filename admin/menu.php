@@ -43,10 +43,10 @@
                 <a href="<?= $ADMIN_URL ?>/?act=list-bl" class="nav-link">Bình luận</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=tai-khoan" class="nav-link">Tài khoản</a>
+                <a href="<?= $ADMIN_URL ?>/?act=list-tk" class="nav-link">Tài khoản</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="<?= $ADMIN_URL ?>/?act=don-hang" class="nav-link">Đơn hàng</a>
+                <a href="<?= $ADMIN_URL ?>/?act=list-donhang" class="nav-link">Đơn hàng</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="<?= $ADMIN_URL ?>/?act=thong-ke" class="nav-link">Thống kê</a>

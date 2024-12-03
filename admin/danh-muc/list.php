@@ -1,11 +1,10 @@
 <div class="container-fluid mt-4">
+<h1 class="text-center my-4">Danh Sách Danh Mục</h1>
     <div class="row">
         <div class="col-lg-10 mx-auto">
             <div class="card">
                 <!-- Header của danh mục -->
-                <div class="card-header bg-dark text-white text-uppercase font-weight-bold text-center">
-                    Quản lý danh mục
-                </div>
+                
 
                 <!-- Bảng hiển thị danh mục -->
                 <div class="table-responsive">

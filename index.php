@@ -5,15 +5,22 @@ require_once "global.php";
 include_once "models/pdo.php";
 include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
-include_once "models/taikhoan.php";
+
+
 include_once "models/Donhang.php";
 
-if(!isset($_SESSION['mycart'])) $_SESSION['mycart']=[];
+include_once "models/Taikhoan.php";
+
+
+if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 // Hiển thị danh mục 
 $list_dm = loadall_danhmuc();
 $dm_ao = loadOneDM_Ao();
 $dm_quan = loadOneDM_Quan();
 include_once "views/header.php";
+
+// Hiển thị sản phẩm bán chạy
+$list_sp_banchay = loadall_sanpham_banchay();
 
 
 // Hiển thị sản phẩm mới
@@ -41,7 +48,8 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $id_dm = 0;
             }
 
-            $list_sp = loadall_sanpham($kyw, $id_dm);
+            $dssp = loadall_sanpham($kyw, $id_dm);
+
             include_once "views/ds-sp.php";
             break;
         case 'sp-chitiet':
@@ -62,72 +70,61 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $don_gia = $_POST['don_gia'];
                 $hinh_anh = $_POST['hinh_anh'];
                 $so_luong = 1; // Số lượng mặc định là 1
-                
+
                 // Lưu sản phẩm vào giỏ hàng (đảm bảo lưu đúng đường dẫn ảnh)
-                $sanpham = [$id_sp,$ten_sp, $don_gia, $hinh_anh, $so_luong];
+                $sanpham = [$id_sp, $ten_sp, $don_gia, $hinh_anh, $so_luong];
                 $_SESSION['mycart'][] = $sanpham;
             }
             include_once "views/giohang.php";
             break;
-            case 'delcart':
-                if (isset($_GET['idcart'])) {
-                    $idcart = $_GET['idcart'];
-                    unset($_SESSION['mycart'][$idcart]); // Xóa phần tử theo chỉ số
-                    $_SESSION['mycart'] = array_values($_SESSION['mycart']); // Reset lại chỉ số mảng
-                } else {
-                    $_SESSION['mycart'] = []; // Xóa toàn bộ giỏ hàng
+        case 'delcart':
+            if (isset($_GET['idcart'])) {
+                $idcart = $_GET['idcart'];
+                unset($_SESSION['mycart'][$idcart]); // Xóa phần tử theo chỉ số
+                $_SESSION['mycart'] = array_values($_SESSION['mycart']); // Reset lại chỉ số mảng
+            } else {
+                $_SESSION['mycart'] = []; // Xóa toàn bộ giỏ hàng
+            }
+            header("Location:$ROOT_URL/?act=giohang");
+            break;
+        case 'add_to_cart':
+            if (isset($_POST['id_sp'])) {
+                // Lấy thông tin sản phẩm từ form
+                $id_sp = $_POST['id_sp'];
+                $ten_sp = $_POST['ten_sp'];
+                $don_gia = $_POST['don_gia'];
+                $hinh_anh = $_POST['hinh_anh'];
+                $so_luong = isset($_POST['quantity']) ? $_POST['quantity'] : 1; // Lấy số lượng từ form
+
+                // Kiểm tra giỏ hàng có tồn tại trong session chưa
+                if (!isset($_SESSION['mycart'])) {
+                    $_SESSION['mycart'] = [];
                 }
-                header("Location:$ROOT_URL/?act=giohang");
-                break;
-                case 'add_to_cart':
-                    if (isset($_POST['id_sp'])) {
-                        // Lấy thông tin sản phẩm từ form
-                        $id_sp = $_POST['id_sp'];
-                        $ten_sp = $_POST['ten_sp'];
-                        $don_gia = $_POST['don_gia'];
-                        $hinh_anh = $_POST['hinh_anh'];
-                        $so_luong = isset($_POST['quantity']) ? $_POST['quantity'] : 1; // Lấy số lượng từ form
-                
-                        // Kiểm tra giỏ hàng có tồn tại trong session chưa
-                        if (!isset($_SESSION['mycart'])) {
-                            $_SESSION['mycart'] = [];
-                        }
-                
-                        // Thêm sản phẩm vào giỏ
-                        $new_item = [
-                            'id_sp' => $id_sp,
-                            'ten_sp' => $ten_sp,
-                            'don_gia' => $don_gia,
-                            'hinh_anh' => $hinh_anh,
-                            'so_luong' => $so_luong, // Sử dụng số lượng người dùng chọn
-                        ];
-                
-                        // Kiểm tra nếu sản phẩm đã có trong giỏ, tăng số lượng
-                        $exists = false;
-                        foreach ($_SESSION['mycart'] as &$item) {
-                            if ($item['id_sp'] == $id_sp) {
-                                $item['so_luong'] += $so_luong; // Tăng số lượng nếu sản phẩm đã có trong giỏ
-                                $exists = true;
-                                break;
-                            }
-                        }
-                
-                        // Nếu chưa có trong giỏ, thêm mới
-                        if (!$exists) {
-                            $_SESSION['mycart'][] = $new_item;
-                        }
-                
-                        // Chuyển hướng trở lại giỏ hàng
-                        header("Location: $ROOT_URL/?act=giohang");
-                        exit;
+
+                // Thêm sản phẩm vào giỏ
+                $new_item = [
+                    'id_sp' => $id_sp,
+                    'ten_sp' => $ten_sp,
+                    'don_gia' => $don_gia,
+                    'hinh_anh' => $hinh_anh,
+                    'so_luong' => $so_luong, // Sử dụng số lượng người dùng chọn
+                ];
+                // Kiểm tra nếu sản phẩm đã có trong giỏ, tăng số lượng
+                $exists = false;
+                foreach ($_SESSION['mycart'] as &$item) {
+                    if ($item['id_sp'] == $id_sp) {
+                        $item['so_luong'] += $so_luong; // Tăng số lượng nếu sản phẩm đã có trong giỏ
+                        $exists = true;
+                        break;
                     }
+
                     break;
                     
                     case 'lichsumuahang':
                         // Giả sử id_khachhang là một giá trị có sẵn trong URL hoặc bạn chỉ cần hiển thị tất cả đơn hàng
                         // Nếu bạn muốn lấy đơn hàng của một khách hàng cụ thể, có thể lấy từ URL hoặc mặc định ID khách hàng
                         $id_khachhang = isset($_GET['id_khachhang']) ? $_GET['id_khachhang'] : 1; // Lấy id_khachhang từ URL, hoặc mặc định là 1
-                        include_once 'models/donhang.php'; // Model xử lý dữ liệu
+                       
                         $donhang = getDonHangByKhachHang($id_khachhang); // Lấy danh sách đơn hàng của khách hàng
                         include_once 'views/lichsu_donhang.php'; // Gọi view hiển thị lịch sử
                         break;
@@ -143,6 +140,18 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                         }
                         break;
                     
+
+
+                }
+                // Nếu chưa có trong giỏ, thêm mới
+                if (!$exists) {
+                    $_SESSION['mycart'][] = $new_item;
+                }
+                // Chuyển hướng trở lại giỏ hàng
+                header("Location: $ROOT_URL/?act=giohang");
+                exit;
+            }
+            break;
 
             // ======================= CONTROLLER TÀI KHOẢN ======================= //
 
@@ -174,6 +183,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $sdt = $_POST["sdt"];
                 insert_taikhoan($ten_user, $email, $ten_dang_nhap, $mat_khau, $dia_chi, $sdt);
                 $thongbao = "Đăng ký thành công . Vui lòng đăng nhập để bình luận hoặc mua hàng";
+                header("Location: $ROOT_URL/?dangnhap");
             }
             include_once "views/taikhoan/dang-ky.php";
             break;
@@ -215,6 +225,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 
 
 
+
         case 'lienhe':
             include_once "views/lienhe.php";
             break;
@@ -228,6 +239,5 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
 } else {
     include_once "views/trangchu.php";
 }
-include_once "views/timkiem.php";
 include_once "views/footer.php";
 ob_end_flush();
