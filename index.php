@@ -5,7 +5,12 @@ require_once "global.php";
 include_once "models/pdo.php";
 include_once "models/Sanpham.php";
 include_once "models/Danhmuc.php";
+
+
+include_once "models/Donhang.php";
+
 include_once "models/Taikhoan.php";
+
 
 if (!isset($_SESSION['mycart'])) $_SESSION['mycart'] = [];
 // Hiển thị danh mục 
@@ -55,6 +60,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
             include_once "views/spchitiet.php";
             break;
         case 'thanhtoan':
+            
             include_once 'views/thanhtoan.php';
             break;
         case 'giohang':
@@ -111,6 +117,31 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                         $exists = true;
                         break;
                     }
+
+                    break;
+                    
+                    case 'lichsumuahang':
+                        // Giả sử id_khachhang là một giá trị có sẵn trong URL hoặc bạn chỉ cần hiển thị tất cả đơn hàng
+                        // Nếu bạn muốn lấy đơn hàng của một khách hàng cụ thể, có thể lấy từ URL hoặc mặc định ID khách hàng
+                        $id_khachhang = isset($_GET['id_khachhang']) ? $_GET['id_khachhang'] : 1; // Lấy id_khachhang từ URL, hoặc mặc định là 1
+                       
+                        $donhang = getDonHangByKhachHang($id_khachhang); // Lấy danh sách đơn hàng của khách hàng
+                        include_once 'views/lichsu_donhang.php'; // Gọi view hiển thị lịch sử
+                        break;
+                    
+            
+                    case 'chitietdonhang':
+                        if (isset($_GET['id_donhang'])) {
+                            $id_donhang = $_GET['id_donhang']; // Lấy ID đơn hàng từ URL
+                            $chitiet = getChiTietDonHang($id_donhang); // Gọi model lấy chi tiết đơn hàng
+                            include_once 'views/chitiet_donhang.php'; // Hiển thị chi tiết
+                        } else {
+                            echo '<p>Không tìm thấy đơn hàng.</p>';
+                        }
+                        break;
+                    
+
+
                 }
                 // Nếu chưa có trong giỏ, thêm mới
                 if (!$exists) {
@@ -121,6 +152,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 exit;
             }
             break;
+
             // ======================= CONTROLLER TÀI KHOẢN ======================= //
 
         case 'dangnhap':

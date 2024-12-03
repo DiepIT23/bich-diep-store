@@ -139,7 +139,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
                                 <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=edit-tk">Thông tin của bạn</a>
-                                <a class="dropdown-item" href="#">Lịch sử mua hàng</a>
+                                <a class="dropdown-item" href="<?= $ROOT_URL ?>/?act=lichsumuahang">Lịch sử mua hàng</a>
                                 <?php
                                     if ($vai_tro == 1) {
                                     ?>
