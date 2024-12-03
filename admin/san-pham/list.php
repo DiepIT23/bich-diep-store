@@ -61,8 +61,8 @@
             </table>
         </div>
         <div class="card-footer text-center">
-            <button type="button" class="btn btn-primary btn-sm mr-2" id="selectAllBtn">Chọn tất cả</button>
-            <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselectAllBtn">Bỏ chọn tất cả</button>
+        <button type="button" class="btn btn-primary btn-sm mr-2" id="select-all">Chọn tất cả</button>
+        <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselect-all">Bỏ chọn tất cả</button>
             <a href="index.php/?act=them-sanpham" class="btn btn-success btn-sm">Thêm Sản Phẩm</a>
         </div>
     </div>
@@ -70,21 +70,12 @@
 
 <!-- JavaScript -->
 <script>
-    // Chọn tất cả checkbox
-    document.getElementById("checkAll").addEventListener("change", function() {
-        const checkItems = document.querySelectorAll(".checkItem");
-        checkItems.forEach(item => item.checked = this.checked);
+    // JavaScript cho nút chọn tất cả và bỏ chọn
+    document.getElementById('select-all').addEventListener('click', function() {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = true);
     });
 
-    // Chọn tất cả
-    document.getElementById("selectAllBtn").addEventListener("click", function() {
-        const checkItems = document.querySelectorAll(".checkItem");
-        checkItems.forEach(item => item.checked = true);
-    });
-
-    // Bỏ chọn tất cả
-    document.getElementById("deselectAllBtn").addEventListener("click", function() {
-        const checkItems = document.querySelectorAll(".checkItem");
-        checkItems.forEach(item => item.checked = false);
+    document.getElementById('deselect-all').addEventListener('click', function() {
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
     });
 </script>
