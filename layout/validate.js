@@ -77,9 +77,9 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
     let fullname = document.getElementById("fullname").value.trim();
     let phone = document.getElementById("phone").value.trim();
     let email = document.getElementById("email").value.trim();
-    let city = document.getElementById("city").value.trim();
-    let district = document.getElementById("district").value.trim();
-    let ward = document.getElementById("ward").value.trim();
+    let diachi = document.getElementById("diachi").value.trim();
+    // let district = document.getElementById("district").value.trim();
+    // let ward = document.getElementById("ward").value.trim();
 
     // Biến kiểm tra lỗi
     let isValid = true;
@@ -109,28 +109,28 @@ document.getElementById("checkoutForm").addEventListener("submit", function (e) 
     }
 
     // Kiểm tra Tỉnh/Thành Phố
-    if (city === "") {
+    if (diachi === "") {
         isValid = false;
-        document.getElementById("error-city").innerText = "Vui lòng nhập Tỉnh/Thành Phố";
+        document.getElementById("error-diachi").innerText = "Vui lòng nhập Địa Chỉ";
     } else {
-        document.getElementById("error-city").innerText = "";
+        document.getElementById("error-diachi").innerText = "";
     }
 
-    // Kiểm tra Quận/Huyện
-    if (district === "") {
-        isValid = false;
-        document.getElementById("error-district").innerText = "Vui lòng nhập Quận/Huyện";
-    } else {
-        document.getElementById("error-district").innerText = "";
-    }
+    // // Kiểm tra Quận/Huyện
+    // if (district === "") {
+    //     isValid = false;
+    //     document.getElementById("error-district").innerText = "Vui lòng nhập Quận/Huyện";
+    // } else {
+    //     document.getElementById("error-district").innerText = "";
+    // }
 
-    // Kiểm tra Xã/Phường
-    if (ward === "") {
-        isValid = false;
-        document.getElementById("error-ward").innerText = "Vui lòng nhập Xã/Phường";
-    } else {
-        document.getElementById("error-ward").innerText = "";
-    }
+    // // Kiểm tra Xã/Phường
+    // if (ward === "") {
+    //     isValid = false;
+    //     document.getElementById("error-ward").innerText = "Vui lòng nhập Xã/Phường";
+    // } else {
+    //     document.getElementById("error-ward").innerText = "";
+    // }
 
     // Nếu không có lỗi, gửi form
     if (isValid) {
