@@ -187,7 +187,7 @@ if (isset($_GET['act']) && $_GET['act'] !== '') {
                 $sdt = $_POST["sdt"];
                 insert_taikhoan($ten_user, $email, $ten_dang_nhap, $mat_khau, $dia_chi, $sdt);
                 $thongbao = "Đăng ký thành công . Vui lòng đăng nhập để bình luận hoặc mua hàng";
-                header("Location: $ROOT_URL/?dangnhap");
+                header("Location: $ROOT_URL/?act=dangnhap");
             }
             include_once "views/taikhoan/dang-ky.php";
             break;

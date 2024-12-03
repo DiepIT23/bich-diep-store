@@ -1,18 +1,18 @@
 <div class="container my-5">
 
-<?php
-if(isset($_SESSION['user'])){
-$ten_user = $_SESSION['user']['name'];
-$dia_chi = $_SESSION['user']['address'];
-$email = $_SESSION['user']['email'];
-$sdt = $_SESSION['user']['tel'];
-}else{
-    $ten_user = "";
-    $dia_chi = "";
-    $email = "";
-    $sdt ="";
-}
- ?>
+    <?php
+    if (isset($_SESSION['user'])) {
+        $ten_user = $_SESSION['user']['name'];
+        $dia_chi = $_SESSION['user']['address'];
+        $email = $_SESSION['user']['email'];
+        $sdt = $_SESSION['user']['tel'];
+    } else {
+        $ten_user = "";
+        $dia_chi = "";
+        $email = "";
+        $sdt = "";
+    }
+    ?>
     <div class="row">
         <!-- Form nhập thông tin -->
         <div class="col-md-8">
@@ -31,17 +31,18 @@ $sdt = $_SESSION['user']['tel'];
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email*</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Nhập Email của bạn">
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Nhập Email của bạn">
                         <div class="error" id="error-email"></div>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                <div class="col-md-14">
-                       <label for="diachi" class="form-label">Địa chỉ*</label>
+                    <div class="col-md-14">
+                        <label for="diachi" class="form-label">Địa chỉ*</label>
                         <input type="text" class="form-control" id="diachi" name="address" placeholder="Địa Chỉ">
                         <div class="error" id="error-diachi"></div>
-                        </div>
-                  
+                    </div>
+
                 </div>
                 <div class="mb-3">
                     <label for="details" class="form-label">Thông Tin Bổ Sung</label>
@@ -53,22 +54,22 @@ $sdt = $_SESSION['user']['tel'];
 
         <!-- Thông tin đơn hàng -->
         <div class="col-md-4">
-    <div class="border p-3">
-        <h5 class="mb-3">Đơn hàng của bạn</h5>
-        <?php
-        // Kiểm tra nếu giỏ hàng có sản phẩm
-        if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
-            $tong = 0; // Tổng tạm tính
-            foreach ($_SESSION['mycart'] as $cart) {
-                $ttien = $cart['so_luong'] * $cart['don_gia']; // Tính thành tiền cho từng sản phẩm
-                echo '<div class="d-flex justify-content-between">
+            <div class="border p-3">
+                <h5 class="mb-3">Đơn hàng của bạn</h5>
+                <?php
+                // Kiểm tra nếu giỏ hàng có sản phẩm
+                if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
+                    $tong = 0; // Tổng tạm tính
+                    foreach ($_SESSION['mycart'] as $cart) {
+                        $ttien = $cart['so_luong'] * $cart['don_gia']; // Tính thành tiền cho từng sản phẩm
+                        echo '<div class="d-flex justify-content-between">
                         <p>' . $cart['ten_sp'] . ' x' . $cart['so_luong'] . '</p>
                         <p>' . number_format($ttien, 0, ',', '.') . ' VNĐ</p>
                     </div>';
-                $tong += $ttien; // Cộng dồn thành tiền vào tổng
-            }
-            // Hiển thị tổng tạm tính và tổng tiền
-            echo '<hr>
+                        $tong += $ttien; // Cộng dồn thành tiền vào tổng
+                    }
+                    // Hiển thị tổng tạm tính và tổng tiền
+                    echo '<hr>
                   <div class="d-flex justify-content-between">
                       <p>Tạm Tính</p>
                       <p>' . number_format($tong, 0, ',', '.') . ' VNĐ</p>
@@ -77,12 +78,12 @@ $sdt = $_SESSION['user']['tel'];
                       <p>Tổng</p>
                       <p>' . number_format($tong, 0, ',', '.') . ' VNĐ</p>
                   </div>';
-        } else {
-            echo '<p>Giỏ hàng trống</p>';
-        }
-        ?>
-    </div>
-</div>
+                } else {
+                    echo '<p>Giỏ hàng trống</p>';
+                }
+                ?>
+            </div>
+        </div>
 
     </div>
 </div>
