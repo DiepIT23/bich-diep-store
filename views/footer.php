@@ -114,7 +114,7 @@
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
         © 2024 MadeBy:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">HUYDZVCL.com</a>
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Bich-DiepStore.com</a>
     </div>
     <!-- Copyright -->
 </footer>
