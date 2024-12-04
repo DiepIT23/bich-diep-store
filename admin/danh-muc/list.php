@@ -1,10 +1,10 @@
 <div class="container-fluid mt-4">
-<h1 class="text-center my-4">Danh Sách Danh Mục</h1>
+    <h1 class="text-center my-4">Danh Sách Danh Mục</h1>
     <div class="row">
         <div class="col-lg-10 mx-auto">
             <div class="card">
                 <!-- Header của danh mục -->
-                
+
 
                 <!-- Bảng hiển thị danh mục -->
                 <div class="table-responsive">
@@ -26,18 +26,20 @@
                                 extract($danhmuc);
                                 $suadm = $ADMIN_URL . "/?act=sua-danhmuc&id_dm=" . $id_dm;
                                 $xoadm = $ADMIN_URL . "/?act=xoa-danhmuc&id_dm=" . $id_dm;
+                            ?>
+                                <tr class="text-center align-middle">
+                                    <td><?= $stt++ ?></td>
+                                    <td><input type="checkbox"></td>
+                                    <td><?= $id_dm ?></td>
+                                    <td><?= $ten_dm ?></td>
+                                    <td><?= $phan_loai ?></td>
+                                    <td>
+                                        <a href="<?= $suadm ?>" class="btn btn-warning btn-sm">Sửa</a>
+                                        <button onclick="delCF('<?= $xoadm ?>')" class="btn btn-danger btn-sm">Xóa</button>
+                                    </td>
+                                </tr>
 
-                                echo '<tr class="text-center align-middle">
-                                        <td>' . $stt++ . '</td>
-                                        <td><input type="checkbox" name="" id=""/></td>
-                                        <td>' . $id_dm . '</td>
-                                        <td>' . $ten_dm . '</td>
-                                        <td>' . $phan_loai . '</td>
-                                        <td>
-                                            <a href="' . $suadm . '" class="btn btn-warning btn-sm">Sửa</a>
-                                            <a href="' . $xoadm . '" class="btn btn-danger btn-sm" onclick="return confirm(\'Bạn có chắc chắn muốn xóa?\')">Xóa</a>
-                                        </td>
-                                    </tr>';
+                            <?php
                             }
 
                             ?>

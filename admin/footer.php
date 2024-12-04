@@ -15,7 +15,7 @@
 
 <script>
     function delCF(dellUrl) {
-        if (confirm("Bạn chắc chứ?")) {
+        if (confirm("Bạn chắc chắn xóa không?")) {
             document.location = dellUrl;
         }
     }

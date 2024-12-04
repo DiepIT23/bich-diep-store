@@ -50,7 +50,7 @@
                             <td><?= $ngay_nhap ?></td>
                             <td>
                                 <a href="<?= $suasp ?>" class="btn btn-warning btn-sm">Sửa</a>
-                                <a href="<?= $xoasp ?>" class="btn btn-danger btn-sm">Xóa</a>
+                                <button onclick="delCF('<?= $xoasp ?>')" class="btn btn-danger btn-sm">Xóa</button>
                             </td>
                         </tr>
                     <?php endforeach;
@@ -59,8 +59,8 @@
             </table>
         </div>
         <div class="card-footer text-center">
-        <button type="button" class="btn btn-primary btn-sm mr-2" id="select-all">Chọn tất cả</button>
-        <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselect-all">Bỏ chọn tất cả</button>
+            <button type="button" class="btn btn-primary btn-sm mr-2" id="select-all">Chọn tất cả</button>
+            <button type="button" class="btn btn-secondary btn-sm mr-2" id="deselect-all">Bỏ chọn tất cả</button>
             <a href="index.php/?act=them-sanpham" class="btn btn-success btn-sm">Thêm Sản Phẩm</a>
         </div>
     </div>
