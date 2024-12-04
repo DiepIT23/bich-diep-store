@@ -31,7 +31,6 @@
                         <th>Hình Ảnh</th>
                         <th>Đơn Giá</th>
                         <th>Ngày Nhập</th>
-                        <th>Mô Tả</th>
                         <th>Hành Động</th>
                     </tr>
                 </thead>
@@ -49,7 +48,6 @@
                                     style="width: 50px; height: 50px;"></td>
                             <td><?= number_format($don_gia, 0, ',', '.') ?> VNĐ</td>
                             <td><?= $ngay_nhap ?></td>
-                            <td class="multiline-truncate"><?= $mo_ta ?></td>
                             <td>
                                 <a href="<?= $suasp ?>" class="btn btn-warning btn-sm">Sửa</a>
                                 <button onclick="delCF('<?= $xoasp ?>')" class="btn btn-danger btn-sm">Xóa</button>
