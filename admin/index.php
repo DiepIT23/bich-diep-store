@@ -176,6 +176,10 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             include "./don-hang/list.php";
             break;
         case 'chitiet':
+            if (isset($_GET['id']) && $_GET['id'] !== '') {
+                $id_donhang = $_GET['id'];
+            }
+            $chitiet_donhang = chiTietDonHang($id_donhang);
             include_once "./don-hang/detail.php";
             break;
 

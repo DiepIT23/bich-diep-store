@@ -1,6 +1,3 @@
-<?php
-$loadDh = loadDonhang(0);
-?>
 <div class="container-fluid">
     <h1 class="text-center">Danh sách đơn hàng</h1>
     <div class="col-lg-4 mb-4">
