@@ -16,9 +16,8 @@ $loadDh = loadDonhang(0);
                 <div class="col-1">ID</div>
                 <div class="col-2">Người đặt</div>
                 <div class="col-1">Trạng thái</div>
-                <div class="col-1">Tổng tiền</div>
-                <div class="col-2">Địa chỉ-GH </div>
-                <div class="col-1">Email</div>
+                <div class="col-2">Tổng tiền</div>
+                <div class="col-2">Email</div>
                 <div class="col-2">Số điện thoại</div>
                 <div class="col-1">Ngày đặt</div>
                 <div class="col-1">Thao tác</div>
@@ -26,27 +25,27 @@ $loadDh = loadDonhang(0);
         </div>
 
         <div class="card-body">
-            <?php foreach ($listdonhang as $donhang) { 
+            <?php foreach ($listdonhang as $donhang) {
                 extract($donhang);
-                echo '
-                <tr class="text-center align-middle">
-                <td>'. $id_donhang.'</td>
-                <td>'. $id_khachhang.'</td>
-                <td>'. $trang_thai.'</td>
-                <td>'. $tong_gia.'</td>
-                <td>'.$diachi_giaohang.'</td>
-                <td>'. $email.'</td>
-                <td>'. $sdt.'</td>
-                <td>'. $ngay_dat.'</td>
-                <td>
-                <a href="index.php/?act=chitiet" class="btn btn-success btn-sm">Xem chi tiết</a>
-                </td>
-                </tr>
-                ';
+            ?>
+            <div class="row text-center">
+                <div class="col-1"><?= $id_donhang ?></div>
+                <div class="col-2"><?= $ten_user ?></div>
+                <div class="col-1"><?= $trang_thai ?></div>
+                <div class="col-2"><?= number_format($tong_gia, 0, ',', '.') ?> VND</div>
+                <div class="col-2"><?= $email ?></div>
+                <div class="col-2"><?= $sdt ?></div>
+                <div class="col-1"><?= $ngay_dat_hang ?></div>
+                <div class="col-1"><a href="<?= $ADMIN_URL ?>/?act=chitiet&id=<?= $id_donhang ?>"
+                        class="btn btn-success btn-sm">Xem chi
+                        tiết</a>
+                </div>
+            </div>
+            <?php
             }
             ?>
 
         </div>
-       
+
     </div>
 </div>
