@@ -5,10 +5,11 @@
             <div class="card p-3">
                 <div class="d-flex align-items-center">
                     <div class="d-flex flex-column w-50">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Reviewer 1">
-                        <p class="roboto-small">Tên khách hàng</p>
+                        <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"
+                            class="rounded-circle" width="70px" alt="Reviewer 1">
+                        <Linh class="roboto-small">Mạnh Linh</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    <p>Quần jeans vừa đẹp vừa bền, mặc rất thoải mái, không bị bai giãn.</p>
                 </div>
             </div>
         </div>
@@ -16,10 +17,11 @@
             <div class="card p-3">
                 <div class="d-flex align-items-center">
                     <div class="d-flex flex-column w-50">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Reviewer 1">
-                        <p class="roboto-small">Tên khách hàng</p>
+                        <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"
+                            class="rounded-circle" width="70px" alt="Reviewer 1">
+                        <p class="roboto-small">Quang Huy</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    <p>Phong cách rất nam tính, tôn dáng và dễ phối đồ.</p>
                 </div>
             </div>
         </div>
@@ -27,10 +29,11 @@
             <div class="card p-3">
                 <div class="d-flex align-items-center">
                     <div class="d-flex flex-column w-50">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Reviewer 1">
-                        <p class="roboto-small">Tên khách hàng</p>
+                        <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"
+                            class="rounded-circle" width="70px" alt="Reviewer 1">
+                        <p class="roboto-small">Bích Diệp</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    <p>Mua tặng chồng mà thấy chồng khen lấy khen để. Sẽ ủng hộ shop.</p>
                 </div>
             </div>
         </div>
@@ -38,10 +41,11 @@
             <div class="card p-3">
                 <div class="d-flex align-items-center">
                     <div class="d-flex flex-column w-50">
-                        <img src="https://via.placeholder.com/50" class="rounded-circle" alt="Reviewer 1">
-                        <p class="roboto-small">Tên khách hàng</p>
+                        <img src="https://i.pinimg.com/736x/c6/e5/65/c6e56503cfdd87da299f72dc416023d4.jpg"
+                            class="rounded-circle" width="70px" alt="Reviewer 1">
+                        <p class="roboto-small">Mạnh Quang</p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur...</p>
+                    <p>Thử mua lần đầu nhưng chất lượng trên cả mong đợi, chắc chắn sẽ mua thêm!</p>
                 </div>
             </div>
         </div>

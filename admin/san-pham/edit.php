@@ -3,12 +3,6 @@
     if (is_array($san_pham)) {
         extract($san_pham);
     }
-    // $hinh_anh_path = "../uploads/" . $img;
-    // if (is_file($hinh_anh_path)) {
-    //     $hinh = "<img src='$hinh_anh_path' height='80' width='80'>";
-    // } else {
-    //     $hinh = " không có hình";
-    // }
     ?>
     <div class="container">
         <div class="row">
