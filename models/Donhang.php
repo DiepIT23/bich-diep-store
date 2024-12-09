@@ -1,4 +1,10 @@
 <?php
+function loadall_donhang()
+{
+    $sql = "SELECT * FROM don_hang";
+    $dh = pdo_query($sql);
+    return $dh;
+}
 
 function insertDonhang($id_donhang, $id_khachhang, $tong_gia, $trang_thai, $ngay_dat_hang, $diachi_giaohang) {
     $sql = "INSERT INTO don_hang (id_donhang, id_khachhang, tong_gia, trang_thai, ngay_dat_hang, diachi_giaohang) 

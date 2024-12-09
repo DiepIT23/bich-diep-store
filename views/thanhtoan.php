@@ -12,6 +12,26 @@
         $email = "";
         $sdt = "";
     }
+     // Câu lệnh SQL để thêm đơn hàng vào cơ sở dữ liệu
+     $sql = "INSERT INTO don_hang (id_khachhang, tong_gia, trang_thai, ngay_dat_hang, diachi_giaohang) 
+     VALUES (:id_khachhang, :tong_gia, :trang_thai, :ngay_dat_hang, :diachi_giaohang)";
+
+// Chuẩn bị và thực thi câu lệnh SQL
+$stmt = $pdo->prepare($sql);
+$stmt->execute([
+ ':id_khachhang' => $id_khachhang,
+ ':tong_gia' => $tong_gia,
+ ':trang_thai' => $trang_thai,
+ ':ngay_dat_hang' => $ngay_dat_hang,
+ ':diachi_giaohang' => $diachi_giaohang
+]);
+
+// Lấy ID của đơn hàng vừa được thêm
+$id_donhang = $pdo->lastInsertId();
+
+// In thông báo đặt hàng thành công với ID đơn hàng
+echo "Đặt hàng thành công. ID đơn hàng: $id_donhang";
+
     ?>
     <div class="row">
         <!-- Form nhập thông tin -->
@@ -46,7 +66,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="details" class="form-label">Thông Tin Bổ Sung</label>
-                    <textarea class="form-control" id="details" rows="4" placeholder="Điền vào đây"></textarea>
+                    <textarea class="form-control" id="details" name="details" rows="4" placeholder="Điền vào đây"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Gửi</button>
             </form>
@@ -57,6 +77,8 @@
             <div class="border p-3">
                 <h5 class="mb-3">Đơn hàng của bạn</h5>
                 <?php
+                
+              
                 // Kiểm tra nếu giỏ hàng có sản phẩm
                 if (isset($_SESSION['mycart']) && !empty($_SESSION['mycart'])) {
                     $tong = 0; // Tổng tạm tính
@@ -81,6 +103,8 @@
                 } else {
                     echo '<p>Giỏ hàng trống</p>';
                 }
+    
+             
                 ?>
             </div>
         </div>

@@ -173,6 +173,7 @@ if (isset($_GET['act']) && $_GET['act'] !== "") {
             // ===================== CONTROLLER ĐƠN HÀNG ===================== //
         case 'list-donhang':
             $listdonhang = loadDonhang(0);
+            $listdonhang= loadall_donhang();
             include "./don-hang/list.php";
             break;
         case 'chitiet':
